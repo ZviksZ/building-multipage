@@ -1,0 +1,185 @@
+<% var data = {
+title: "Трансгруз"
+}; %>
+<%= _.template(require('./../includes/header.html').default)(data) %>
+
+<div class="section no-padding">
+    <div class="container">
+        <div class="breadcrumbs">
+            <a class="item link hide-desktop" href="#">
+                <i class="icon icon-left-arrow-1"></i>
+            </a>
+            <a class="item link" href="#">Главная</a>
+            <div class="item divider hide-mobile"><i class="icon icon-right-arrow"></i></div>
+            <div class="item hide-mobile">Контакты</div>
+        </div>
+    </div>
+</div>
+<div class="section no-padding">
+    <div class="container">
+        <div class="contacts-top">
+            <div class="caption margin-bottom-x2">
+                <h1 class="h3">Контакты</h1>
+            </div>
+            <div class="contacts-list">
+                <div class="row">
+                    <div class="col w-20 w-33-tablet margin-bottom-x2">
+                        <div class="contacts-item">
+                            <div class="top">
+                                <span class="round-icon">
+                                    <i class="icon icon-map"></i>
+                                </span>
+                                <span class="title">Адрес</span>
+                            </div>
+                            <div class="bottom">
+                                <a href="#">
+                                    443001, г. Самара,
+                                    ул. Ленинская, д. 215
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col w-20 w-33-tablet margin-bottom-x2">
+                        <div class="contacts-item">
+                            <div class="top">
+                                <span class="round-icon">
+                                    <i class="icon icon-clock"></i>
+                                </span>
+                                <span class="title">Режим работы</span>
+                            </div>
+                            <div class="bottom bottom-clock">
+                                <p>
+                                    <span>Пн-Чт:</span>8:30 – 17:00
+                                </p>
+                                <p>
+                                    <span>Пт:</span>8:30 – 16:00
+                                </p>
+                                <p>
+                                    <span>Сб-Вс:</span>Выходной
+                                </p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col w-20 w-33-tablet margin-bottom-x2">
+                        <div class="contacts-item">
+                            <div class="top">
+                                <span class="round-icon">
+                                    <i class="icon icon-phonecall"></i>
+                                </span>
+                                <span class="title">Call-центр</span>
+                            </div>
+                            <div class="bottom bottom-phone">
+                                <a href="tel:78469938359">+7 (846) 993-83-59</a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="clr hide-desktop"></div>
+                    <div class="col w-20 w-33-tablet margin-bottom-x2">
+                        <div class="contacts-item">
+                            <div class="top">
+                                <span class="round-icon">
+                                    <i class="icon icon-map"></i>
+                                </span>
+                                <span class="title">Отдел продаж</span>
+                            </div>
+                            <div class="bottom bottom-phone">
+                                <a href="tel:78469938365">+7 (846) 993-83-65</a>
+                                <a href="tel:78469938364">+7 (846) 993-83-64</a>
+                                <a href="tel:78469938362">+7 (846) 993-83-62</a>
+                                <a href="tel:78469938360">+7 (846) 993-83-60</a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col w-20 w-33-tablet margin-bottom-x2">
+                        <div class="contacts-item">
+                            <div class="top">
+                                <span class="round-icon">
+                                    <i class="icon icon-map"></i>
+                                </span>
+                                <span class="title">Секретарь</span>
+                            </div>
+                            <div class="bottom bottom-phone">
+                                <a href="tel:78462059501">+7 (846) 205-95-01</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section no-padding-top" id="location">
+    <div class="container">
+        <div class="rc-location rc-location-big">
+            <div id="location_map_preview" class="map" data-settings='{"coords":"53.218648,50.190193"}'></div>
+        </div>
+    </div>
+</div>
+
+<div class="section no-padding-top">
+    <div class="container">
+        <div class="contacts-bottom">
+            <div class="row">
+                <div class="col w-50 w-50-tablet">
+                    <form action="/1" id="feedback-form" class="feedback-form">
+                        <h3 class="h5 margin-bottom-x2 delay-100">Обратная связь</h3>
+
+                        <label class="field field-input item delay-200">
+                            <input class="input-text placeholder validate" placeholder="Ваше ФИО" data-placeholder="Как к вам обращаться" data-validate="required" id="feedback_name"
+                                   name="feedback_name" type="text">
+                            <p class="error-message"></p>
+                        </label>
+
+                        <label class="field field-input item delay-300">
+                            <input class="input-text placeholder validate input-mask" data-mask_tpl="phone_plus7" data-placeholder="Номер телефона" data-validate="mobile_phone" id="feedback_phone"
+                                   name="feedback_phone" type="text" value="" inputmode="text">
+                            <p class="error-message"></p>
+                        </label>
+
+                        <label class="field field-input item delay-400">
+                          <textarea class="input-text placeholder validate "
+                                  data-placeholder="Текст сообщения"
+                                  placeholder="Введите текст сообщения"
+                                  id="feedback_text"
+                                  name="feedback_text" ></textarea>
+                            <p class="error-message"></p>
+                        </label>
+
+                        <div class="form-message">
+                            <div class="form-info">
+                                <span class="message-icon success"><i class="icon-confirm"></i></span>
+                                <span class="message-icon error"><i class="icon-cancel"></i></span>
+                                <p class="message-title"></p>
+                                <p class="message-subtitle"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-bottom delay-500">
+                            <button class="button no-margin-top" type="submit">Отправить</button>
+                            <p>
+                                Нажимая кнопку «Отправить» вы даёте свое согласие на <a href="#" target="_blank">обработку персональных данных</a>
+                            </p>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col w-50 w-50-tablet">
+                    <div class="contacts-from__img" style="background-image: url(./img/contacts.jpg);"></div>
+
+                </div>
+                <div class="clr hide-mobile"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%= _.template(require('./../includes/footer.html').default)(data) %>

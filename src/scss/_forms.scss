@@ -1,0 +1,261 @@
+// Типографика форм
+.form-steps-wrapper {
+    .form-step {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
+@-webkit-keyframes autofill {
+    to {
+        background: #ffffff;
+    }
+}
+
+::-webkit-input-placeholder {
+    color: $colorGrayMiddle;
+}
+:-ms-input-placeholder {
+    color: $colorGrayMiddle;
+}
+::-moz-placeholder {
+    color: $colorGrayMiddle;
+    opacity: 1;
+}
+:-moz-placeholder {
+    color: $colorGrayMiddle;
+    opacity: 1;
+}
+input, textarea {
+    font-family: 'Manrope';
+}
+
+
+.field {
+    position: relative;
+    display: block;
+    margin: 16px 0;
+    padding: 1px 0 0 0;
+    cursor: pointer;
+    .label {
+        display: inline-block;
+        width: 100%;
+        position: absolute;
+        z-index: 20;
+        margin-top: 0;
+        font-weight: 500;
+        font-size: 12px;
+        color: $colorTextGray;
+        left: 15px;
+        top: 7px;
+        line-height: 1;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+    &.empty {
+        .label {
+            top: 14px;
+            left: 15px;
+            font-size: 18px;
+            line-height: 26px;
+            color: $colorText;
+        }
+        .input-text {
+            &::-webkit-input-placeholder {
+                opacity: 0;
+            }
+            &:-ms-input-placeholder {
+                opacity: 0;
+            }
+            &::-moz-placeholder {
+                opacity: 0;
+            }
+            &:-moz-placeholder {
+                opacity: 0;
+            }
+
+            @include desktop {
+                &:hover, &:focus {
+                    border-bottom: 1px solid rgba(82,100,116, 0.5);
+                }
+            }
+        }
+    }
+    .input-text, .input-fill-control {
+        display: flex;
+        width: 100%;
+        height: 52px;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 26px;
+        color: $colorTextGray;
+        padding: 20px 15px 4px;
+        border: none;
+        border-bottom: 1px solid rgba(82,100,116, 0.2);
+        box-sizing: border-box;
+        &:-webkit-autofill {
+            -webkit-animation-name: autofill;
+            -webkit-animation-fill-mode: both;
+        }
+        @include desktop {
+            &:hover, &:focus {
+                border-bottom: 1px solid rgba(82,100,116, 0.5);
+            }
+        }
+    }
+    textarea.input-text {
+        height: 96px;
+        resize: none;
+    }
+    .error-message {
+        display: none;
+        margin: 5px 0 0 0;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 400;
+        color: $colorError;
+    }
+    &.error {
+        input {
+            color: $colorTextGray;
+            border-color: $colorError;
+        }
+        .error-message {
+            display: block;
+        }
+    }
+}
+.form-bottom {
+    display: flex;
+    .button {
+        max-width: 135px;
+        margin-right: 55px;
+        cursor: pointer;
+        margin-left: 0;
+    }
+    p {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 26px;
+        color: $colorText;
+        margin-top: 0;
+    }
+    @include mobile {
+       flex-wrap: wrap;
+        p {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+form {
+    position: relative;
+}
+.feedback-form {
+    position: relative;
+    background: #ffffff;
+    .field {
+        z-index: 999;
+    }
+    * {
+        position: relative;
+        transition: .3s linear;
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .form-message {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        opacity: 0;
+        transition-delay: 1s;
+        * {
+            transform: translateY(100%);
+            opacity: 0;
+            transition: .6s linear;
+        }
+        .message-icon {
+            display: flex;
+            width: 32px;
+            height: 32px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto;
+            transition-delay: 0.7s;
+            i {
+                font-size: 12px;
+            }
+            &.success {
+                border: 2px solid $colorGreen;
+                i {
+                    color: $colorGreen;
+                }
+            }
+            &.error {
+                border: 2px solid $colorMain;
+                i {
+                    color: $colorMain;
+                }
+            }
+        }
+        .message-title {
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 26px;
+            text-align: center;
+            color: $colorText;
+            transition-delay: 0.8s;
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+        .message-subtitle {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 26px;
+            text-align: center;
+            color: $colorGrayLight;
+            transition-delay: 0.9s;
+            margin-top: 0;
+        }
+    }
+    &.form-hide {
+        .field, .form-bottom, .h5, .modal-caption-with-close, .button {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .form-message {
+            height: 100%;
+            transform: translateY(0);
+            opacity: 1;
+            z-index: 9;
+            * {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+form {
+    .button {
+        cursor: pointer;
+    }
+}
+

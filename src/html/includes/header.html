@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru" class="preloader-page">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#48b83d">
+    <meta name="msapplication-TileColor" content="#48b83d">
+    <meta name="theme-color" content="#48b83d">
+
+    <link href="css/style.bundle.css?v=1" rel="stylesheet"/>
+
+    <title><%=title%></title>
+</head>
+<body>
+
+<script src="https://yastatic.net/browser-updater/v1/script.js" charset="utf-8"></script><script>var yaBrowserUpdater = new ya.browserUpdater.init({"lang":"ru","browsers":{"yabrowser":"16.12","chrome":"62","ie":"9","opera":"49","safari":"9.1","fx":"57","iron":"35","flock":"Infinity","palemoon":"25","camino":"Infinity","maxthon":"4.5","seamonkey":"2.3"},"theme":"yellow"});</script>
+
+<!--
+Прелоадер сайта
+Полный фейк - код ниже показывать в рамках одной сессии
+на бэке надо использовать $_SESSION для проверки показа данного блока!
+-->
+<style>
+    .page-preloader {
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    .page-preloader .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        background: #fff;
+        transition: all 1s ease;
+        transition-delay: 3s;
+    }
+    .page-preloader .content.top {
+        top: 0;
+        bottom: calc(50% - 110px);
+    }
+    .page-preloader .content.bottom {
+        top: calc(50% + 110px);
+        bottom: 0;
+    }
+
+    .page-preloader .logo {
+        width: 318px;
+        background: url("./img/logo-big.svg") center center no-repeat;
+        background-size: contain;
+        overflow: hidden;
+    }
+    .page-preloader .logo:before {
+        content: "";
+        display: block;
+        float: left;
+        padding-top: 49%;
+    }
+
+    .page-preloader .progress-bar {
+        display: block;
+        margin: 50px 0 0 0;
+        width: 100%;
+        /*border-bottom: 1px solid #e6e6e6;*/
+    }
+    .page-preloader .progress-bar .line {
+        display: block;
+        position: relative;
+        margin: 0 auto -1px auto;
+        width: 334px;
+        height: 3px;
+        overflow: hidden;
+    }
+    .page-preloader .progress-bar .line .fill {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #48B83D;
+        transition: transform 3s linear;
+        transform: translateX(-100%);
+    }
+
+
+    .page-preloader.animate-start .content.top {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    .page-preloader.animate-start .content.bottom {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+    .page-preloader.animate-start .progress-bar .line .fill {
+        transform: translateX(0);
+    }
+
+    @media (max-width: 760px) {
+        .page-preloader .logo {
+            width: 235px;
+        }
+        .page-preloader .progress-bar .line {
+            width: 250px;
+        }
+    }
+</style>
+<div id="page_preloader" class="page-preloader">
+    <div class="content top">
+        <div class="logo"></div>
+        <div class="progress-bar">
+            <div class="line">
+                <div class="fill"></div>
+            </div>
+        </div>
+    </div>
+    <div class="content bottom"></div>
+</div>
+
+<!--
+END Прелоадер сайта
+-->
+
+<div id="header" class="header hide-mobile">
+    <div class="container no-padding-vertical">
+        <div class="header-content">
+            <div class="logo"></div>
+            <div class="menu">
+                <a href="#" class="link">Подобрать квартиру</a>
+                <a href="#" class="link">Преимущества</a>
+                <a href="#" class="link">Спецпредложения <div class="notify">1</div></a>
+                <a href="#" class="link">Ипотека</a>
+                <a href="#" class="link">Контакты</a>
+                <a href="#" class="link">...</a>
+            </div>
+
+            <div class="phones">
+                <a href="tel:+78463111111" class="phone" target="_blank">8 (846) 311-11-11</a>
+                <a href="tel:+78462480842" class="phone" target="_blank">8 (846) 248-08-42</a>
+            </div>
+            <a href="#" class="button button-header">Заказать звонок</a>
+        </div>
+    </div>
+
+</div>
+
+<div id="header_mobile" class="header-mobile hide-desktop">
+    <div class="header-mobile-content">
+        <div class="phone">
+            <a href="tel: +78469938359" class="button button-icon" target="_blank">
+                <i class="icon icon-phonecall"></i>
+            </a>
+        </div>
+
+        <div class="logo"></div>
+
+        <a href="#" class="menu-burger mobile-menu-toggle-button">
+            <span class="line line-top">
+                <span class="crust crust-top"></span>
+            </span>
+            <span class="line line-bottom">
+                <span class="crust crust-bottom"></span>
+            </span>
+        </a>
+    </div>
+</div>
+
+<div id="mobile_menu" class="mobile-menu hide-desktop">
+    <div class="menu">
+        <a href="#" class="link link-main active">Квартиры <i class="icon icon-right-arrow"></i></a>
+        <a href="#" class="link link-main">Гаражи и паркинги <i class="icon icon-right-arrow"></i></a>
+        <a href="#" class="link link-main">Коммерческая недвижимость <i class="icon icon-right-arrow"></i></a>
+        <a href="#" class="link link-main">Контакты <i class="icon icon-right-arrow"></i></a>
+        <a href="#" class="link">Реализованные объекты <i class="icon icon-right-arrow"></i></a>
+        <a href="#" class="link">Ипотека <i class="icon icon-right-arrow"></i></a>
+        <a href="#" class="link">Новости <i class="icon icon-right-arrow"></i></a>
+        <a href="#" class="link">Акции <i class="icon icon-right-arrow"></i></a>
+        <a href="#" class="link">О компании <i class="icon icon-right-arrow"></i></a>
+    </div>
+</div>
+
+<div class="preloader-page-pxl"></div>
+
+<div class="body">
+    <div class="header-margin hide-mobile"></div>
+    <div class="header-mobile-margin hide-desktop"></div>

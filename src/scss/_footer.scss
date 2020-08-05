@@ -1,0 +1,206 @@
+.footer {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+
+
+    p {
+        font-size: 10px;
+        line-height: 12px;
+        font-weight: 500;
+        color: $colorWhite;
+    }
+
+    .menu {
+        display: block;
+        margin: 0;
+        padding: 0;
+
+        @include mobile {
+            margin-bottom: 30px;
+            margin-top: -20px;
+        }
+
+        .link {
+            display: block;
+            margin: 10px 0;
+            padding: 0;
+            font-size: 14px;
+            line-height: 26px;
+            font-weight: 700;
+            color: $colorWhite;
+
+            @include mobile {
+                margin: 20px 0;
+                font-size: 12px;
+                line-height: 14px;
+            }
+
+            &.level-2 {
+                position: relative;
+                padding-left: 15px;
+                font-size: 12px;
+                font-weight: 500;
+
+                @include mobile {
+                    padding-left: 0;
+                    color: rgba(255, 255, 255, .4);
+                }
+
+                a {
+                    @include mobile {
+                        color: rgba(255, 255, 255, .4);
+                    }
+                }
+
+                &:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 10px;
+                    width: 5px;
+                    height: 5px;
+                    background: $colorWhite;
+                    border-radius: 50%;
+
+                    @include mobile {
+                        display: none;
+                    }
+                }
+            }
+
+            a {
+                color: $colorWhite;
+                text-decoration: none;
+
+                @include desktop {
+                    &:hover {
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+    }
+
+    .logo {
+        display: block;
+        margin: 10px 0;
+        height: 26px;
+        background: url("../img/logo-white.svg") left center no-repeat;
+        background-size: contain;
+    }
+
+    .contacts-info {
+        display: block;
+        position: relative;
+        margin: 10px 0;
+        padding: 5px 0 5px 39px;
+        font-size: 14px;
+        line-height: 1.2em;
+        font-weight: 700;
+        color: $colorWhite;
+        text-decoration: none;
+
+        .round-icon {
+            position: absolute;
+            margin: 0;
+            top: 0;
+            left: 0;
+        }
+    }
+    @include desktop {
+        a.contacts-info:hover {
+            opacity: .8;
+        }
+    }
+
+    .network {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        align-content: flex-start;
+        margin: 20px 0 0 0;
+
+        .link {
+            display: flex;
+            align-items: center;
+            margin: 0 0 0 25px;
+            width: 28px;
+            height: 28px;
+            font-size: 22px;
+            color: $colorWhite;
+            text-decoration: none;
+
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 20px;
+            }
+            @include desktop-small {
+                margin-left: 10px;
+            }
+
+            @include desktop {
+                &:hover {
+                    opacity: .8;
+                }
+            }
+
+            @include mobile {
+                margin-left: 20px;
+            }
+        }
+
+        .button {
+            margin: 0 0 0 0;
+
+            @include desktop-small {
+                margin-left: 0;
+            }
+
+            @include mobile {
+                margin-left: 0;
+            }
+        }
+    }
+
+    .copyright {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .internetlab {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0 0 0 20px;
+        font-size: 10px;
+        line-height: 12px;
+        font-weight: 500;
+        color: $colorWhite;
+        text-decoration: none;
+        white-space: nowrap;
+
+        .icon {
+            margin-right: 7px;
+            font-size: 19px;
+        }
+        img {
+            display: inline-block;
+        }
+
+        @include desktop {
+            &:hover {
+                opacity: .8;
+            }
+        }
+    }
+}

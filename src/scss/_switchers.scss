@@ -1,0 +1,55 @@
+.switchers {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-decoration: none;
+
+    &.space-between {
+        justify-content: space-between;
+    }
+
+    .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 1;
+        width: 100%;
+
+        padding: 10px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1;
+        text-align: center;
+        color:$colorBlack;
+        border: 2px solid $colorGrayLight;
+        border-radius: 5px;
+        background-color: $colorWhite;
+        cursor: pointer;
+        text-decoration: none;
+
+        &.inline {
+            display: inline-flex;
+            margin: 10px 10px 0 0;
+            width: auto;
+        }
+
+        &:hover {
+            border-color: $colorMain;
+        }
+
+        &.active {
+            color: $colorWhite;
+            border-color: $colorMain;
+            background-color: $colorMain;
+            cursor: default;
+        }
+
+        &.disabled {
+            color: $colorGrayMiddle;
+            border-color: $colorGrayMiddle;
+            cursor: default;
+            pointer-events: none;
+        }
+
+    }
+}

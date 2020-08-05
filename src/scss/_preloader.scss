@@ -1,0 +1,38 @@
+.preloader-page-pxl {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 899;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: #fff;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.preloader-page {
+    .header, .footer, .header-mobile, .body, .main-slider {
+        //-webkit-filter: url("../img/blur.svg#blur");
+        //
+        //-webkit-filter: blur(50px);
+        filter: blur(50px);
+        //opacity: 0;
+    }
+
+    .preloader-page-pxl {
+        opacity: 1;
+    }
+}
+
+.preloader {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+}

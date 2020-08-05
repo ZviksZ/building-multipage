@@ -1,0 +1,156 @@
+// cubic-bezier(0.64, 0, 0.78, 0)
+.animate-block {
+    .effect-fade {
+        opacity: 0;
+        transform: translate(30px, 100px);
+        transition: opacity .6s ease, transform .6s ease;
+        @include mobile {
+            opacity: 1;
+            transform: translate(0);
+        }
+    }
+
+    .effect-white {
+        position: relative;
+        z-index: 5;
+
+        .effect-content {
+            opacity: 0;
+            transform: translateY(10%);
+            transition: all .8s ease-out;
+        }
+
+        .effect-stripe {
+            display: block;
+            position: absolute;
+            z-index: 5;
+            left: 0;
+            right: 0;
+            top: 0;
+            opacity: 1;
+            height: 60%;
+            background: #fff;
+            transition: all .8s ease-out;
+        }
+    }
+
+    &.visible {
+        .effect-fade {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .effect-white {
+            .effect-content {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .effect-stripe {
+                //opacity: 0;
+                height: 0;
+            }
+        }
+
+        [class*=' delay-'] {
+            transition-delay: 0s !important;
+        }
+    }
+}
+
+
+.delay-100,
+.delay-100 .effect-delay {
+    transition-delay: 100ms !important;
+    animation-delay: 100ms !important;;
+}
+.delay-150,
+.delay-150 .effect-delay {
+    transition-delay: 150ms !important;;
+    animation-delay: 150ms !important;;
+}
+.delay-200,
+.delay-200 .effect-delay {
+    transition-delay: 200ms !important;;
+    animation-delay: 200ms !important;;
+}
+.delay-250,
+.delay-250 .effect-delay {
+    transition-delay: 250ms !important;;
+    animation-delay: 250ms !important;;
+}
+.delay-300,
+.delay-300 .effect-delay {
+    transition-delay: 300ms !important;;
+    animation-delay: 300ms !important;;
+}
+.delay-350,
+.delay-350 .effect-delay {
+    transition-delay: 350ms !important;;
+    animation-delay: 350ms !important;;
+}
+.delay-400,
+.delay-400 .effect-delay {
+    transition-delay: 400ms !important;;
+    animation-delay: 400ms !important;;
+}
+.delay-450,
+.delay-450 .effect-delay {
+    transition-delay: 450ms !important;;
+    animation-delay: 450ms !important;;
+}
+.delay-500,
+.delay-500 .effect-delay {
+    transition-delay: 500ms !important;;
+    animation-delay: 500ms !important;;
+}
+.delay-550,
+.delay-550 .effect-delay {
+    transition-delay: 550ms !important;;
+    animation-delay: 550ms !important;;
+}
+.delay-600,
+.delay-600 .effect-delay {
+    transition-delay: 600ms !important;;
+    animation-delay: 600ms !important;;
+}
+.delay-650,
+.delay-650 .effect-delay {
+    transition-delay: 650ms !important;;
+    animation-delay: 650ms !important;;
+}
+.delay-700,
+.delay-700 .effect-delay {
+    transition-delay: 700ms !important;;
+    animation-delay: 700ms !important;;
+}
+.delay-750,
+.delay-750 .effect-delay {
+    transition-delay: 750ms !important;;
+    animation-delay: 750ms !important;;
+}
+.delay-800,
+.delay-800 .effect-delay {
+    transition-delay: 800ms !important;;
+    animation-delay: 800ms !important;;
+}
+.delay-850,
+.delay-850 .effect-delay {
+    transition-delay: 850ms !important;;
+    animation-delay: 850ms !important;;
+}
+.delay-900,
+.delay-900 .effect-delay {
+    transition-delay: 900ms !important;;
+    animation-delay: 900ms !important;;
+}
+.delay-950,
+.delay-950 .effect-delay {
+    transition-delay: 950ms !important;;
+    animation-delay: 950ms !important;;
+}
+.delay-1000,
+.delay-1000 .effect-delay {
+    transition-delay: 1000ms !important;;
+    animation-delay: 1000ms !important;;
+}

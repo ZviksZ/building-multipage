@@ -1,0 +1,348 @@
+// Типографика
+.section {
+    display: block;
+    position: relative;
+    z-index: 10;
+    margin: 0;
+    padding: 50px 0;
+    background-color: $colorWhite;
+    overflow: hidden;
+
+    @include mobile {
+        padding: 30px 0;
+    }
+
+    &.for-parallax {
+        z-index: 9;
+    }
+
+    &.gray {
+        background-color: #5F7384;
+    }
+    &.dark-gray {
+        background-color: #526474;
+    }
+    &.transparent {
+        background-color: transparent;
+    }
+
+    &.fullscreen,
+    .fullscreen {
+        height: calc(100vh - 94px);
+        min-height: 500px;
+
+        @include mobile {
+            height: 530px;
+        }
+
+        @include mobile-small {
+            min-height: 450px;
+            height: 450px;
+        }
+    }
+
+    &.fullscreen-with-submenu,
+    .fullscreen-with-submenu {
+        height: calc(100vh - 164px);
+        min-height: 500px;
+
+        @include mobile {
+            height: 530px;
+        }
+    }
+
+    .bold {
+        font-family: 'Manrope Bold';
+    }
+
+    /* заголовки */
+    %title-shared {
+        margin: 24px 0;
+        line-height: 1.2em;
+        font-weight: 700;
+
+        &:first-child {
+            margin-top: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    h1, .h1 {
+        @extend %title-shared;
+        font-size: 58px;
+        @include mobile {
+            font-size: 22px;
+        }
+    }
+    h2, .h2 {
+        @extend %title-shared;
+        font-size: 46px;
+
+        @include mobile {
+            font-size: 22px;
+        }
+    }
+    h3, .h3 {
+        @extend %title-shared;
+        font-size: 36px;
+
+        @include mobile {
+            font-size: 20px;
+        }
+    }
+    h4, .h4 {
+        @extend %title-shared;
+        font-size: 28px;
+
+        @include mobile {
+            font-size: 17px;
+        }
+    }
+    h5, .h5 {
+        @extend %title-shared;
+        font-size: 22px;
+
+        @include mobile {
+            font-size: 16px;
+        }
+    }
+    h6, .h6 {
+        @extend %title-shared;
+        font-size: 18px;
+
+        @include mobile {
+            font-size: 15px;
+        }
+    }
+    /* END заголовки */
+
+    .inline-block {
+        display: inline-block;
+    }
+
+    /* текста */
+    %text-shared {
+        margin: 20px 0;
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 500;
+
+        &:first-child {
+            margin-top: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    %text-small-shared {
+        @extend %text-shared;
+        font-size: 12px;
+
+        @include mobile {
+            font-size: 11px;
+        }
+    }
+    %text-medium-small-shared {
+        @extend %text-shared;
+        font-size: 14px;
+    }
+
+    %text-big-shared {
+        @extend %text-shared;
+        font-size: 20px;
+    }
+
+    p {
+        @extend %text-shared;
+
+        &.small {
+            @extend %text-small-shared;
+        }
+        &.medium {
+            @extend %text-medium-small-shared;
+        }
+        &.big {
+            @extend %text-big-shared;
+        }
+    }
+
+    ul {
+        @extend %text-shared;
+        padding: 0;
+        list-style: none;
+
+        &.small {
+            @extend %text-small-shared;
+        }
+        &.medium {
+            @extend %text-medium-small-shared;
+        }
+        &.big {
+            @extend %text-big-shared;
+        }
+
+        li {
+            display: block;
+            position: relative;
+            margin: 20px 0;
+            padding-left: 25px;
+
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 10px;
+                left: 0;
+                width: 8px;
+                height: 8px;
+                background: $colorMain;
+            }
+        }
+    }
+
+    ol {
+        @extend %text-shared;
+        padding: 0;
+        counter-reset: myCounter;
+
+        &.small {
+            @extend %text-small-shared;
+        }
+        &.medium {
+            @extend %text-medium-small-shared;
+        }
+        &.big {
+            @extend %text-big-shared;
+        }
+
+        li {
+            display: block;
+            position: relative;
+            margin: 20px 0;
+            padding-left: 25px;
+
+            &:before {
+                counter-increment: myCounter;
+                content: counter(myCounter)'.';
+                display: block;
+                position: absolute;
+                font-size: 16px;
+                top: 0;
+                left: 0;
+                color: $colorMain;
+            }
+        }
+    }
+
+    a {
+        color: $colorLink;
+        text-decoration: underline;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        &.text-phone {
+            display: inline-block;
+            color: $colorText !important;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 34px;
+            text-decoration: none;
+            @include desktop {
+                &:hover {
+                    color: $colorMain !important;
+                }
+            }
+        }
+    }
+
+    .caption-with-button {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 1px 0;
+
+        * {
+            margin: 0 30px 0 0;
+            .address, .round-icon, .icon {
+                margin-right: 0;
+            }
+        }
+
+        .button {
+            margin: 10px 0;
+        }
+    }
+
+    .d-flex {
+        display: flex;
+        align-items: center;
+    }
+    .flex-wrap {
+        flex-wrap: wrap;
+        & > div, & > p {
+            width: 100%;
+        }
+    }
+
+    .bold-text {
+        @extend %title-shared;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .bolder-text {
+        @extend %title-shared;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .normal-text {
+        @extend %title-shared;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 34px;
+    }
+    .small-text {
+        @extend %title-shared;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 26px;
+    }
+    /* END текста */
+
+
+
+    // переключатели
+    .toggle-block {
+
+        .toggle-content {
+            display: none;
+        }
+        .open-text {
+            display: block;
+        }
+        .close-text {
+            display: none;
+        }
+
+        &.open {
+            .toggle-content {
+                display: block;
+            }
+            .open-text {
+                display: none;
+            }
+            .close-text {
+                display: block;
+            }
+
+            .arrow {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}

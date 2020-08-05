@@ -1,0 +1,52 @@
+{
+  "name": "Volgar",
+  "version": "1.0.0",
+  "description": "Волгарь - комфортная среда для жизни людей",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "watch": "webpack --mode development --watch",
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production && prettier --print-width=120 --parser html --write dist/*.html"
+  },
+  "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
+    "@svgdotjs/svg.js": "^3.0.16",
+    "blazy": "^1.8.2",
+    "choices.js": "^9.0.1",
+    "inputmask": "^5.0.3",
+    "ion-rangeslider": "^2.3.1",
+    "jquery": "^3.4.1",
+    "jquery-lazy": "^1.7.10",
+    "jquery-viewport-checker": "^1.8.8",
+    "lozad": "^1.14.0",
+    "moment": "^2.24.0",
+    "rangeslider.js": "^2.3.3",
+    "swiper": "^5.3.7",
+    "typed.js": "^2.0.11",
+    "vanilla-lazyload": "^15.1.1",
+    "viewport-checker": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "cssnano": "^4.1.10",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^1.19.1",
+    "raw-loader": "^4.0.0",
+    "sass-loader": "^8.0.2",
+    "terser-webpack-plugin": "^2.3.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.10.2"
+  }
+}

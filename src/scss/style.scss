@@ -1,0 +1,78 @@
+// переменные
+@import 'variables';
+
+@import 'mixins';
+
+// Шрифты
+@import 'fonts';
+
+// Иконки
+@import 'icons';
+
+// медиа-запросы
+@import 'mediaqueries';
+
+// обнуления отступов, margin и т.п.
+@import 'helper';
+
+// базовые стили шаблона
+@import 'base';
+
+// сетки
+@import 'grid';
+
+// типографика контента
+@import 'typographic';
+
+// preloader
+@import 'preloader';
+
+// типографика форм
+@import 'forms';
+
+// ползунок
+
+@import 'ion-rangeslider';
+
+//кнопки
+@import 'buttons';
+
+//Переключатели аля кнопки
+@import 'switchers';
+
+//Select
+@import './node_modules/choices.js/src/styles/choices.scss';
+@import 'selects';
+
+//404
+@import '_page-no-found';
+
+// анимации
+@import 'animate';
+
+//header
+@import 'header';
+
+// все меню
+@import 'menu';
+
+// модальные окна
+@import 'modals';
+
+// стилизация базовых элементов swiper слайдера
+@import './node_modules/swiper/swiper';
+
+@import 'swiper-slider';
+
+// стили контакты
+@import 'contacts';
+
+// документы
+@import 'documents';
+
+// футер
+@import 'footer';
+
+
+//@import './node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css';
+//@import './node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css';

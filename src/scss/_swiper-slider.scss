@@ -1,0 +1,92 @@
+.swiper {
+    &-pagination {
+        &-bullet {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 6px;
+            width: 11px; height: 11px;
+            background: $colorGrayMiddle;
+            border-radius: 50%;
+            opacity: 1;
+            transition: all .2s ease;
+
+            &-active {
+                opacity: 1;
+                background: $colorMain;
+            }
+        }
+    }
+
+    &-arrow {
+        display: block;
+        position: absolute;
+        z-index: 10;
+        top: 0; bottom: 0;
+        width: 150px;
+        cursor: pointer;
+        @include mobile {
+            display: none;
+        }
+
+        &-prev {
+            left: 0;
+        }
+        &-next {
+            right: 0;
+        }
+
+        .icon {
+            display: block;
+            position: absolute;
+            top: 50%; left: 50%;
+            margin: -25px 0 0 -25px;
+            width: 50px; height: 50px;
+            font-size: 22px;
+            background: rgba(34, 34, 34, .5);
+            color: $colorWhite;
+            border-radius: 20px;
+            transition: background .2s ease;
+
+            &:before {
+                line-height: 50px;
+            }
+        }
+
+
+        @include desktop {
+            &:hover {
+                .icon {
+                    background: rgba(34, 34, 34, 1);
+                }
+            }
+        }
+
+
+        &.swiper-button-disabled {
+            display: none;
+        }
+    }
+
+    &-slider {
+        display: block;
+        position: relative;
+        overflow: hidden;
+
+        &-wrapper {
+            display: block;
+            position: relative;
+        }
+    }
+
+    &-lazy-preloader {
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
