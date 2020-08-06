@@ -8,6 +8,19 @@
     background-color: $colorWhite;
     overflow: hidden;
 
+    &.display-flex {
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        max-height: 600px;
+    }
+
     @include mobile {
         padding: 30px 0;
     }

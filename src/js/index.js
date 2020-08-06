@@ -39,6 +39,8 @@ import {Selects} from './components/form';
 $(function () {
     // скрываем прелоадер страницы если он есть
     const $pagePreloader = $('#page_preloader');
+    const $mainSection = $('#main_section');
+
     if ($pagePreloader.length) {
         $pagePreloader.addClass('animate-start');
 
@@ -46,7 +48,8 @@ $(function () {
             hidePreloaderPage();
             initScripts();
             $pagePreloader.remove();
-        }, 3000);
+
+        }, 3400);
 
     } else {
         hidePreloaderPage();
@@ -55,9 +58,10 @@ $(function () {
 
     function hidePreloaderPage() {
         $('.preloader-page').removeClass('preloader-page');
-        setTimeout(() => {
-            $('.preloader-page-pxl').remove();
-        }, 600);
+
+        if ($mainSection.length) {
+            $mainSection.removeClass('animate-start');
+        }
     }
 });
 

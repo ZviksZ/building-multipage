@@ -38,30 +38,30 @@
     .page-preloader .content {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
         position: absolute;
+        top: 0;
+        bottom: 0;
         left: 0;
         right: 0;
-        background: #fff;
+        background: #1C81DE;
         transition: all 1s ease;
         transition-delay: 3s;
     }
-    .page-preloader .content.top {
-        top: 0;
-        bottom: calc(50% - 110px);
-    }
-    .page-preloader .content.bottom {
-        top: calc(50% + 110px);
-        bottom: 0;
-    }
 
     .page-preloader .logo {
-        width: 318px;
-        background: url("./img/logo-big.svg") center center no-repeat;
+        width: 400px;
+        height: 400px;
+        background: url("./img/logo-big.png") center center no-repeat;
         background-size: contain;
         overflow: hidden;
     }
+
+    .page-preloader .fade-block {
+        transition: transform .4s 3s ease-in-out;
+    }
+
     .page-preloader .logo:before {
         content: "";
         display: block;
@@ -80,7 +80,7 @@
         position: relative;
         margin: 0 auto -1px auto;
         width: 334px;
-        height: 3px;
+        height: 5px;
         overflow: hidden;
     }
     .page-preloader .progress-bar .line .fill {
@@ -90,22 +90,25 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background: #48B83D;
+        background: #fff;
         transition: transform 3s linear;
         transform: translateX(-100%);
     }
 
-
-    .page-preloader.animate-start .content.top {
-        transform: translateY(-50%);
-        opacity: 0;
-    }
-    .page-preloader.animate-start .content.bottom {
-        transform: translateY(50%);
-        opacity: 0;
-    }
     .page-preloader.animate-start .progress-bar .line .fill {
         transform: translateX(0);
+    }
+
+    .page-preloader.animate-start .fade-block {
+        transform: translateY(-200%);
+    }
+
+    .page-preloader .fade-block {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
     }
 
     @media (max-width: 760px) {
@@ -118,15 +121,16 @@
     }
 </style>
 <div id="page_preloader" class="page-preloader">
-    <div class="content top">
-        <div class="logo"></div>
-        <div class="progress-bar">
-            <div class="line">
-                <div class="fill"></div>
+    <div class="content">
+        <div class="fade-block">
+            <div class="logo"></div>
+            <div class="progress-bar">
+                <div class="line">
+                    <div class="fill"></div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="content bottom"></div>
 </div>
 
 <!--
@@ -150,7 +154,7 @@ END Прелоадер сайта
                 <a href="tel:+78463111111" class="phone" target="_blank">8 (846) 311-11-11</a>
                 <a href="tel:+78462480842" class="phone" target="_blank">8 (846) 248-08-42</a>
             </div>
-            <a href="#" class="button button-header">Заказать звонок</a>
+            <a href="#" class="button secondary button-header">Заказать звонок</a>
         </div>
     </div>
 
@@ -190,8 +194,6 @@ END Прелоадер сайта
         <a href="#" class="link">О компании <i class="icon icon-right-arrow"></i></a>
     </div>
 </div>
-
-<div class="preloader-page-pxl"></div>
 
 <div class="body">
     <div class="header-margin hide-mobile"></div>

@@ -15,10 +15,13 @@
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     opacity: 1;
-    transition: filter .6s ease, height .2s ease, transform .2s ease, opacity .2s ease;
+    transition: transform .5s ease, height .5s ease;
+    transition-delay: .3s;
 
     &-margin {
         height: 100px;
+        transition: transform .5s ease, height .5s ease;
+        transition-delay: .3s;
     }
 
     .header-content {
