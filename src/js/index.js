@@ -57,6 +57,10 @@ $(function () {
     }
 
     function hidePreloaderPage() {
+        setTimeout(() => {
+            $('html').addClass('animate-end');
+        }, 1000);
+
         $('.preloader-page').removeClass('preloader-page');
 
         if ($mainSection.length) {

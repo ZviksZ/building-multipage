@@ -13,15 +13,16 @@
     margin: 0;
     background: $colorWhite;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     opacity: 1;
-    transition: transform .5s ease, height .5s ease;
-    transition-delay: .3s;
+    transition: transform .8s ease, height .8s ease;
+    transition-delay: 0s;
+    will-change: contents;
 
     &-margin {
         height: 100px;
-        transition: transform .5s ease, height .5s ease;
-        transition-delay: .3s;
+        transition: transform .8s ease, height .8s ease;
+        transition-delay: 0s;
+        will-change: contents;
     }
 
     .header-content {
