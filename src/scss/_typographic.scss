@@ -8,6 +8,11 @@
     background-color: $colorWhite;
     overflow: hidden;
 
+    &.with-shadow {
+        box-shadow: 0px 10px 20px rgba(51, 62, 70, 0.1);
+        margin-bottom: 20px;
+    }
+
     &.display-flex {
         display: flex;
         position: absolute;
@@ -19,6 +24,12 @@
         justify-content: flex-start;
         align-items: stretch;
         max-height: 600px;
+
+        @include mobile {
+            flex-direction: column;
+            justify-content: flex-end;
+            max-height: none;
+        }
     }
 
     @include mobile {
@@ -70,6 +81,7 @@
 
     /* заголовки */
     %title-shared {
+        font-family: 'Manrope Bold';
         margin: 24px 0;
         line-height: 1.2em;
         font-weight: 700;
@@ -84,13 +96,22 @@
     h1, .h1 {
         @extend %title-shared;
         font-size: 58px;
+
+        @include desktop-smaller {
+            font-size: 35px;
+        }
+
         @include mobile {
-            font-size: 22px;
+            font-size: 28px;
         }
     }
     h2, .h2 {
         @extend %title-shared;
         font-size: 46px;
+
+        @include desktop-smaller {
+            font-size: 22px;
+        }
 
         @include mobile {
             font-size: 22px;
@@ -100,6 +121,10 @@
         @extend %title-shared;
         font-size: 36px;
 
+        @include desktop-smaller {
+            font-size: 20px;
+        }
+
         @include mobile {
             font-size: 20px;
         }
@@ -107,6 +132,10 @@
     h4, .h4 {
         @extend %title-shared;
         font-size: 28px;
+
+        @include desktop-smaller {
+            font-size: 17px;
+        }
 
         @include mobile {
             font-size: 17px;
@@ -116,6 +145,10 @@
         @extend %title-shared;
         font-size: 22px;
 
+        @include desktop-smaller {
+            font-size: 16px;
+        }
+
         @include mobile {
             font-size: 16px;
         }
@@ -123,6 +156,10 @@
     h6, .h6 {
         @extend %title-shared;
         font-size: 18px;
+
+        @include desktop-smaller {
+            font-size: 15px;
+        }
 
         @include mobile {
             font-size: 15px;
@@ -200,6 +237,16 @@
             position: relative;
             margin: 20px 0;
             padding-left: 25px;
+
+            @include desktop-smaller {
+                font-size: 14px;
+                margin: 15px 0;
+            }
+
+            @include mobile {
+                font-size: 12px;
+                margin: 5px 0;
+            }
 
             &:before {
                 content: "";
