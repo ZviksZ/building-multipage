@@ -154,3 +154,16 @@
     transition-delay: 1000ms !important;;
     animation-delay: 1000ms !important;;
 }
+
+.fade-left {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: transform .5s ease, opacity .7s ease;
+}
+
+.animate-end {
+    .fade-left {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

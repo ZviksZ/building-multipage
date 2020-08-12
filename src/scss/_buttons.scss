@@ -15,6 +15,7 @@
     font-size: 22px;
     line-height: 24px;
     letter-spacing: 1.2px;
+    font-family: "Manrope Bold";
     font-weight: 800;
     color: $colorWhite !important;
     text-align: center;
@@ -39,6 +40,24 @@
     @include desktop {
         &:hover {
             background: $colorMainActive;
+        }
+    }
+
+    &.hide-big-desktop {
+        display: none!important;
+
+        @include desktop-small {
+            display: block!important;
+        }
+
+        @include mobile {
+            display: none!important;
+        }
+    }
+
+    &.hide-small-desktop {
+        @include desktop-small {
+            display: none!important;
         }
     }
 
@@ -69,6 +88,10 @@
         @include desktop-small {
             font-size: 16px;
         }
+
+        @include desktop-smaller {
+            font-size: 12px;
+        }
     }
 
     &.default {
@@ -86,6 +109,11 @@
 
         .icon {
             font-size: 8px;
+        }
+
+        @include mobile {
+            font-size: 14px;
+            padding: 0 15px;
         }
     }
 
@@ -118,6 +146,7 @@
 
         .icon {
             font-size: 12px;
+            line-height: 1;
             color: $colorWhite;
         }
 

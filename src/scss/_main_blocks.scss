@@ -1,119 +1,272 @@
-
-
-.mainblock-wrapper {
-    position: relative;
-
-    .section {
-        &.animate-start {
-            .bg-blue {
-                transform: scale(45) rotate(19deg);
-            }
-
-            .bg-image {
-                transform: scale(2);
-            }
-        }
-        .info {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            padding: 80px 0;
-            max-width: 40%;
-            height: 100%;
-
-            @include desktop-smaller {
-                padding: 40px 0;
-            }
-
-            @include mobile {
-                padding: 20px 0;
-                max-width: 100%;
-            }
-
-            .info-top {
-                width: 100%;
-            }
-
-            .info-bottom {
-                width: 100%;
-            }
-        }
-    }
-
-    &:before {
-        content: '';
-        display: block;
-        padding-top: 31.55%;
-
-        @include mobile {
-            padding-top: 130.1333333%;
+.preloader-page {
+    .main-block {
+        .bg-blue {
+            transform: scale(30) rotate(19deg);
         }
 
-    }
-
-    .bg-image {
-        background-image: url(../img/main-img.png);
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        width: 70%;
-        right: 0;
-        left: auto;
-        margin-left: auto;
-        top: 0;
-        bottom: 0;
-        z-index: 8;
-        transform: scale(1);
-        transition: transform 1.5s ease;
-        transition-delay: .2s;
-        will-change: contents;
-        @include mobile {
-            width: 100%;
-            display: flex;
-            padding-top: 67.2%;
+        .bg-image {
+            transform: scale(10);
         }
-    }
-
-    .bg-blue {
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        z-index: 10;
-        background-image: url(../img/bg-blue.svg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        height: auto;
-        width: 50%;
-        transform: scale(1);
-        transition: transform 1s ease;
-        will-change: contents;
-
-        @include mobile {
-            top: -120px;
-            background-image: url(../img/bg-blue-mob.svg);
-            width: 100%;
-            //height: 100%;
+        .white-block {
+            transform: translateY(100%);
         }
     }
 }
 
-.section {
+.main-block {
+    display: block;
+    background-color: #fff;
+    position: relative;
+    z-index: 10;
+    height: calc(100vh - 100px);
+    overflow: hidden;
+    will-change: contents;
+
+    @include ipad-pro-portrait {
+        height: calc(60vh - 100px);
+    }
+
+    @include mobile {
+        height: 320px;
+    }
+
+    @include only-mobile {
+        height: 488px;
+    }
+
+    .bg-blue {
+        display: block;
+        position: absolute;
+        z-index: 9;
+        background-image: url(../img/bg-blue.svg);
+        background-size: cover;
+        background-position: center right;
+        background-repeat: no-repeat;
+        width: 50%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        transform: scale(1) rotate(0);
+        transition: transform 1s ease;
+        transition-delay: .5s;
+
+        @include desktop-small {
+            width: 60%;
+        }
+
+        @include mobile {
+            width: 60%;
+            bottom: -50px;
+        }
+
+        @include only-mobile {
+            width: 140%;
+            top: -100px;
+            left: -56px;
+            bottom:70px;
+            right: 0;
+            background-position: center right;
+            background-image: url(../img/bg-blue-mob.svg);
+        }
+    }
+
+    .bg-image {
+        display: block;
+        position: absolute;
+        z-index: 8;
+        background-image: url(../img/main-img.png);
+        background-size: cover;
+        background-position: right bottom;
+        background-repeat: no-repeat;
+        left: 40%;
+        right: 0;
+        top: 0;
+        bottom: 156px;
+        transform: scale(1);
+        transition: transform 1.5s ease;
+        //transition-delay: 2s;
+
+        @include mobile {
+            bottom: 0;
+        }
+
+        @include only-mobile {
+            left: 0;
+            top: 50%;
+            width: 100%;
+        }
+
+    }
+
+    .white-block {
+        display: block;
+        position: absolute;
+        z-index: 10;
+        background-color: #fff;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 35px 0;
+        transform: translateY(0);
+        transition: transform 2s ease;
+        box-shadow: 0px 10px 20px rgba(51, 62, 70, 0.1);
+    }
+
+
+    .main-content {
+        display: block;
+        position: absolute;
+        width: 100%;
+        z-index: 10;
+        left: 0;
+        top: 0;
+        bottom: 156px;
+
+        @include mobile {
+            bottom: 0;
+        }
+
+        .info {
+            height: 100%;
+            width: 50%;
+
+            @include mobile {
+                padding: 0 17px;
+            }
+
+            @include only-mobile {
+                width: 100%;
+            }
+
+            .info-bottom {
+                display: block;
+                position: absolute;
+                bottom: 50px;
+
+                @include mobile {
+                    bottom: 25px;
+                }
+
+                @include only-mobile {
+                    position: relative;
+                    bottom: auto;
+                }
+            }
+        }
+    }
+}
+
+.rooms-section {
+    transform: translateY(0%);
+    transition: transform 2s ease;
+    transition-delay: 1s;
+}
+
+.preloader-page {
+    .rooms-item-wrapper {
+        .rooms-items-row {
+            .rooms-item-col {
+                opacity: 0;
+                &:nth-child(1) {
+                    transform: translateX(-100%);
+                }
+
+                &:nth-child(2) {
+                    transform: translateX(-200%);
+                }
+
+                &:nth-child(3) {
+                    transform: translateX(-300%);
+                }
+
+                &:nth-child(4) {
+                    transform: translateX(-400%);
+                }
+
+                &:nth-child(5) {
+                    transform: translateX(-500%);
+                }
+            }
+        }
+    }
+}
+
+.rooms-item-wrapper {
+    .rooms-items-row {
+        display: flex;
+        flex-direction: row;
+        margin: 0 -16px;
+
+        @include mobile {
+            flex-wrap: wrap;
+        }
+
+        .rooms-item-col {
+            opacity: 1;
+            width: 100%;
+            padding: 0 16px;
+            transition: transform 3s ease, opacity .2s ease-in-out;
+            transition-delay: 2s;
+
+            @include tablet-mobile {
+                width: 50%;
+            }
+
+            @include mobile {
+                padding-bottom: 16px;
+                width: 100%;
+
+                &:last-child {
+                    padding-bottom: 0;
+                }
+            }
+
+            &:nth-child(1) {
+                transition-duration: .3s;
+            }
+
+            &:nth-child(2) {
+                transition-duration: .6s;
+            }
+
+            &:nth-child(3) {
+                transition-duration: .9s;
+            }
+
+            &:nth-child(4) {
+                transition-duration: 1.2s;
+            }
+
+            &:nth-child(5) {
+                transition-duration: 1.5s;
+            }
+
+            .room-info-item {
+                margin: 0;
+            }
+        }
+    }
+
     .room-info-item {
         display: flex;
         position: relative;
         z-index: 5;
         flex-direction: column;
         padding: 15px 20px;
-        margin: 20px 0;
+        margin-top: 20px;
         border: 1px solid #E1EAF1;
         border-radius: 3px;
         cursor: pointer;
         text-decoration: none;
         transition: border-color .15s linear;
-        
+
+        @include mobile {
+            flex-direction: row;
+            margin-bottom: 0;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         &:before {
             content: '';
             display: block;
@@ -129,7 +282,7 @@
         }
 
         &:after {
-            content: '->';
+            content: "\6b";
             display: block;
             color: $colorSecond;
             font-weight: bold;
@@ -164,6 +317,10 @@
             text-overflow: ellipsis;
             overflow: hidden;
             padding-right: 25px;
+
+            @include mobile {
+                padding-right: 20px;
+            }
         }
 
         .name {
@@ -175,6 +332,10 @@
             color: $colorTextGray;
             transition: color .1s ease;
             transition-delay: .01s;
+
+            @include mobile-small {
+                font-size: 14px;
+            }
         }
         .price  {
             position: relative;
@@ -182,16 +343,22 @@
             font-size: 20px;
             line-height: 29px;
             font-weight: 800;
+            font-family: "Manrope Bold";
             color: $colorText;
             transition: color .1s ease;
             transition-delay: .01s;
+
+            @include mobile-small {
+                padding-right: 25px;
+                font-size: 16px;
+            }
         }
     }
+}
 
-    .structure-wrapper {
-        margin: 12px 0;
-        padding: 1px 0;
-    }
+.structure-wrapper {
+    margin: 12px 0;
+    padding: 1px 0;
     .structure-item {
         display: flex;
         position: relative;
@@ -220,8 +387,14 @@
             border-radius: 8px;
             text-align: center;
 
+            @include desktop-smaller {
+                width: 45px;
+                height: 45px;
+                border-radius: 16px;
+            }
+
             &:before {
-                content: '->';
+                content: "\6b";
                 font-size: 14px;
                 color: $colorTextGray;
                 display: flex;
@@ -255,7 +428,7 @@
 
         &:hover {
             &:after {
-                transform: scale(2.5);
+                transform: scale(2.7);
 
                 @include mobile {
                     transform: scale(1.5);
@@ -267,7 +440,7 @@
             background-image: url(../img/bg-1.jpg);
 
             &:after {
-                background-image: url(../img/bg-1.svg);
+                background-image: url(../img/bg-1.png);
             }
         }
 
@@ -275,7 +448,7 @@
             background-image: url(../img/bg-2.jpg);
 
             &:after {
-                background-image: url(../img/bg-2.svg);
+                background-image: url(../img/bg-2.png);
             }
         }
 
@@ -283,7 +456,7 @@
             background-image: url(../img/bg-3.jpg);
 
             &:after {
-                background-image: url(../img/bg-3.svg);
+                background-image: url(../img/bg-3.png);
             }
         }
 
@@ -291,7 +464,7 @@
             background-image: url(../img/bg-4.jpg);
 
             &:after {
-                background-image: url(../img/bg-4.svg);
+                background-image: url(../img/bg-4.png);
             }
         }
 
@@ -310,26 +483,35 @@
         }
 
         .info {
-            display: flex;
-            flex-direction: column;
-            position: relative;
+            display: block;
+            position: absolute;
+            overflow: hidden;
+            left: 30px;
+            top: 30px;
+            bottom: 55px;
+            max-width: 50%;
+            padding-right: 15px;
             z-index: 5;
-            max-width: 45%;
 
-            @include desktop-smaller {
-                max-width: 60%;
-            }
-
-            @include mobile {
+            @include mobile-small {
+                left: 20px;
+                top: 15px;
+                bottom: 50px;
                 max-width: 60%;
             }
 
             .name {
+                display: block;
                 font-family: 'Manrope Bold';
                 font-weight: 800;
                 color: $colorWhite;
                 font-size: 36px;
                 line-height: 48px;
+
+                @include desktop-medium {
+                    font-size: 30px;
+                    line-height: 38px;
+                }
 
                 @include desktop-smaller {
                     font-size: 28px;
@@ -343,14 +525,30 @@
             }
 
             .place {
+                display: block;
+                position: relative;
+                font-family: "Manrope Bold";
                 color: $colorWhite;
                 font-size: 16px;
                 font-weight: 800;
                 line-height: 23px;
                 padding-left: 45px;
                 margin-top: 15px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+
+                &:before {
+                    content: "\6e";
+                    font-size: 21px;
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
 
                 @include mobile {
+                    padding-left: 30px;
                     font-size: 12px;
                     line-height: 17px;
                 }
@@ -359,4 +557,238 @@
     }
 }
 
+.news-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin: 0 -16px;
+
+    .news-card {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        cursor: pointer;
+        width: calc(33.33333% - 32px);
+        margin: 0 16px 32px 16px;
+        background: #FFFFFF;
+        box-shadow: 0px 10px 20px rgba(51, 62, 70, 0.1);
+        border-radius: 2px;
+        text-decoration: none;
+        transition: transform .2s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        @include only-tablet {
+            width: calc(50% - 32px);
+        }
+
+        @include only-mobile {
+            width: calc(100% - 32px);
+            margin-bottom: 16px;
+        }
+
+        .photo {
+            background-image: url(../img/img.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-top: 59.78%;
+        }
+
+        .info {
+            padding: 20px 40px 40px 40px;
+
+            @include desktop-medium {
+                padding: 20px 30px 30px 30px;
+            }
+
+            @include mobile {
+                padding: 20px ;
+            }
+
+
+            .date {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 1.2em;
+                margin-bottom: 12px;
+                color: $colorSecond;
+            }
+
+            .name {
+                font-family: "Manrope Bold";
+                font-weight: 800;
+                font-size: 28px;
+                line-height: 1.2em;
+                margin-bottom: 12px;
+                color: $colorText;
+
+                @include desktop-medium {
+                    font-size: 23px;
+                }
+
+                @include mobile {
+                    font-size: 22px;
+                }
+            }
+
+            .desc {
+                color: $colorText;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 1.2em;
+
+                @include desktop-medium {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+.decorations {
+    .decoration-item {
+        display: block;
+        cursor: pointer;
+        position: relative;
+        margin-bottom: 20px;
+        text-decoration: none;
+        border-radius: 2px;
+        overflow: hidden;
+        text-align: center;
+        transition: transform .2s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        .photo {
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url(../img/img.jpg);
+
+            &:before {
+                content: '';
+                display: block;
+                padding-top: 60.32%;
+                @include mobile {
+                    padding-top: 100%;
+                }
+            }
+        }
+
+        .name {
+            font-family: "Manrope Bold";
+            position: absolute;
+            left: 20px;
+            bottom: 15px;
+            font-size: 22px;
+            color: $colorWhite;
+
+            @include mobile {
+                position: relative;
+                color: $colorText;
+                font-size: 12px;
+                bottom: auto;
+                left: auto;
+                margin: 5px 0;
+            }
+        }
+    }
+}
+
+.contacts-map {
+    height: 335px;
+
+    @include mobile-small {
+        height: 214px;
+    }
+}
+
+.offices-info {
+    margin-bottom: 25px;
+    .name {
+        display: block;
+        position: relative;
+        margin: 22px 0;
+        font-family: "Manrope Bold";
+        font-weight: 800;
+        font-size: 22px;
+        color: $colorText;
+        padding-left: 37px;
+
+        &:before {
+            content: "\6e";
+            display: block;
+            color: $colorSecond;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @include mobile {
+            font-size: 16px;
+        }
+    }
+
+    .worktime-phones {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 450px;
+
+        @include mobile-small {
+            flex-direction: column;
+        }
+
+        .worktime {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            .item {
+                display: flex;
+                justify-content: space-between;
+
+                .key, .value {
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                    color: $colorText;
+                }
+
+                .key {
+                    font-family: "Manrope Bold";
+                }
+                .value {
+
+                }
+            }
+        }
+
+        .phones {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 100%;
+
+            @include mobile-small {
+                align-items: flex-start;
+            }
+
+            .item {
+                font-size: 16px;
+                font-weight: 500;
+                color: $colorText;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
 

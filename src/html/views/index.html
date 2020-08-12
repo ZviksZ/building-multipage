@@ -4,61 +4,163 @@ title: "Волгарь"
 <%= _.template(require('./../includes/header.html').default)(data) %>
 
 
-<div class="mainblock-wrapper" style="overflow-x: hidden; overflow-y: visible;">
-    <div class="section display-flex animate-start no-padding-top no-padding-bottom" id="main_section">
-        <div class="bg-blue"></div>
-        <div class="bg-image"></div>
-       <div class="container container-absolute">
-           <div class="info">
-               <div class="info-top">
-                   <h1 class="color-white">Комфортная среда для жизни людей</h1>
-               </div>
-               <div class="info-bottom">
-                   <ul class="color-white">
-                       <li>4 минуты до центра Самары</li>
-                       <li>Комфортные планировки</li>
-                       <li>Открытые школы и детские сады</li>
-                       <li>Природные парки и благоустроенные скверы</li>
-                   </ul>
-               </div>
-           </div>
-       </div>
+<!--<div class="main-block-wrapper">-->
+<!--    <div class="main-block animate-start" id="main_section">-->
+<!--        <div class="bg-blue"></div>-->
+<!--        <div class="bg-image"></div>-->
+<!--       <div class="container container-absolute">-->
+<!--           <div class="info">-->
+<!--               <div class="info-top">-->
+<!--                   <h1 class="color-white fade-left">Комфортная среда для жизни людей</h1>-->
+<!--               </div>-->
+<!--               <div class="info-bottom">-->
+<!--                   <ul class="color-white fade-left delay-100 styled">-->
+<!--                       <li class="icon-clock">4 минуты до центра Самары</li>-->
+<!--                       <li class="icon-area">Комфортные планировки</li>-->
+<!--                       <li class="icon-study">Открытые школы и детские сады</li>-->
+<!--                       <li class="icon-garden">Природные парки и благоустроенные скверы</li>-->
+<!--                   </ul>-->
+<!--               </div>-->
+<!--           </div>-->
+<!--       </div>-->
+<!--    </div>-->
+<!--    <div class="bottom-block">-->
+<!--        <div class="container">-->
+<!--            <div class="rooms-item-wrapper">-->
+<!--                <div class="row">-->
+<!--                    <div class="col w-20 w-50-tablet">-->
+<!--                        <a class="room-info-item">-->
+<!--                            <span class="name">Студии</span>-->
+<!--                            <span class="price">от 1,2 млн.</span>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="col w-20 w-50-tablet">-->
+<!--                        <a class="room-info-item">-->
+<!--                            <span class="name">1-комнатные</span>-->
+<!--                            <span class="price">от 1,6 млн.</span>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="col w-20 w-50-tablet">-->
+<!--                        <a class="room-info-item">-->
+<!--                            <span class="name">2-комнатные</span>-->
+<!--                            <span class="price">от 2,0 млн.</span>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="col w-20 w-50-tablet">-->
+<!--                        <a class="room-info-item">-->
+<!--                            <span class="name">3-комнатные</span>-->
+<!--                            <span class="price">от 3,0 млн.</span>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="col w-20 w-50-tablet">-->
+<!--                        <a class="room-info-item">-->
+<!--                            <span class="name">4-комнатные</span>-->
+<!--                            <span class="price">от 4,7 млн.</span>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="main-block" >
+    <div class="bg-blue"></div>
+    <div class="bg-image"></div>
+    <div class="main-content transparent">
+        <div class="container">
+            <div class="info">
+                <div class="info-top">
+                    <h1 class="color-white fade-left delay-500">Комфортная среда для жизни людей</h1>
+                </div>
+                <div class="info-bottom">
+                    <ul class="color-white fade-left delay-700 styled">
+                        <li class="icon-clock">4 минуты до центра Самары</li>
+                        <li class="icon-area">Комфортные планировки</li>
+                        <li class="icon-study">Открытые школы и детские сады</li>
+                        <li class="icon-garden">Природные парки и благоустроенные скверы</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div class="bg-white"></div>
+    <div class="white-block hide-mobile">
+        <div class="section no-padding">
+            <div class="container">
+                <div class="rooms-item-wrapper">
+                    <div class="rooms-items-row">
+                        <div class="rooms-item-col">
+                            <a class="room-info-item">
+                                <span class="name">Студии</span>
+                                <span class="price">от 1,2 млн.</span>
+                            </a>
+                        </div>
+                        <div class="rooms-item-col">
+                            <a class="room-info-item">
+                                <span class="name">Студии</span>
+                                <span class="price">от 1,2 млн.</span>
+                            </a>
+                        </div>
+                        <div class="rooms-item-col">
+                            <a class="room-info-item">
+                                <span class="name">Студии</span>
+                                <span class="price">от 1,2 млн.</span>
+                            </a>
+                        </div>
+                        <div class="rooms-item-col">
+                            <a class="room-info-item">
+                                <span class="name">Студии</span>
+                                <span class="price">от 1,2 млн.</span>
+                            </a>
+                        </div>
+                        <div class="rooms-item-col">
+                            <a class="room-info-item">
+                                <span class="name">Студии</span>
+                                <span class="price">от 1,2 млн.</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="section no-padding with-shadow">
+<div class="section no-padding-bottom padding-top hide-desktop">
     <div class="container">
-        <div class="row">
-            <div class="col w-20">
-                <a class="room-info-item">
-                    <span class="name">Студии</span>
-                    <span class="price">от 1,2 млн.</span>
-                </a>
-            </div>
-            <div class="col w-20">
-                <a class="room-info-item">
-                    <span class="name">1-комнатные</span>
-                    <span class="price">от 1,6 млн.</span>
-                </a>
-            </div>
-            <div class="col w-20">
-                <a class="room-info-item">
-                    <span class="name">2-комнатные</span>
-                    <span class="price">от 2,0 млн.</span>
-                </a>
-            </div>
-            <div class="col w-20">
-                <a class="room-info-item">
-                    <span class="name">3-комнатные</span>
-                    <span class="price">от 3,0 млн.</span>
-                </a>
-            </div>
-            <div class="col w-20">
-                <a class="room-info-item">
-                    <span class="name">4-комнатные</span>
-                    <span class="price">от 4,7 млн.</span>
-                </a>
+        <div class="rooms-item-wrapper">
+            <div class="rooms-items-row">
+                <div class="rooms-item-col">
+                    <a class="room-info-item">
+                        <span class="name">Студии</span>
+                        <span class="price">от 1,2 млн.</span>
+                    </a>
+                </div>
+                <div class="rooms-item-col">
+                    <a class="room-info-item">
+                        <span class="name">Студии</span>
+                        <span class="price">от 1,2 млн.</span>
+                    </a>
+                </div>
+                <div class="rooms-item-col">
+                    <a class="room-info-item">
+                        <span class="name">Студии</span>
+                        <span class="price">от 1,2 млн.</span>
+                    </a>
+                </div>
+                <div class="rooms-item-col">
+                    <a class="room-info-item">
+                        <span class="name">Студии</span>
+                        <span class="price">от 1,2 млн.</span>
+                    </a>
+                </div>
+                <div class="rooms-item-col">
+                    <a class="room-info-item">
+                        <span class="name">Студии</span>
+                        <span class="price">от 1,2 млн.</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -104,6 +206,132 @@ title: "Волгарь"
                         <span class="name">Благоустройство и комфорт </span>
                     </span>
                     </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section special padding-bottom">
+    <div class="container">
+        <h3 class="h3 color-text margin-bottom-x3">Спецпредложения</h3>
+
+        <div class="news-cards">
+            <a class="news-card">
+                <div class="photo"></div>
+                <div class="info">
+                    <div class="date">до 30 июня 2020 г.</div>
+                    <div class="name">Скидка 75000 рублей в честь 75-летия Победы</div>
+                    <div class="desc">Скидка предоставляется на трехкомнатные квартиры в некоторых домах</div>
+                </div>
+            </a>
+            <a class="news-card">
+                <div class="photo"></div>
+                <div class="info">
+                    <div class="date">Постоянная акция</div>
+                    <div class="name">Постоянная акция</div>
+                    <div class="desc">Квартиры в новостройках от застройщика ГК "Амонд"! От 1,2 млн рублей от 34 500 ₽ м²</div>
+                </div>
+            </a>
+            <a class="news-card">
+                <div class="photo"></div>
+                <div class="info">
+                    <div class="date">Постоянная акция</div>
+                    <div class="name">Выгода на ремонт до 50000 рублей</div>
+                    <div class="desc">Совместная акция с ПАО Сбербанк "Выгода на ремонт до 50 000 рублей" для держателей карт банка.</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="section decorations padding-bottom-x2">
+    <div class="container">
+        <h3 class="h3 color-text margin-bottom-x3">Виды отделки</h3>
+        <div class="row">
+            <div class="col w-33 w-33-mobile">
+                <a class="decoration-item">
+                    <div class="photo"></div>
+                    <div class="name">Черновая</div>
+                </a>
+            </div>
+            <div class="col w-33 w-33-mobile">
+                <a class="decoration-item">
+                    <div class="photo"></div>
+                    <div class="name">Предчистовая</div>
+                </a>
+            </div>
+            <div class="col w-33 w-33-mobile">
+                <a class="decoration-item">
+                    <div class="photo"></div>
+                    <div class="name">Чистовая <span class="hide-mobile">«Стандарт»</span></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section special">
+    <div class="container">
+        <h3 class="h3 color-text margin-bottom-x3">Отделы продаж</h3>
+        <div class="row">
+            <div class="col w-50">
+                <div class="contacts-map" id="map_sell_office_1" data-settings='{"coords":"53.187850, 50.085685"}'>
+
+                </div>
+                <div class="offices-info">
+                    <div class="name">г. Самара, ул. Степана Разина, 102</div>
+                    <div class="worktime-phones">
+                        <div class="worktime">
+                            <div class="item">
+                                <div class="key">Пн.-Чт.</div>
+                                <div class="value">08:00 – 18:00</div>
+                            </div>
+                            <div class="item">
+                                <div class="key">Пт.</div>
+                                <div class="value">08:00 – 17:00</div>
+                            </div>
+                            <div class="item">
+                                <div class="key">Сб.-Вс.</div>
+                                <div class="value">Выходной</div>
+                            </div>
+                        </div>
+                        <div class="phones">
+                            <div class="item">+7 (846) 311-11-11</div>
+                            <div class="item">+7 (846) 311-11-11</div>
+                        </div>
+                    </div>
+                    <a href="#" class="button secondary small inline">Бесплатное такси в отдел продаж</a>
+                </div>
+            </div>
+            <div class="col w-50">
+                <div class="contacts-map" id="map_sell_office_2" data-settings='{"coords":"53.151079, 50.075499"}'>
+
+                </div>
+
+                <div class="offices-info">
+                    <div class="name">г. Самара, ул. Осетинская, 8</div>
+                    <div class="worktime-phones">
+                        <div class="worktime">
+                            <div class="item">
+                                <div class="key">Пн.-Чт.</div>
+                                <div class="value">08:00 – 18:00</div>
+                            </div>
+                            <div class="item">
+                                <div class="key">Пт.</div>
+                                <div class="value">08:00 – 17:00</div>
+                            </div>
+                            <div class="item">
+                                <div class="key">Сб.-Вс.</div>
+                                <div class="value">Выходной</div>
+                            </div>
+                        </div>
+                        <div class="phones">
+                            <div class="item">+7 (846) 311-11-11</div>
+                            <div class="item">+7 (846) 311-11-11</div>
+                        </div>
+                    </div>
+                    <a href="#" class="button secondary small inline">Бесплатное такси в отдел продаж</a>
                 </div>
             </div>
         </div>

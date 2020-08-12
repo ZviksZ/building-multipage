@@ -1,5 +1,5 @@
 // Типографика
-.section {
+.section, .main-content {
     display: block;
     position: relative;
     z-index: 10;
@@ -13,31 +13,16 @@
         margin-bottom: 20px;
     }
 
-    &.display-flex {
-        display: flex;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: stretch;
-        max-height: 600px;
-
-        @include mobile {
-            flex-direction: column;
-            justify-content: flex-end;
-            max-height: none;
-        }
-    }
-
     @include mobile {
         padding: 30px 0;
     }
 
     &.for-parallax {
         z-index: 9;
+    }
+
+    &.special {
+        background-color: $colorSectionBg;
     }
 
     &.gray {
@@ -97,17 +82,37 @@
         @extend %title-shared;
         font-size: 58px;
 
-        @include desktop-smaller {
-            font-size: 35px;
-        }
+        //@include desktop-medium {
+        //    font-size: 55px;
+        //}
+        //
+        //@include desktop-small {
+        //    font-size: 45px;
+        //}
+        //
+        //@include desktop-smaller {
+        //    font-size: 35px;
+        //}
 
         @include mobile {
             font-size: 28px;
+        }
+
+        @include mobile-small {
+            font-size: 25px;
         }
     }
     h2, .h2 {
         @extend %title-shared;
         font-size: 46px;
+
+        @include desktop-medium {
+            font-size: 42px;
+        }
+
+        @include desktop-small {
+            font-size: 32px;
+        }
 
         @include desktop-smaller {
             font-size: 22px;
@@ -178,6 +183,14 @@
         line-height: 26px;
         font-weight: 500;
 
+        @include desktop-small {
+            font-size: 15px;
+        }
+
+        @include desktop-smaller {
+            font-size: 14px;
+        }
+
         &:first-child {
             margin-top: 0;
         }
@@ -232,6 +245,29 @@
             @extend %text-big-shared;
         }
 
+        &.styled {
+            li {
+                padding-left: 42px;
+
+                @include mobile {
+                    padding-left: 35px;
+                }
+
+                &:before {
+                    font-size: 21px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-color: transparent;
+                    width: auto;
+                    height: auto;
+
+                    @include mobile {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+
         li {
             display: block;
             position: relative;
@@ -247,6 +283,8 @@
                 font-size: 12px;
                 margin: 5px 0;
             }
+
+
 
             &:before {
                 content: "";

@@ -3,24 +3,13 @@ import { Header } from './components/header';
 import { MobileMenu } from './components/mobile-menu';
 import { Effects} from './components/effects';
 import {
-    SectionsSelect,
-    ApartmentsSelect,
-    ApartmentView,
-    ApartmentsSearch,
-    ApartmentsHorizontalSearch,
-    BuildingProgressSlider,
     LocationMap
 } from './components/residential-complex';
 
-import {
-    ObjectsMap
-} from './components/common';
 
 import { ModalWindowFullScreen } from './components/modal-window-fullscreen';
 import {
     initMaskedInput,
-    initFormWithValidate,
-    initFillControlInput,
     initPlaceholders
 } from './components/form'
 import {
@@ -39,7 +28,6 @@ import {Selects} from './components/form';
 $(function () {
     // скрываем прелоадер страницы если он есть
     const $pagePreloader = $('#page_preloader');
-    const $mainSection = $('#main_section');
 
     if ($pagePreloader.length) {
         $pagePreloader.addClass('animate-start');
@@ -63,9 +51,6 @@ $(function () {
 
         $('.preloader-page').removeClass('preloader-page');
 
-        if ($mainSection.length) {
-            $mainSection.removeClass('animate-start');
-        }
     }
 });
 
@@ -84,32 +69,9 @@ function initScripts() {
     // эффекты
     new Effects();
 
-    // расположение и инфраструктура карты
-    new LocationMap();
-
-    // расположение и инфраструктура карты с объектами
-    new ObjectsMap();
-
-    // выбор секции на странице ЖК
-    new SectionsSelect($('#rc_sections'));
-
-    //Выбор квартиры
-    new ApartmentsSelect($('#apartments_select'));
-
-    //Просмотр квартиры
-    new ApartmentView($('#apartment_view'))
-
-    //Поиск квартир
-    new ApartmentsSearch($('#apartments_search'));
-
-    //Горизонатальный блок с фильтром
-    new ApartmentsHorizontalSearch($('#apartments_search_filter_horizontal'));
-
-    // галерея прогресс строительства
-    new BuildingProgressSlider('rc_building_progress_slider');
-
-    // галерея ипотека
-    new BuildingProgressSlider('mortgage_slider');
+    // Офисы на главной и в контактах
+    new LocationMap($('#map_sell_office_1'));
+    new LocationMap($('#map_sell_office_2'));
 
     // Форма обратной связи в модалке
     new InitFeedbackModalForm();
@@ -119,7 +81,6 @@ function initScripts() {
 
     //Форма заявки на бронирование
     new InitReserveForm();
-
 
     // Инициализация плейсхолдеров и масок
     initMaskedInput();

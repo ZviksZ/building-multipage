@@ -45,6 +45,14 @@ $desktop-medium: 1600px;
         @content;
     }
 };
+
+@mixin only-tablet  {
+    @media (min-width: #{$tablet}) and (max-width: #{$desktop})
+    {
+        @content;
+    }
+};
+
 @mixin mobile-small  {
     @media (max-width: #{$mobileSmall})
     {
@@ -64,3 +72,18 @@ $desktop-medium: 1600px;
         @content;
     }
 }
+
+@mixin ipad-pro-portrait {
+    @media only screen and (max-width: 900px),
+    (width: 1024px) and (height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) and (orientation: portrait)  {
+        @content;
+    }
+}
+
+@mixin ipad-pro-landscape {
+    @media only screen and (max-width: 900px),
+    (height: 1024px) and (width: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) and (orientation: landscape) {
+
+    }
+}
+
