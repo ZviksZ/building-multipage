@@ -3,8 +3,9 @@ import { Header } from './components/header';
 import { MobileMenu } from './components/mobile-menu';
 import { Effects} from './components/effects';
 import {
-    LocationMap
-} from './components/residential-complex';
+    LocationMap,
+    PolygonsMap
+} from './components/maps';
 
 
 import { ModalWindowFullScreen } from './components/modal-window-fullscreen';
@@ -72,6 +73,7 @@ function initScripts() {
     // Офисы на главной и в контактах
     new LocationMap($('#map_sell_office_1'));
     new LocationMap($('#map_sell_office_2'));
+    new PolygonsMap($('#polygon_map'));
 
     // Форма обратной связи в модалке
     new InitFeedbackModalForm();

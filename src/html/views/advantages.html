@@ -1,0 +1,174 @@
+<% var data = {
+title: "Волгарь"
+}; %>
+<%= _.template(require('./../includes/header.html').default)(data) %>
+
+<div class="section no-padding">
+    <div class="container">
+        <div class="breadcrumbs">
+            <a class="item link" href="#"><i class="icon icon-backspace"></i></a>
+            <a class="item link" href="#">Главная</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="section no-padding">
+    <div class="container">
+        <h1 class="h1 color-text">
+            Преимущества
+        </h1>
+        <div class="advantages-wrapper">
+            <div class="row">
+                <div class="col w-50 w-50-tablet">
+                    <a class="advantages-item bg-1">
+                        <span class="fake-link"></span>
+                        <span class="info">
+                            <span class="name">Расположение и транспортная доступность</span>
+                            <span class="place">Куйбышевский район</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="col w-50 w-50-tablet">
+                    <a class="advantages-item bg-2">
+                    <span class="fake-link"></span>
+                    <span class="info">
+                        <span class="name">Развитая инфраструктура</span>
+                    </span>
+                    </a>
+                </div>
+
+                <div class="clr hide-desktop"></div>
+
+                <div class="col w-50 w-50-tablet">
+                    <a class="advantages-item bg-3">
+                    <span class="fake-link"></span>
+                    <span class="info">
+                        <span class="name">Спортивные меропрития и площадки во дворах</span>
+                    </span>
+                    </a>
+                </div>
+
+                <div class="col w-50 w-50-tablet">
+                    <a class="advantages-item bg-4">
+                    <span class="fake-link"></span>
+                    <span class="info">
+                        <span class="name">Благоустройство и комфорт </span>
+                    </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section padding-top">
+    <div class="container">
+        <h5 class="h5 color-text">SEO тексты</h5>
+        <p class="color-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut justo nec ligula dignissim
+               fringilla sit amet eu tellus. Quisque sem sapien, facilisis id dignissim vitae, dignissim quis mauris.
+            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla ante tortor,
+            dapibus sed dictum vitae, dapibus vehicula risus. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Pellentesque ut justo nec ligula dignissim fringilla sit amet eu tellus. Quisque sem sapien,
+            facilisis id dignissim vitae, dignissim quis mauris.</p>
+
+        <p class="color-text">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla ante tortor,
+            dapibus sed dictum vitae, dapibus vehicula risus. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Pellentesque ut justo nec ligula dignissim fringilla sit amet eu tellus. Quisque sem sapien, facilisis id dignissim vitae, dignissim quis mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla ante tortor, dapibus sed dictum vitae, dapibus vehicula risus.</p>
+    </div>
+</div>
+
+<!--<div class="section">-->
+<!--    <div class="container">-->
+<!--        <h1>Заголовок H1</h1>-->
+<!--        <h2>Заголовок H2</h2>-->
+<!--        <h3>Заголовок H3</h3>-->
+<!--        <h4>Заголовок H4</h4>-->
+<!--        <h5>Заголовок H5</h5>-->
+<!--        <h6>Заголовок H6</h6>-->
+<!--        <p class="big">Просто текст 20px</p>-->
+<!--        <p>Просто текст 16px</p>-->
+<!--        <p class="medium">Просто текст 14px</p>-->
+<!--        <p class="small">Просто текст 12px</p>-->
+
+<!--        <p class="big bold">Просто текст 20px</p>-->
+<!--        <p class="bold">Просто текст 16px</p>-->
+<!--        <p class="medium bold">Просто текст 14px</p>-->
+<!--        <p class="small bold">Просто текст 12px</p>-->
+
+<!--        <ul>-->
+<!--            <li>Body1 dedisse scripsisse iudicaretur.</li>-->
+<!--            <li>Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus.</li>-->
+<!--            <li>Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros.</li>-->
+<!--            <li>Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</li>-->
+<!--        </ul>-->
+
+<!--        <ol>-->
+<!--            <li>Body1 dedisse scripsisse iudicaretur.</li>-->
+<!--            <li>Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus.</li>-->
+<!--            <li>Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros.</li>-->
+<!--            <li>Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</li>-->
+<!--        </ol>-->
+<!--        <div class="row">-->
+<!--            <div class="col">-->
+<!--                <a href="#" class="button inline">Primary M</a>-->
+<!--                <a href="#" class="button secondary inline">Secondary M</a>-->
+<!--                <a href="#" class="button default inline">Default M</a>-->
+<!--            </div>-->
+<!--            <div class="col">-->
+<!--                <a href="#" class="button small inline">Primary S</a>-->
+<!--                <a href="#" class="button small secondary inline">Secondary S</a>-->
+<!--                <a href="#" class="button small default inline">Default S</a>-->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="col">-->
+<!--                <a href="#" class="button default inline button-icon">-->
+<!--                    <i class="icon icon-alert"></i>-->
+<!--                </a>-->
+<!--                <a href="#" class="button default inline">-->
+<!--                    Текст и иконка большая-->
+<!--                    <i class="icon icon-alert"></i>-->
+<!--                </a>-->
+
+<!--                <a href="#" class="button default inline small">-->
+<!--                    Текст и иконка маленькая-->
+<!--                    <i class="icon icon-alert"></i>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--            <div class="col">-->
+<!--                <form action="/netcat/add.php" id="feedback-form" class="feedback-form margin-top-x2">-->
+<!--                    <h3 class="h5 margin-bottom-x2 delay-100">Обратная связь</h3>-->
+<!--                    <label class="field field-input item delay-200">-->
+<!--                        <input class="input-text placeholder validate" placeholder="Ваше ФИО" data-placeholder="Как к вам обращаться" data-validate="required" id="feedback_name" name="feedback_name" type="text">-->
+<!--                        <p class="error-message"></p>-->
+<!--                    </label>-->
+<!--                    <label class="field field-input item delay-300 empty">-->
+<!--                        <input class="input-text placeholder validate input-mask" data-mask_tpl="phone_plus7" data-placeholder="Номер телефона" data-validate="mobile_phone" id="feedback_phone" name="feedback_phone" type="text" value="" inputmode="text">-->
+<!--                        <p class="error-message"></p>-->
+<!--                    </label>-->
+<!--                    <label class="field field-input item delay-400 ">-->
+<!--                        <textarea class="input-text placeholder validate" data-placeholder="Текст сообщения" placeholder="Введите текст сообщения" id="feedback_text" name="feedback_text"></textarea>-->
+<!--                        <p class="error-message"></p>-->
+<!--                    </label>-->
+<!--                    <div class="form-message">-->
+<!--                        <div class="form-info">-->
+<!--                            <span class="message-icon success"><i class="icon-confirm"></i></span>-->
+<!--                            <span class="message-icon error"><i class="icon-cancel"></i></span>-->
+<!--                            <p class="message-title"></p>-->
+<!--                            <p class="message-subtitle"></p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="delay-500">-->
+<!--                        <button class="button inline no-margin-top" type="submit" disabled="disabled">Отправить</button>-->
+<!--                        <p class="inline-block">-->
+<!--                            Нажимая кнопку «Отправить» вы даёте свое согласие на-->
+<!--                            <a href="/policy/" target="_blank">обработку персональных данных</a>-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<%= _.template(require('./../includes/footer.html').default)(data) %>

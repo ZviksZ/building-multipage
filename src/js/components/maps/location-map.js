@@ -39,10 +39,6 @@ export default class LocationMap {
                     iconImageOffset: [-16, -49]
                 });
 
-                // зум только для фулскринной карты
-                if (id !== 'location_map') {
-                    map.behaviors.disable('scrollZoom');
-                }
 
                 map.geoObjects.add(myPlacemark);
 

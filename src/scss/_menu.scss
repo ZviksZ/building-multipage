@@ -150,22 +150,29 @@
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    margin: 8px 0 20px 0;
+    margin: 20px 0 10px 0;
 
     .item {
+        font-family: "Manrope Bold";
         margin: 0 10px 0 0;
         font-size: 14px;
         line-height: 26px;
-        font-weight: 500;
-        color: $colorGrayLight;
+        font-weight: 800;
+        color: $colorTextGray;
         text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.135em;
+
+        i {
+            line-height: 26px;
+        }
     }
     @include mobile {
         margin: 15px 0 5px 0;
         .item {
             display: flex;
             align-items: center;
-            color: $colorText;
+            color: $colorTextGray;
             i {
                 font-size: 10px;
             }

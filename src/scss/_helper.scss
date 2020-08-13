@@ -68,6 +68,10 @@
 }
 .margin-top-x3 {
     margin-top: 48px !important;
+
+    @include mobile {
+        margin-top: 32px!important;
+    }
 }
 
 .no-margin-bottom {
@@ -91,6 +95,10 @@
 }
 .no-margin-left {
     margin-left: 0 !important;
+}
+
+.no-margin-right {
+    margin-right: 0 !important;
 }
 .margin-left {
     margin-left: 16px !important;
@@ -168,6 +176,9 @@
 }
 .color-text-gray {
     color: $colorTextGray !important;
+}
+.color-text-gray-light {
+    color: #E1EAF1 !important;
 }
 .color-link {
     color: $colorLink !important;
