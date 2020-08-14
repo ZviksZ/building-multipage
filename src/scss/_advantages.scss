@@ -516,3 +516,64 @@
 .infrastructure-map {
     height: 622px;
 }
+
+.map-controls {
+    display: flex;
+    padding: 25px 5px;
+    overflow: auto;
+    background-color: $colorSectionBg;
+
+    .inner {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        max-width: 780px;
+        margin: 0 auto;
+
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        cursor: pointer;
+        text-align: center;
+        margin: 0 7px;
+        flex-basis: 100px;
+
+        &.active {
+            .icon {
+                background-color: #1C81DE;
+            }
+        }
+
+        //&:first-child {
+        //    margin-left: 0;
+        //}
+        //
+        //&:last-child {
+        //    margin-right: 0;
+        //}
+
+
+
+       .icon {
+           margin: 0 auto;
+           width: 50px;
+           height: 50px;
+           border-radius: 50%;
+           background-color: darkseagreen;
+       }
+
+        .name {
+            flex-wrap: wrap;
+            margin-top: 5px;
+            font-family: "Manrope Bold";
+            font-weight: 800;
+            font-size: 12px;
+            color: $colorText;
+        }
+    }
+}
