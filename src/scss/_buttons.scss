@@ -141,21 +141,23 @@
 
     &.button-icon {
         padding: 0;
-        width: 28px; height: 28px;
-        border-radius: 12px;
+        width: 44px; height: 44px;
+        border-radius: 16px;
 
         .icon {
-            font-size: 12px;
-            line-height: 1;
+            font-size: 20px;
+            line-height: 44px;
             color: $colorWhite;
         }
 
+
         &.small {
-            width: 20px; height: 20px;
-            border-radius: 6px;
+            width: 32px; height: 32px;
+            border-radius: 13px;
 
             .icon {
-                font-size: 6px;
+                font-size: 16px;
+                line-height: 32px;
             }
         }
     }

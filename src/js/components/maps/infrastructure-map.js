@@ -1,9 +1,10 @@
-export default class LocationMap {
+export default class infrastructureMap {
     constructor($block) {
         if (!$block.length) return;
 
         this.$block = $block;
         this.mapId = this.$block.attr('id');
+        if (!this.$block) return;
 
         try {
             this.settings = JSON.parse(this.$block[0].dataset['settings']);

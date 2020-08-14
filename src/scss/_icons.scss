@@ -1,10 +1,10 @@
 @font-face {
     font-family: "volgar";
-    src:url("../fonts/volgar.eot");
-    src:url("../fonts/volgar.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/volgar.woff") format("woff"),
-    url("../fonts/volgar.ttf") format("truetype"),
-    url("../fonts/volgar.svg#volgar") format("svg");
+    src:url("../fonts/volgar.eot?v=2");
+    src:url("../fonts/volgar.eot?#iefix&v=2") format("embedded-opentype"),
+    url("../fonts/volgar.woff?v=2") format("woff"),
+    url("../fonts/volgar.ttf?v=2") format("truetype"),
+    url("../fonts/volgar.svg#volgar?v=2") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -95,4 +95,7 @@
 }
 .icon-study:before {
     content: "\73"!important;
+}
+.icon-phonecall:before {
+    content: "\74";
 }

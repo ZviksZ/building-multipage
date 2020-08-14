@@ -4,7 +4,9 @@ import { MobileMenu } from './components/mobile-menu';
 import { Effects} from './components/effects';
 import {
     LocationMap,
-    PolygonsMap
+    PolygonsMap,
+    EditPolygonsMap,
+    infrastructureMap
 } from './components/maps';
 
 
@@ -70,10 +72,12 @@ function initScripts() {
     // эффекты
     new Effects();
 
-    // Офисы на главной и в контактах
+    // Карты все
     new LocationMap($('#map_sell_office_1'));
     new LocationMap($('#map_sell_office_2'));
     new PolygonsMap($('#polygon_map'));
+    new EditPolygonsMap($('#edit_polygon_map'))
+    new infrastructureMap($('#infrastructure_map'));
 
     // Форма обратной связи в модалке
     new InitFeedbackModalForm();

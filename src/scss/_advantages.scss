@@ -444,25 +444,29 @@
             margin: 5px 0;
 
             &.color-purple {
-                .number {
+                .number,
+                .traffic-type{
                     background-color: #B43DCC;
                 }
             }
 
             &.color-green {
-                .number {
+                .number,
+                .traffic-type{
                     background-color: #3DB300;
                 }
             }
 
             &.color-orange {
-                .number {
+                .number,
+                .traffic-type{
                     background-color: #FF8A00;
                 }
             }
 
             &.color-blue {
-                .number {
+                .number,
+                .traffic-type {
                     background-color: #168CFF;
                 }
             }
@@ -470,6 +474,8 @@
             .number {
                 display: inline-block;
                 vertical-align: middle;
+                text-align: center;
+                min-width: 28px;
                 margin-right: 5px;
                 padding: 2px 3px;
                 border-radius: 3px;
@@ -479,6 +485,34 @@
                 color: $colorWhite;
 
             }
+
+            .traffic-type {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 5px;
+                border-radius: 3px;
+                width: 28px;
+                height: 28px;
+                background-position: 0 1px;
+                background-repeat: no-repeat;
+                background-size: 100% 25px;
+
+                &.bus {
+                    background-image: url(../img/traffic/icon/bus.svg);
+                }
+
+                &.minibus {
+                    background-image: url(../img/traffic/icon/minibus.svg);
+                }
+
+                &.trolley {
+                    background-image: url(../img/traffic/icon/trolley.svg);
+                }
+            }
         }
     }
+}
+
+.infrastructure-map {
+    height: 622px;
 }
