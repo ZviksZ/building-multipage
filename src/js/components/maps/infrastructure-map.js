@@ -11,6 +11,7 @@ export default class infrastructureMap {
         try {
             this.settings = JSON.parse(this.$block[0].dataset['settings']);
             this.coords = this.settings.coords.split(',');
+            this.points = this.settings.points;
             this.map = null;
 
             this.init();
@@ -29,20 +30,17 @@ export default class infrastructureMap {
                 const map = new ymaps.Map(id, {
                     center: this.coords,
                     controls: [],
-                    zoom: 16
+                    zoom: 14
                 }, {
-                    suppressMapOpenBlock: true
+                    suppressMapOpenBlock: true,
+                    yandexMapDisablePoiInteractivity: true
                 });
 
-                // const myPlacemark = new ymaps.Placemark(this.coords, {}, {
-                //     iconLayout: 'default#image',
-                //     iconImageHref: './img/balloon.svg',
-                //     iconImageSize: [33, 49],
-                //     iconImageOffset: [-16, -49]
-                // });
 
+                // Создадим объекты из их JSON-описания и добавим их на карту.
+                window.myObjects = ymaps.geoQuery(this.points).addToMap(map);
 
-                // map.geoObjects.add(myPlacemark);
+                // checkState();
 
                 $('#infrastructure_map_toggles').on('click', '.item', function (){
                    const $this = $(this);
@@ -52,7 +50,10 @@ export default class infrastructureMap {
                    } else {
                        $this.addClass('active');
                    }
-                    checkState();
+                   setTimeout(()=> {
+                       checkState();
+                   }, 10);
+
 
                     return false;
                 });
@@ -66,64 +67,19 @@ export default class infrastructureMap {
 
                     const $selectedItems = $('#infrastructure_map_toggles').find('.item.active');
 
+                    for (let i = 0; i < $selectedItems.length; i++) {
+                        const colorType = $selectedItems[i].dataset.color;
 
-
-                    $.each($selectedItems,function (key, val) {
-                        const colorType = val.dataset.color;
                         if (colorType) {
-                            console.log(colorType);
                             byColor = myObjects.search('options.fillColor = "' + colorType + '"').add(byColor);
-                            shownObjects = byColor.addToMap(map);
-                            myObjects.remove(shownObjects).removeFromMap(map);
                         }
-                    });
-
-                    console.log(byColor);
-
-
-                    // Мы отобрали объекты по цвету и по форме. Покажем на карте объекты,
-                    // которые совмещают нужные признаки.
-
+                    }
+                    // Мы отобрали объекты по цвету. Покажем на карте объекты,
+                    shownObjects = byColor.addToMap(map);
                     // Объекты, которые не попали в выборку, нужно убрать с карты.
-
+                    myObjects.remove(shownObjects).removeFromMap(map);
                 }
 
-                // Создадим объекты из их JSON-описания и добавим их на карту.
-                window.myObjects = ymaps.geoQuery({
-                    type: "FeatureCollection",
-                    features: [
-                        {
-                            type: 'Feature',
-                            geometry: {
-                                type: 'Point',
-                                coordinates: [53.155253, 50.091401]
-                            },
-                            options: {
-                                fillColor: "#1C81DE"
-                            }
-                        },
-                        {
-                            type: 'Feature',
-                            geometry: {
-                                type: 'Point',
-                                coordinates: [53.154751, 50.091883]
-                            },
-                            options: {
-                                fillColor: "#FF364E"
-                            }
-                        },
-                        {
-                            type: 'Feature',
-                            geometry: {
-                                type: 'Point',
-                                coordinates: [53.150774,50.075012]
-                            },
-                            options: {
-                                fillColor: "#48B83D"
-                            }
-                        }
-                    ]
-                }).addToMap(map);
 
                 resolve(map);
             });

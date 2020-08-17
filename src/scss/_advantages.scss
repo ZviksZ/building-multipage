@@ -514,7 +514,7 @@
 }
 
 .infrastructure-map {
-    height: 622px;
+    height: 64vh;
 }
 
 .map-controls {
@@ -543,28 +543,156 @@
         margin: 0 7px;
         flex-basis: 100px;
 
-        &.active {
-            .icon {
-                background-color: #1C81DE;
+        &:not(.active) {
+            &.type-0 {
+                .icon {
+                    border-color: #1C81DE;
+
+                    &:before {
+                        color: #1C81DE;
+                    }
+                }
+            }
+
+            &.type-1 {
+                .icon {
+                    border-color: #FF364E;
+
+                    &:before {
+                        color: #FF364E;
+                    }
+                }
+            }
+
+            &.type-2 {
+                .icon {
+                    border-color: #48B83D;
+
+                    &:before {
+                        color: #48B83D;
+                    }
+                }
+            }
+
+            &.type-3 {
+                .icon {
+                    border-color: #526474;
+
+                    &:before {
+                        color: #526474;
+                    }
+                }
+            }
+
+            &.type-4 {
+                .icon {
+                    border-color: #AE47FF;
+
+                    &:before {
+                        color: #AE47FF;
+                    }
+                }
+            }
+
+            &.type-5 {
+                .icon {
+                    border-color: #FFA15E;
+
+                    &:before {
+                        color: #FFA15E;
+                    }
+                }
+            }
+
+            &.type-6 {
+                .icon {
+                    border-color: #F58CB6;
+
+                    &:before {
+                        color: #F58CB6;
+                    }
+                }
+            }
+
+            &.type-7 {
+                .icon {
+                    border-color: #97C1FF;
+
+                    &:before {
+                        color: #97C1FF;
+                    }
+                }
             }
         }
 
-        //&:first-child {
-        //    margin-left: 0;
-        //}
-        //
-        //&:last-child {
-        //    margin-right: 0;
-        //}
+        &.active {
+            &.type-0 {
+                .icon {
+                    background-color: #1C81DE;
+                }
+            }
 
+            &.type-1 {
+                .icon {
+                    background-color: #FF364E;
+                }
+            }
 
+            &.type-2 {
+                .icon {
+                    background-color: #48B83D;
+                }
+            }
+
+            &.type-3 {
+                .icon {
+                    background-color: #526474;
+                }
+            }
+
+            &.type-4 {
+                .icon {
+                    background-color: #AE47FF;
+                }
+            }
+
+            &.type-5 {
+                .icon {
+                    background-color: #FFA15E;
+                }
+            }
+
+            &.type-6 {
+                .icon {
+                    background-color: #F58CB6;
+                }
+            }
+
+            &.type-7 {
+                .icon {
+                    background-color: #97C1FF;
+                }
+            }
+        }
 
        .icon {
+           position: relative;
            margin: 0 auto;
            width: 50px;
            height: 50px;
            border-radius: 50%;
-           background-color: darkseagreen;
+           background-color: transparent;
+           border: 2px transparent solid;
+
+           &:before {
+               display: block;
+               position: absolute;
+               left: 50%;
+               top:50%;
+               transform: translate(-50%,-50%);
+               font-size: 24px;
+               color: $colorWhite;
+           }
        }
 
         .name {
