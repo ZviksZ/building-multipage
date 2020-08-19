@@ -56,6 +56,8 @@
                 font-weight: 500;
                 font-size: 16px;
                 color: $colorText;
+                cursor: default;
+                user-select: none;
 
                 &:-webkit-autofill {
                     -webkit-animation-name: autofill;

@@ -2,6 +2,8 @@ import * as $  from 'jquery';
 import { Header } from './components/header';
 import { MobileMenu } from './components/mobile-menu';
 import { Effects} from './components/effects';
+import DeviceDetector from "device-detector-js";
+
 import {
     LocationMap,
     PolygonsMap,
@@ -33,6 +35,23 @@ import {Selects} from './components/form';
 
 
 $(function () {
+    const deviceDetector = new DeviceDetector();
+    const userAgent = navigator.userAgent;
+    const device = deviceDetector.parse(userAgent);
+
+
+    try {
+        const {
+            client
+        } = device;
+
+        if (client.name === 'Safari') $('body').addClass('helloApple')
+
+    } catch (e) {
+        console.log(device);
+    }
+
+
     // скрываем прелоадер страницы если он есть
     const $pagePreloader = $('#page_preloader');
 
