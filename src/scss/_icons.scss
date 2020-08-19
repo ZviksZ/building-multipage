@@ -27,7 +27,8 @@
 .fake-link:before,
 .room-info-item:after,
 .advantages-wrapper .advantages-item .info .place:before,
-.offices-info .name:before {
+.offices-info .name:before,
+[data-type*=select-one]:after{
     font-family: "volgar" !important;
     font-style: normal !important;
     font-weight: normal !important;

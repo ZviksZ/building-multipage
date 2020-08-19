@@ -206,7 +206,8 @@
         cursor: pointer;
         background-position: right top;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: 70% 100%;
+        transition: background-size .2s ease-in-out;
 
         @include mobile {
             margin-top: 0;
@@ -266,6 +267,7 @@
         }
 
         &:hover {
+            background-size: 80% 110%;
             &:after {
                 transform: scale(2.7);
 

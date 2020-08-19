@@ -24,6 +24,10 @@ import {
     InitReserveForm
 } from './components/reserve-form';
 
+import {
+    ApartmentsHorizontalSearch,
+} from './components/apartments';
+
 
 import {Selects} from './components/form';
 
@@ -78,6 +82,9 @@ function initScripts() {
     new PolygonsMap($('#polygon_map'));
     new EditPolygonsMap($('#edit_polygon_map'))
     new infrastructureMap($('#infrastructure_map'));
+
+    //Горизонатальный блок с фильтром
+    new ApartmentsHorizontalSearch($('#apartments_search_filter_horizontal'));
 
     // Форма обратной связи в модалке
     new InitFeedbackModalForm();

@@ -9,6 +9,15 @@
     user-select: none;
     font-size: 12px;
     font-family: Arial, sans-serif;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: -1px;
+
+    &--flat {
+        .irs {
+            margin: 0;
+        }
+    }
 }
 
 .irs-line {
@@ -17,9 +26,9 @@
     overflow: hidden;
     outline: none !important;
 
-    background-color: #e6e6e6;
-    height: 2px;
-    top: 14px;
+    background-color: #AFBDC8;
+    height: 1px;
+    top: 0;
 }
 
 .irs-bar {
@@ -27,9 +36,9 @@
     display: block;
     left: 0;
     width: 0;
-    height: 2px;
-    top: 14px;
-    background-color: $colorMain;
+    height: 1px;
+    top: 0;
+    background-color: $colorSecond;
 }
 
 .irs-shadow {
@@ -44,16 +53,37 @@
     display: block;
     width: 28px;
     height: 28px;
-    background-color: $colorWhite;
+    background-color: $colorSecond;
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.16), 0px 3px 8px rgba(0, 0, 0, 0.15);
     border-radius: 100px;
     box-sizing: border-box;
     cursor: default;
     z-index: 1;
+    top: -14px;
 
     &.type_last {
         z-index: 2;
     }
+
+    &:before, &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 10px;
+        width: 1px;
+        background-color: $colorWhite;
+    }
+
+    &:before {
+        left: 10px;
+    }
+    &:after {
+        right: 10px;
+    }
+
+
 }
 
 .irs-min, .irs-max {
@@ -195,8 +225,8 @@
     }
 
     .irs-handle {
-        top: 50%;
-        margin-top: -14px;
+        top: -14px;
+        //margin-top: -14px;
         width: 28px;
         height: 28px;
         background-color: #FFE02C;

@@ -2,16 +2,19 @@
     z-index: 99;
     .choices__inner {
         background-color: $colorWhite;
-        border: 2px solid $colorGrayMiddle;
+        border: 1px solid $colorGrayLight;
         border-radius: 5px;
         font-size: 16px;
-        line-height: 19px;
+        line-height: 23px;
+        min-height: 48px;
+        color: $colorText;
     }
 
     .choices__list--dropdown {
         .choices__item {
+            color: $colorText;
             font-size: 16px;
-            line-height: 19px;
+            line-height: 23px;
             padding-left: 12px;
         }
     }
@@ -20,11 +23,10 @@
         padding-right: inherit;
     }
 
-
     &[data-type*=select-one] {
         &:after{
-            content: "\68";
-            color: $colorGrayLight;
+            content: "\62";
+            color: $colorSecond;
             border: 0;
             font-size: 12px;
             width: 12px;
@@ -37,7 +39,5 @@
                 transform: rotate(180deg);
             }
         }
-
-
     }
 }

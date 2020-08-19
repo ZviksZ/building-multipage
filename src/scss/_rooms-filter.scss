@@ -1,0 +1,154 @@
+.filter-item {
+    margin-bottom: 22px;
+    .input-name {
+        font-weight: 500;
+        font-size: 12px;
+        margin-bottom: 8px;
+        color: $colorText;
+    }
+
+    .double-input-field {
+        display: flex;
+        align-items: stretch;
+        height: 48px;
+
+        .field-input {
+            display: flex;
+            width: 100%;
+            position: relative;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 1px;
+                bottom: 1px;
+                width: 1px;
+                background-color: $colorGrayBg;
+            }
+
+            &:first-child {
+                .input-text {
+                    border-radius: 3px 0 0 3px;
+                    border-right: 0;
+                }
+            }
+
+            &:last-child {
+                .input-text {
+                    border-radius: 0 3px 3px 0;
+                    border-left: 0;
+                }
+
+                &:before {
+                    display: none;
+                }
+            }
+
+            .input-text {
+                display: flex;
+                width: 100%;
+                box-sizing: border-box;
+                border: 1px solid #afbdc8;
+                border-radius: 3px;
+                text-align: center;
+                font-weight: 500;
+                font-size: 16px;
+                color: $colorText;
+
+                &:-webkit-autofill {
+                    -webkit-animation-name: autofill;
+                    -webkit-animation-fill-mode: both;
+                }
+
+            }
+        }
+    }
+
+    .rooms-check {
+        display: flex;
+        align-items: stretch;
+        background-color: $colorGrayBg;
+        border-radius: 3px;
+        height: 48px;
+        .item {
+            display: flex;
+            position: relative;
+            width: 100%;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            background-color: $colorWhite;
+            color: $colorText;
+            font-size: 16px;
+            line-height: 23px;
+            border: 1px solid $colorGrayLight;
+            border-right: none;
+            border-left: none;
+            cursor: pointer;
+
+            &:hover {
+                color: $colorSecond;
+            }
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                right: 0;
+                width: 1px;
+                top: 0;
+                bottom: 0;
+                background-color: $colorGrayBg;
+            }
+
+            &:last-child {
+                &:before {
+                    display: none;
+                }
+            }
+
+            &.active {
+                background-color: $colorSecond;
+                border-color: $colorSecond;
+                color: $colorWhite;
+                cursor: default;
+
+                &:first-child {
+                    border-color: $colorSecond;
+                }
+
+                &:last-child {
+                    border-color: $colorSecond;
+                }
+            }
+
+            &:first-child {
+                border-radius: 3px 0 0 3px;
+                border-left: 1px solid $colorGrayLight;
+            }
+
+            &:last-child {
+                border-radius: 0 3px 3px 0;
+                border-right: 1px solid $colorGrayLight;
+            }
+        }
+    }
+}
+
+.rooms-filter {
+    background-color: $colorSectionBg;
+    border-radius: 3px;
+    padding: 20px 30px 14px 30px;
+
+    @include desktop-medium {
+        padding: 16px 15px;
+    }
+
+    @include mobile {
+        padding: 16px 0;
+        background-color: $colorWhite;
+    }
+}
