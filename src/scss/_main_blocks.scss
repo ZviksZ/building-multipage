@@ -535,6 +535,10 @@
 .contacts-map {
     height: 335px;
 
+    &.big{
+        height: 460px;
+    }
+
     @include mobile-small {
         height: 214px;
     }

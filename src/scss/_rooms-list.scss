@@ -300,3 +300,253 @@
         }
     }
 }
+
+.apartment-view {
+    display: flex;
+
+    @include mobile {
+        flex-direction: column;
+    }
+    .apartment-image {
+        width: 100%;
+        .image-wrapper {
+            padding: 20px;
+            height: 560px;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+
+            @include only-mobile {
+                height: 350px;
+            }
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+    .apartment-info {
+        flex-shrink: 0;
+        position: relative;
+        width: 496px;
+
+        @include mobile {
+            width: 100%;
+        }
+
+        .full-price {
+            font-size: 38px;
+            color: $colorMain;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 25px;
+
+            @include mobile {
+                font-size: 24px;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            @include mobile {
+                justify-content: flex-start;
+            }
+
+            @include tablet-mobile {
+                flex-direction: column;
+            }
+
+            .button {
+                text-decoration: none;
+                white-space: nowrap;
+
+                @include mobile {
+                   margin-left: 0;
+                   margin-right: 20px;
+                }
+
+                @include tablet-mobile {
+                   width: 100%;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .info-block{
+            padding-top: 28px;
+            padding-bottom: 12px;
+            border: 1px dashed $colorGrayBg;
+            border-left: 0;
+            border-right: 0;
+            box-sizing: border-box;
+            .item {
+                display: flex;
+                height: 30px;
+                margin-bottom: 12px;
+                align-items: center;
+                justify-content: space-between;
+
+                .name {
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 1;
+                    color: $colorTextGray;
+                }
+                .value {
+                    font-family: "Manrope Bold";
+                    font-weight: 800;
+                    font-size: 20px;
+                    line-height: 1;
+                    color: $colorText;
+                }
+            }
+        }
+
+        .price-block {
+            .discount-block {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 20px;
+                margin-bottom: 5px;
+
+                .old-price {
+                    font-family: "Manrope Bold";
+                    color: $colorGrayLight;
+                    font-weight: 800;
+                    font-size: 20px;
+                    line-height: 29px;
+                }
+
+                .discount-percent {
+                    font-family: "Manrope Bold";
+                    font-weight: 800;
+                    font-size: 16px;
+                    color: $colorWhite;
+                    background-color: #FF0000;
+                    border-radius: 9px;
+                    padding: 3px;
+                    margin-bottom: 5px;
+                }
+            }
+
+            .price {
+                font-family: "Manrope Bold";
+                font-weight: 800;
+                font-size: 36px;
+                line-height: 36px;
+                color: $colorSecond;
+                margin-bottom: 10px;
+            }
+
+            .square-price {
+                font-family: "Manrope Bold";
+                font-weight: 800;
+                font-size: 16px;
+                line-height: 23px;
+                color: $colorText;
+            }
+        }
+    }
+    .apartment-section-info{
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: space-between;
+        width: 150px;
+
+        @include mobile {
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .compass-wrap {
+            position: relative;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .image-switcher {
+            @include mobile {
+                width: 100%;
+            }
+            .floor, .room {
+                display: none;
+            }
+
+            &.show-floor {
+                .floor {
+                    display: flex;
+                }
+            }
+
+            &.show-rooom {
+                .room {
+                    display: flex;
+                }
+            }
+        }
+    }
+}
+
+.compass-wrap {
+
+    .compass {
+        position: relative;
+        display: block;
+        width: 85px;
+        height: 85px;
+        background: url(../img/rooms/compass.svg) no-repeat center 50%;
+        background-size: 65px;
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+
+        .compass-symbol {
+            position: absolute;
+            font-size: 12px;
+            font-weight: 500;
+            width: 15px;
+            line-height: 1;
+            text-align: center;
+            text-transform: uppercase;
+            -webkit-transition: all .3s ease;
+            -o-transition: all .3s ease;
+            transition: all .3s ease;
+            color: #7D7D7D;
+            &.north {
+                left: 50%;
+                bottom: 105%;
+                margin: -7px;
+            }
+
+            &.south {
+                left: 50%;
+                top: 105%;
+                margin: -7px;
+            }
+
+            &.west {
+                top: 50%;
+                right: 95%;
+                margin: -4px;
+            }
+
+            &.east {
+                top: 50%;
+                left: 95%;
+                margin: -4px;
+            }
+        }
+    }
+}
