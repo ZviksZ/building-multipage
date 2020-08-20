@@ -1,16 +1,17 @@
 import * as $  from 'jquery';
 import 'ion-rangeslider';
-import { numberFormat, declOfNum } from  '../helpers/index'
+import { numberFormat, declOfNum } from  '../helpers/index';
 
-export default class ApartmentsHorizontalSearch {
+export default class RoomsSearch {
     constructor($block) {
         if (!$block.length) return;
         this.$block = $block;
         this.$filterForm = this.$block.find('[data-filter]');
-        //this.$residentialField = this.$filterForm.find('[name="residentials"]');
         this.$apartmentsWrapper = this.$block.parents().find('[data-apartments-wrapper]')
 
         this.$roomsField = this.$filterForm.find('[data-rooms]');
+
+        this.$filerSort = this.$block.parents().find('#filter_sort');
 
         /*Инпаты сумм*/
         this.$sumMin = this.$filterForm.find('[name="sum_min"]');
@@ -37,7 +38,7 @@ export default class ApartmentsHorizontalSearch {
         this.minMaxValues = this.getMinMaxValues();
         this.sumRangeSlider = this.initPriceRangeSlider();
         this.floorsRangeSlider = this.initFloorsRangeSlider();
-        this.squareRangeSlider = this.initAreaRangeSlider();
+        this.areaRangeSlider = this.initAreaRangeSlider();
 
         this.filterParams = this.getFilterParams();
 
@@ -65,7 +66,7 @@ export default class ApartmentsHorizontalSearch {
             }, 10)
         });
 
-        this.squareRangeSlider.on('change', (e) => {
+        this.areaRangeSlider.on('change', (e) => {
             setTimeout(() => {
                 this.filterParams = this.getFilterParams();
                 this.filterApartments();
@@ -84,49 +85,10 @@ export default class ApartmentsHorizontalSearch {
             return false;
         });
 
-        // this.$residentialField.on('change', (e) => {
-        //     this.filterParams = this.getFilterParams();
-        //     this.filterApartments();
-        // });
+        this.$filerSort.on('change', '.item', () => {
 
-        // this.$filterForm.on('submit', (e) => {
-        //     this.submitForm();
-        //
-        //     return false;
-        // });
+        });
     }
-
-    // submitForm() {
-    //     const formURL = this.$filterForm[0].dataset['href'];
-    //     //const jkID = this.$residentialField.val() || 0;
-    //     const $rooms = this.$roomsField.find('.item');
-    //     const roomsArr = [];
-    //     let roomsString = '';
-    //     const minPrice = this.$sumMin.val();
-    //     const maxPrice = this.$sumMax.val();
-    //
-    //     $rooms.each((item, value) => {
-    //         if (value.classList.contains('active')) roomsArr.push(value.dataset['room']);
-    //     });
-    //
-    //     if (roomsArr.length) {
-    //         roomsString = roomsArr.join(',');
-    //     } else {
-    //         roomsString = 0;
-    //     }
-    //
-    //     let redirectArr = [
-    //         //`?residentials=${jkID}`,
-    //         `&rooms=${roomsString}`,
-    //         `&sum_min=${minPrice}`,
-    //         `&sum_max=${maxPrice}`
-    //     ];
-    //
-    //     redirectArr = redirectArr.join('');
-    //
-    //     window.location.href = formURL + redirectArr;
-    //
-    // }
 
     /**
      *
@@ -192,6 +154,9 @@ export default class ApartmentsHorizontalSearch {
             return false;
         }
 
+        /*
+        Функция проверки на необходимость вывода квартиры по определенным комнатам, если пусто, то возвращает все
+         */
         function isRoomLength(rooms) {
             if (rooms.length) {
                 for (let i = 0; i < rooms.length; i++) {
@@ -291,6 +256,7 @@ export default class ApartmentsHorizontalSearch {
 
         return $('[name="square_range"]').ionRangeSlider({
             type: "double",
+            step: 0.10,
             min: this.minMaxValues.minArea,
             max: this.minMaxValues.maxArea,
             from: +areaMinInput[0].value,
@@ -468,7 +434,7 @@ export default class ApartmentsHorizontalSearch {
                                 </div>
                             </div>
                             <div class="item-photo">
-                                <div class="room-photo" style="background-image: url(${img})">
+                                <div class="room-photo lazy"  style="background-image: url(${img})">
                                 </div>
                             </div>
                             <div class="item-info">

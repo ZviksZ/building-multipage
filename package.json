@@ -18,7 +18,7 @@
     "inputmask": "^5.0.3",
     "ion-rangeslider": "^2.3.1",
     "jquery": "^3.4.1",
-    "jquery-lazy": "^1.7.10",
+    "jquery-lazy": "^1.7.11",
     "jquery-viewport-checker": "^1.8.8",
     "lozad": "^1.14.0",
     "moment": "^2.24.0",

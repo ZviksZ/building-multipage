@@ -1,7 +1,7 @@
-import ApartmentsHorizontalSearch from './apartments-horizontal-search';
+import RoomsSearch from './rooms-search';
 import ApartmentView from './apartment-view';
 
 export {
     ApartmentView,
-    ApartmentsHorizontalSearch
+    RoomsSearch
 };

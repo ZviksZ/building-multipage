@@ -27,7 +27,7 @@ import {
 } from './components/reserve-form';
 
 import {
-    ApartmentsHorizontalSearch,
+    RoomsSearch,
 } from './components/apartments';
 
 
@@ -38,7 +38,6 @@ $(function () {
     const deviceDetector = new DeviceDetector();
     const userAgent = navigator.userAgent;
     const device = deviceDetector.parse(userAgent);
-
 
     try {
         const {
@@ -92,6 +91,7 @@ function initScripts() {
         mobileMenu.toggle();
         return false;
     });
+
     // эффекты
     new Effects();
 
@@ -103,7 +103,7 @@ function initScripts() {
     new infrastructureMap($('#infrastructure_map'));
 
     //Горизонатальный блок с фильтром
-    new ApartmentsHorizontalSearch($('#apartments_search_filter_horizontal'));
+    new RoomsSearch($('#apartments_search_filter_horizontal'));
 
     // Форма обратной связи в модалке
     new InitFeedbackModalForm();

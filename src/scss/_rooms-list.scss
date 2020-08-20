@@ -253,6 +253,7 @@
         flex-direction: row;
 
         .sort-item {
+            position: relative;
             font-family: "Manrope Bold";
             font-weight: 800;
             font-size: 14px;
@@ -261,6 +262,36 @@
             margin: 18px 30px;
             color: $colorText;
             cursor: pointer;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                background-size: 12px 12px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                width: 12px;
+                height: 12px;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                background-image: url(../img/rooms/sort_none.svg);
+            }
+
+            &.active {
+                &[data-sort=asc]{
+                    &:before{
+                        background-image: url(../img/rooms/sort_up.svg);
+                    }
+
+                }
+
+                &[data-sort=desc]{
+                    &:before{
+                        background-image: url(../img/rooms/sort_down.svg);
+                    }
+                }
+            }
 
             &:last-child {
                 margin-right: 0;
