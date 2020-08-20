@@ -11,7 +11,7 @@ export default class RoomsSearch {
 
         this.$roomsField = this.$filterForm.find('[data-rooms]');
 
-        this.$filerSort = this.$block.parents().find('#filter_sort');
+        this.$filterSort = this.$block.parents().find('#filter_sort');
 
         /*Инпаты сумм*/
         this.$sumMin = this.$filterForm.find('[name="sum_min"]');
@@ -85,10 +85,57 @@ export default class RoomsSearch {
             return false;
         });
 
-        this.$filerSort.on('change', '.item', () => {
+        this.$filterSort.on('click', '.sort-item', (e) => {
+            const $this = e.currentTarget;
 
+            this.handlerSortApartments($this);
+
+            return false;
         });
     }
+
+    handlerSortApartments(element) {
+
+        if (element.classList.contains('active')) {
+
+            if (element.dataset.sort === 'asc') {
+                element.dataset.sort = 'desc';
+            } else {
+                element.dataset.sort = 'asc';
+            }
+
+        } else {
+            element.classList.add('active');
+
+            if (element.nextElementSibling) element.nextElementSibling.classList.remove('active');
+            if (element.previousElementSibling) element.previousElementSibling.classList.remove('active');
+        }
+
+        const sortType = element.dataset.type;
+        const sortDirection = element.dataset.sort;
+
+        this.renderList({
+            type: sortType,
+            direction: sortDirection
+        });
+
+        this.filterApartments();
+    }
+
+    sortApartments() {
+         for (let i = 0; i < this.apartments.length; i++) {
+            const apartment = this.apartments[i];
+            const {id} = apartment;
+
+            if (this.isAvailableApartment(apartment, this.filterParams)){
+                $(`#${id}`).removeClass('disabled');
+
+            } else  {
+                $(`#${id}`).addClass('disabled');
+            }
+        }
+    }
+
 
     /**
      *
@@ -374,11 +421,31 @@ export default class RoomsSearch {
     /**
      * Формирование HTML списка квартир
      */
-    renderList() {
+    renderList(sort = {}) {
         let result = '';
 
         let apartments = Object.values(this.apartments);
-        apartments = apartments.sort((a, b) => +a.fullPrice > +b.fullPrice ? 1 : -1);
+
+        const {
+            type,
+            direction
+        } = sort;
+
+        if (type === 'fullPrice') {
+            if (direction === 'asc') {
+                apartments = apartments.sort((a, b) => +a.fullPrice < +b.fullPrice ? 1 : -1);
+            } else {
+                apartments = apartments.sort((a, b) => +a.fullPrice > +b.fullPrice ? 1 : -1);
+            }
+        }
+
+        if (type === 'area') {
+            if (direction === 'asc') {
+                apartments = apartments.sort((a, b) => +a.area < +b.area ? 1 : -1);
+            } else {
+                apartments = apartments.sort((a, b) => +a.area > +b.area ? 1 : -1);
+            }
+        }
 
         for (let i = 0; i < apartments.length; i++) {
             const item = apartments[i];
@@ -389,6 +456,7 @@ export default class RoomsSearch {
         if (!result) return;
 
         this.$apartmentsWrapper.html(result);
+
     }
 
     /**

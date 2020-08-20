@@ -262,6 +262,7 @@
             margin: 18px 30px;
             color: $colorText;
             cursor: pointer;
+            user-select: none;
 
             &:before {
                 content: '';
