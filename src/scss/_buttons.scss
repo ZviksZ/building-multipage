@@ -84,6 +84,8 @@
         padding: 0 20px;
         height: 45px;
         border-radius: 16px;
+        margin-right: 0;
+        margin-left: 15px;
 
         @include desktop-small {
             font-size: 16px;

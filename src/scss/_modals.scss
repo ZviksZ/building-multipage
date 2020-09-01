@@ -9,6 +9,29 @@
     transform: translateY(100%);
     transition: transform .6s ease;
 
+    &.transparent-form {
+        .modal-content {
+            background-color: transparent;
+        }
+
+        .section {
+            background-color: transparent;
+        }
+
+        .input-text {
+            background-color: transparent;
+        }
+    }
+
+    &.blur-modal {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(50px);
+
+        @include only-mobile {
+            background-color: #fff;
+        }
+    }
+
     &.fade-in {
         opacity: 0;
         z-index: -12;
@@ -25,12 +48,24 @@
         transform: translateY(0);
     }
 
+    .with-close {
+        padding-right: 55px;
+    }
+    
+    .container {
+        position: relative;
+
+        @include mobile {
+            padding: 0;
+        }
+    }
+
     .modal-content {
         display: block;
         position: relative;
         margin: 30px auto;
         padding: 20px 0;
-        max-width: 480px;
+        max-width: 500px;
         background: #fff;
         box-sizing: border-box;
         border-radius: 15px;
@@ -48,8 +83,8 @@
             }
         }
         @include mobile {
-            margin-left: 15px;
-            margin-right: 15px;
+            margin-left: auto;
+            margin-right: auto;
             &.modal-content-small, &.modal-content-medium {
                 margin-left: auto;
                 margin-right: auto;
@@ -85,13 +120,13 @@
         justify-content: center;
         position: absolute;
         z-index: 900;
-        right: 0;
-        top: 50%;
-        margin: -26px 0 0 0;
-        width: 52px;
-        height: 52px;
-        background: rgba(0, 0, 0, .5);
-        border-radius: 20px;
+        right: 20px;
+        top: 10px;
+        margin: 0;
+        width: 44px;
+        height: 44px;
+        background: rgba(84, 110, 122, .5);
+        border-radius: 50%;
         text-decoration: none;
         &.close-small{
             width: 30px;
@@ -117,10 +152,10 @@
         }
 
         @include mobile {
-            margin-top: -16px;
+            top: 0;
             width: 30px;
+            right: 0;
             height: 30px;
-            border-radius: 12px;
         }
 
         @include desktop {
@@ -131,6 +166,8 @@
 
         .icon {
             font-size: 16px;
+            height: 16px;
+            line-height: 16px;
             color: $colorWhite;
         }
     }

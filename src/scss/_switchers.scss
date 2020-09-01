@@ -1,55 +1,80 @@
 .switchers {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    text-decoration: none;
+    display: block;
+    border-radius: 3px;
+    margin-bottom: 40px;
+    font-size: 0;
 
-    &.space-between {
-        justify-content: space-between;
+    @include mobile {
+        display: block;
+        white-space: nowrap;
+        overflow-x: auto;
+        margin: 0 -17px 25px -17px;
+        padding: 0 17px 0 17px;
     }
 
     .item {
-        display: flex;
+        display: inline-flex;
+        position: relative;
+        padding: 13px 10px;
+        width: auto;
+        text-align: center;
         align-items: center;
         justify-content: center;
-        flex-shrink: 1;
-        width: 100%;
-
-        padding: 10px;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 1;
-        text-align: center;
-        color:$colorBlack;
-        border: 2px solid $colorGrayLight;
-        border-radius: 5px;
+        align-content: center;
         background-color: $colorWhite;
+        color: $colorText;
+        font-size: 16px;
+        line-height: 23px;
+        border: 1px solid $colorGrayLight;
+        border-right: none;
+        border-left: none;
         cursor: pointer;
-        text-decoration: none;
 
-        &.inline {
-            display: inline-flex;
-            margin: 10px 10px 0 0;
-            width: auto;
-        }
 
         &:hover {
-            border-color: $colorMain;
+            color: $colorSecond;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 0;
+            width: 1px;
+            top: 0;
+            bottom: 0;
+            background-color: $colorGrayBg;
+        }
+
+        &:last-child {
+            &:before {
+                display: none;
+            }
         }
 
         &.active {
+            background-color: $colorSecond;
+            border-color: $colorSecond;
             color: $colorWhite;
-            border-color: $colorMain;
-            background-color: $colorMain;
             cursor: default;
+
+            &:first-child {
+                border-color: $colorSecond;
+            }
+
+            &:last-child {
+                border-color: $colorSecond;
+            }
         }
 
-        &.disabled {
-            color: $colorGrayMiddle;
-            border-color: $colorGrayMiddle;
-            cursor: default;
-            pointer-events: none;
+        &:first-child {
+            border-radius: 3px 0 0 3px;
+            border-left: 1px solid $colorGrayLight;
         }
 
+        &:last-child {
+            border-radius: 0 3px 3px 0;
+            border-right: 1px solid $colorGrayLight;
+        }
     }
 }

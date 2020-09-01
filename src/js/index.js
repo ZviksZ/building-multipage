@@ -30,6 +30,9 @@ import {
     RoomsSearch,
 } from './components/apartments';
 
+import {
+    MortgageView
+} from './components/mortgage'
 
 import {Selects} from './components/form';
 
@@ -113,6 +116,8 @@ function initScripts() {
 
     //Форма заявки на бронирование
     new InitReserveForm();
+
+    new MortgageView($('#mortgage_view'));
 
     // Инициализация плейсхолдеров и масок
     initMaskedInput();

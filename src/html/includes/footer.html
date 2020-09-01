@@ -15,7 +15,7 @@
     <div class="section dark-gray padding-top padding-bottom">
         <div class="container">
             <div class="copyright">
-                <p class="small-text">© 2020. <span class="nobr">Группа компаний «Амонд»</p>
+                <p class="small-text">© 2020. <span class="nobr">Группа компаний «Амонд» </span></p>
                 <a class="internetlab" href="https://internetlab.ru" target="_blank">
                     <!--<i class="icon icon-logolabb"></i>-->
                     <img alt="Internetlab" src="./img/logo-lab.svg">
@@ -25,6 +25,37 @@
     </div>
 </div>
 
+
+
+<div class="modal-window blur-modal transparent-form fade-in" data-modal="room_request" >
+    <div class="modal-content">
+        <div class="section no-padding">
+            <div class="container">
+                <a href="#" class="close" data-close-modal-button="room_request" data-effect-type="open-modal-fade-effect"><i
+                        class="icon icon-close-default"></i></a>
+                <div class="h2 no-margin-top with-close">Оставить заявку</div>
+                <form action="">
+                    <label class="field field-input  margin-top-x2">
+                        <input class="input-text placeholder validate" placeholder="Ваше имя" data-placeholder="Ваше имя" data-validate="required" id="feedback_name"
+                               name="feedback_name" type="text">
+                        <p class="error-message"></p>
+                    </label>
+
+                    <label class="field field-input margin-top-x2">
+                        <input class="input-text placeholder validate input-mask" data-mask_tpl="phone_plus7" data-placeholder="Номер телефона" data-validate="mobile_phone" id="feedback_phone"
+                               name="feedback_phone" type="text" value="" inputmode="text">
+                        <p class="error-message"></p>
+                    </label>
+
+                    <button class="button margin-top-x3" type="submit" disabled="disabled">Оставить заявку</button>
+                </form>
+                <div class="offerta">Нажимая кнопку отправить вы соглашаетесь на обработку персональных данных и с <a
+                        href="#" target="_blank">политикой конфиденциальности</a></div>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 <div class="modal-window-pxl"></div>
 

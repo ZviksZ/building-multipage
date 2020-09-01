@@ -1,6 +1,6 @@
 // сетка
 .row {
-    margin: 0 -12px;
+    margin: 0 -16px;
     @include mobile {
         margin-left: -8px;
         margin-right: -8px;
@@ -9,7 +9,7 @@
     .col {
         display: block;
         float: left;
-        padding: 0 12px;
+        padding: 0 16px;
         width: 100%;
 
         @include mobile {
