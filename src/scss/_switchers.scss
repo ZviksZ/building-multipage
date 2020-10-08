@@ -3,7 +3,7 @@
     border-radius: 3px;
     margin-bottom: 40px;
     font-size: 0;
-
+    white-space: nowrap;
     @include mobile {
         display: block;
         white-space: nowrap;
@@ -29,7 +29,10 @@
         border-right: none;
         border-left: none;
         cursor: pointer;
-
+        @include desktop-small {
+            font-size: 14px;
+            padding: 11px 8px;
+        }
 
         &:hover {
             color: $colorSecond;
@@ -76,5 +79,12 @@
             border-radius: 0 3px 3px 0;
             border-right: 1px solid $colorGrayLight;
         }
+    }
+
+    .item + .item {
+        border-left: 1px solid $colorGrayBgDark;
+    }
+    .item.active + .item {
+        border-left: 0;
     }
 }

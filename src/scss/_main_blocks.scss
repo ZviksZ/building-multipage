@@ -471,7 +471,9 @@
         &:hover {
             transform: translateY(-5px);
         }
-
+        .photo-block {
+            position: relative;
+        }
         .photo {
             position: relative;
             overflow: hidden;
@@ -527,6 +529,51 @@
                 &:before {
                     display: none;
                 }
+            }
+        }
+
+        .photo-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: auto;
+            background: $colorWhite;
+            box-shadow: 0px 1px 5px rgba(175, 189, 200, 0.5);
+            border-radius: 16px;
+            padding: 12px 19px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            span {
+                display: inline-block;
+                font-weight: 800;
+                font-size: 16px;
+                line-height: 22px;
+                color: $colorText;
+                margin-right: 13px;
+            }
+            i {
+                display: inline-block;
+                margin-top: 2px;
+                font-size: 18px;
+                color: $colorSecond;
+            }
+        }
+        .photo-info__bottom {
+            margin-top: 32px;
+            .title {
+                font-weight: 800;
+                font-size: 28px;
+                line-height: 38px;
+                color: $colorMain;
+                margin-bottom: 12px;
+                text-align: left;
+            }
+            .text {
+                font-size: 14px;
+                line-height: 20px;
+                color: $colorTextGray;
+                text-align: left;
             }
         }
     }

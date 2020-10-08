@@ -1,7 +1,8 @@
-import * as $  from 'jquery';
-import { Header } from './components/header';
+import * as $         from 'jquery';
+import { CustomTabs } from './components/custom-tabs';
+import { Header }     from './components/header';
 import { MobileMenu } from './components/mobile-menu';
-import { Effects} from './components/effects';
+import { Effects}     from './components/effects';
 import DeviceDetector from "device-detector-js";
 
 import {
@@ -117,7 +118,11 @@ function initScripts() {
     //Форма заявки на бронирование
     new InitReserveForm();
 
+    //Ипотечный калькулятор
     new MortgageView($('#mortgage_view'));
+
+    //Цункционал табов
+    new CustomTabs();
 
     // Инициализация плейсхолдеров и масок
     initMaskedInput();

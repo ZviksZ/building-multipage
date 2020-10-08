@@ -29,7 +29,7 @@ export default class MortgageView {
         this.mortgageSumSlider.on('change', (e) => {
             setTimeout(()=> {
                 this.calculateMortgage();
-                this.checkPriceVal(e.currentTarget.value);
+                /*this.checkPriceVal(e.currentTarget.value);*/
 
             },10);
         })
@@ -37,8 +37,18 @@ export default class MortgageView {
         this.mortgageInitialFeeSlider.on('change', (e) => {
             setTimeout(()=> {
                 this.calculateMortgage();
-                this.checkFeeVal(e.currentTarget.value);
+                /*this.checkFeeVal(e.currentTarget.value);*/
 
+            },10);
+        })
+        this.mortgageTermRangeSlider.on('change', (e) => {
+            setTimeout(()=> {
+                this.calculateMortgage();
+            },10);
+        })
+        this.mortgagePercentSlider.on('change', (e) => {
+            setTimeout(()=> {
+                this.calculateMortgage();
             },10);
         })
     }
@@ -55,6 +65,9 @@ export default class MortgageView {
         const monthPaymentVal = Math.round(mortgageSum * (percentVal + (percentVal / (Math.pow(1 + percentVal, monthVal) - 1))));
         const overPayVal = (monthPaymentVal * monthVal) - mortgageSum;
 
+        $('#mortgage-summary__month').find('span').html(numberFormat(monthPaymentVal, 0, '', ' '))
+        $('#mortgage-summary__sum').find('span').html(numberFormat(overPayVal, 0, '', ' '))
+
     }
 
     checkFeeVal (value) {
@@ -64,9 +77,7 @@ export default class MortgageView {
 
         const sumSlider = $('[name="mortgage_sum_range"]').data('ionRangeSlider');
 
-
         if (+value > price80) {
-            console.log('сработал взнос');
             const newValue = +value * 100 / 80;
             this.$mortgageSumInput.val(numberFormat(newValue, 0, '', ' '));
 
@@ -90,7 +101,6 @@ export default class MortgageView {
 
         if (initialFeeVal > price80) {
             //var valNew = price*80/100;
-            console.log('сработала сумма 1')
             this.$mortgageInitialFeeInput.val(numberFormat(price80, 0, '', ' '));
 
             initialFeeSlider.update({
@@ -99,7 +109,6 @@ export default class MortgageView {
 
         } else if (initialFeeVal < price20) {
             //var valNew = price*20/100;
-            console.log('сработала сумма 2')
             this.$mortgageInitialFeeInput.val(numberFormat(price20, 0, '', ' '));
 
             initialFeeSlider.update({
@@ -122,7 +131,8 @@ export default class MortgageView {
             drag_interval: true,
             prettify_enabled: true,
             prettify_separator: " ",
-            onChange: function (data) {
+            onChange: (data) => {
+                this.checkPriceVal(data.from + '')
                 mortgageSumInput[0].value = data.from_pretty;
             },
         });
@@ -140,7 +150,7 @@ export default class MortgageView {
             from: this.JSON.default.term,
             step: 1,
             drag_interval: true,
-            onChange: function (data) {
+            onChange: (data) => {
                 mortgageDecorator[0].dataset.decorator = `${declOfNum(data.from,['год','года','лет'])}`;
                 mortgageTermInput[0].value = data.from;
             },
@@ -161,7 +171,8 @@ export default class MortgageView {
             drag_interval: true,
             prettify_enabled: true,
             prettify_separator: " ",
-            onChange: function (data) {
+            onChange: (data) => {
+                this.checkFeeVal(data.from + '')
                 mortgageInitialFeeInput[0].value = data.from_pretty;
             },
         });

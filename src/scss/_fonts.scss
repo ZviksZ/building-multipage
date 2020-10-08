@@ -8,7 +8,16 @@
     font-weight: 800;
     font-style: normal;
 }
-
+@font-face {
+    font-family: 'Manrope';
+    src: url('../fonts/Manrope-ExtraBold.eot');
+    src: url('../fonts/Manrope-ExtraBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Manrope-ExtraBold.woff') format('woff'),
+    url('../fonts/Manrope-ExtraBold.ttf') format('truetype'),
+    url('../fonts/Manrope-ExtraBold.svg#Manrope-ExtraBold') format('svg');
+    font-weight: 800;
+    font-style: normal;
+}
 @font-face {
     font-family: 'Manrope';
     src: url('../fonts/Manrope-Medium.eot');

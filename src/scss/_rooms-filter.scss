@@ -198,4 +198,71 @@
         padding: 16px 0;
         background-color: $colorWhite;
     }
+
+    .rooms-filter__summary {
+        display: flex;
+        align-items: center;
+        padding: 14px 0;
+        margin-top: 16px;
+        background: #F4F9FC;
+        border-radius: 3px;
+        .summary-item {
+            margin-right: 30px;
+            .text {
+                white-space: nowrap;
+                font-size: 14px;
+                line-height: 20px;
+                color: $colorText;
+            }
+            .number {
+                white-space: nowrap;
+                font-weight: 800;
+                font-size: 22px;
+                line-height: 30px;
+                color: $colorSecond;
+            }
+        }
+        .summary-divider {
+            width: 1px;
+            height: 52px;
+            background: $colorGrayBgDark;
+            margin: 0 26px;
+        }
+        .summary-text {
+            font-size: 12px;
+            line-height: 17px;
+            color: $colorTextGray;
+            margin: 0;
+        }
+        .button {
+            margin: 0;
+            white-space: nowrap;
+        }
+
+       /* @include desktop-small {
+            flex-wrap: wrap;
+        }*/
+
+        @include mobile {
+            flex-wrap: wrap;
+            .summary-item {
+                width: 50%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .summary-divider {
+                display: none;
+            }
+            .button {
+                margin-bottom: 20px;
+            }
+        }
+
+        @include only-mobile {
+            .summary-item {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    }
 }

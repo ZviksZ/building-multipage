@@ -51,7 +51,7 @@
     .with-close {
         padding-right: 55px;
     }
-    
+
     .container {
         position: relative;
 
@@ -89,6 +89,9 @@
                 margin-left: auto;
                 margin-right: auto;
             }
+        }
+        @include only-mobile {
+            padding: 0 15px;
         }
 
         .modal-caption-with-close {

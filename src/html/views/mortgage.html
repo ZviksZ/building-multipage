@@ -6,8 +6,8 @@ title: "Волгарь"
 <div class="section no-padding">
     <div class="container">
         <div class="breadcrumbs">
-            <a class="item link" href="#"><i class="icon icon-backspace"></i></a>
-            <a class="item link" href="#">главная</a>
+            <a class="item link" href="/"><i class="icon icon-backspace"></i></a>
+            <a class="item link" href="/">главная</a>
         </div>
     </div>
 </div>
@@ -19,9 +19,10 @@ title: "Волгарь"
 </div>
 
 <div id="mortgage_view">
-    <div class="section">
+    <div class="section no-padding-top ">
         <div class="container">
-            <div class="rooms-filter" data-mortgage-form data-settings='{"default":{"price":3000000,"term":15,"initialFee":1200000,"percent":4.1},"values":{"minPrice":800000,"maxPrice":8000000,"minTerm":1,"maxTerm":30,"minInitialFee":0,"maxInitialFee":6400000,"minPercent":4.1,"maxPercent":15}}'>
+            <div class="rooms-filter" data-mortgage-form
+                 data-settings='{"default":{"price":3000000,"term":15,"initialFee":1200000,"percent":4.1},"values":{"minPrice":800000,"maxPrice":8000000,"minTerm":1,"maxTerm":30,"minInitialFee":0,"maxInitialFee":6400000,"minPercent":4.1,"maxPercent":15}}'>
                 <div class="row">
                     <div class="col w-25">
                         <div class="filter-item">
@@ -53,7 +54,7 @@ title: "Волгарь"
                             <div class="input-name">Первоначальный взнос</div>
                             <div class="single-input-field">
                                 <div class="field-input with-decorator" data-decorator="₽">
-                                    <input type="text" class="input-text"  readonly value=""
+                                    <input type="text" class="input-text" readonly value=""
                                            name="mortgage_initial_fee">
                                 </div>
                             </div>
@@ -65,7 +66,7 @@ title: "Волгарь"
                             <div class="input-name">Ставка по кредиту</div>
                             <div class="single-input-field">
                                 <div class="field-input with-decorator" data-decorator="%">
-                                    <input type="text" class="input-text" readonly  value=""
+                                    <input type="text" class="input-text" readonly value=""
                                            name="mortgage_percent">
                                 </div>
                             </div>
@@ -73,345 +74,573 @@ title: "Волгарь"
                         </div>
                     </div>
                 </div>
+                <div class="rooms-filter__summary">
+                    <div class="summary-item">
+                        <div class="text">Ежемесячный платеж</div>
+                        <div class="number" id="mortgage-summary__month"><span>14 504</span> ₽</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="text">Сумма переплаты</div>
+                        <div class="number" id="mortgage-summary__sum"><span>612 900</span> ₽</div>
+                    </div>
+                    <a href="#" class="button inline small">Оставить заявку</a>
+                    <div class="summary-divider"></div>
+                    <p class="summary-text">
+                        Ипотечный калькулятор является ориентировочным и не является публичной офертой.  Для уточнения условий предоставления ипотечного кредита обратитесь в офис продаж ГК «Амонд». Информация в разделе обновляется.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="section no-padding-top">
         <div class="container">
-            <div class="switchers inline">
-                <div class="item active">Строящееся жилье</div>
-                <div class="item">Готовая недвижимость</div>
-                <div class="item">Семейная ипотека</div>
-                <div class="item">Военная ипотека</div>
-                <div class="item">Коммеческая недвижимость</div>
-                <div class="item">Льготная ипотека</div>
+            <div class="tabs-container">
+                <div class="tabs switchers inline">
+                    <div class="item active" data-tab="1">Строящееся жилье</div>
+                    <div class="item" data-tab="2">Готовая недвижимость</div>
+                    <div class="item" data-tab="3">Семейная ипотека</div>
+                    <div class="item" data-tab="4">Военная ипотека</div>
+                    <div class="item" data-tab="5">Коммеческая недвижимость</div>
+                    <div class="item" data-tab="6">Льготная ипотека</div>
+                </div>
+                <div class="tabs-block" data-tab="1">
+                    <div class="mortgage-list">
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/vtb.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup>
+                                    <div class="tooltip">
+                                        <div class="icon">i</div>
+                                        <div class="tooltip-text">
+                                            <p>
+                                                Первоначальный взнос 20% (при включении средств МК в сумму кредита)
+
+                                            </p>
+                                            <p>
+                                                Первоначальный взнос 0% (при НЕвключении средств МК в сумму кредита, а использование как средство оплаты стоимости объекта со ссылкой на сертификат в договоре
+                                                приобретения)
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/sber.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup>
+                                    <div class="tooltip">
+                                        <div class="icon">i</div>
+                                        <div class="tooltip-text">
+                                            <p>
+                                                Первоначальный взнос 20% (при включении средств МК в сумму кредита)
+
+                                            </p>
+                                            <p>
+                                                Первоначальный взнос 0% (при НЕвключении средств МК в сумму кредита, а использование как средство оплаты стоимости объекта со ссылкой на сертификат в договоре
+                                                приобретения)
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/alfabank.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup>
+                                    <div class="tooltip">
+                                        <div class="icon">i</div>
+                                        <div class="tooltip-text">
+                                            <p>
+                                                Первоначальный взнос 20% (при включении средств МК в сумму кредита)
+
+                                            </p>
+                                            <p>
+                                                Первоначальный взнос 0% (при НЕвключении средств МК в сумму кредита, а использование как средство оплаты стоимости объекта со ссылкой на сертификат в договоре
+                                                приобретения)
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/domrf.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup>
+                                    <div class="tooltip">
+                                        <div class="icon">i</div>
+                                        <div class="tooltip-text">
+                                            <p>
+                                                Первоначальный взнос 20% (при включении средств МК в сумму кредита)
+
+                                            </p>
+                                            <p>
+                                                Первоначальный взнос 0% (при НЕвключении средств МК в сумму кредита, а использование как средство оплаты стоимости объекта со ссылкой на сертификат в договоре
+                                                приобретения)
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/gazprom.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">
+                                    4,2%<sup>*</sup>
+                                    <div class="tooltip">
+                                        <div class="icon">i</div>
+                                        <div class="tooltip-text">
+                                            <p>
+                                                Первоначальный взнос 20% (при включении средств МК в сумму кредита)
+
+                                            </p>
+                                            <p>
+                                                Первоначальный взнос 0% (при НЕвключении средств МК в сумму кредита, а использование как средство оплаты стоимости объекта со ссылкой на сертификат в договоре
+                                                приобретения)
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/koshelev.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/open.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/raiffaizen.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/rosbank.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/rosselhos.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/russia.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/smp.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/souz.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/sovkom.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/tkb.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/uralsib.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/vbrr.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabs-block" data-tab="2">
+                    <div class="mortgage-list">
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/sber.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabs-block" data-tab="3">
+                    <div class="mortgage-list">
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/alfabank.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabs-block" data-tab="4">
+                    <div class="mortgage-list">
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/domrf.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabs-block" data-tab="5">
+                    <div class="mortgage-list">
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/gazprom.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">
+                                    4,2%<sup>*</sup>
+                                    <div class="tooltip">
+                                        <div class="icon">i</div>
+                                        <div class="tooltip-text">
+                                            <p>
+                                                Первоначальный взнос 20% (при включении средств МК в сумму кредита)
+
+                                            </p>
+                                            <p>
+                                                Первоначальный взнос 0% (при НЕвключении средств МК в сумму кредита, а использование как средство оплаты стоимости объекта со ссылкой на сертификат в договоре
+                                                приобретения)
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabs-block" data-tab="6">
+                    <div class="mortgage-list">
+                        <div class="bank-item">
+                            <div class="item">
+                                <div class="logo" style="background-image: url(./img/mortgage/koshelev.svg)"></div>
+                            </div>
+                            <div class="item">
+                                <div class="text">Процентная ставка</div>
+                                <div class="value">4,2%<sup>*</sup></div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос без учета материнского капитала</div>
+                                <div class="value">10%</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="text">Первоначальный взнос при наличии материнского капитала</div>
+                                <div class="value">0% + МК</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mortgage-list">
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/vtb.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup> <div class="tooltip"><div class="icon">i</div></div></div>
-                    </div>
 
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
 
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/sber.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/alfabank.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/domrf.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/gazprom.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/koshelev.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/open.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/raiffaizen.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/rosbank.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/rosselhos.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/russia.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/smp.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/souz.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/sovkom.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/tkb.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/uralsib.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-                <div class="bank-item">
-                    <div class="item">
-                        <div class="logo" style="background-image: url(./img/mortgage/vbrr.svg)"></div>
-                    </div>
-                    <div class="item">
-                        <div class="text">Процентная ставка</div>
-                        <div class="value">4,2%<sup>*</sup></div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос без учета материнского капитала</div>
-                        <div class="value">10%</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="text">Первоначальный взнос при наличии материнского капитала</div>
-                        <div class="value">0% + МК</div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

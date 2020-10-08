@@ -140,7 +140,7 @@ END Прелоадер сайта
 <div id="header" class="header hide-mobile">
     <div class="container no-padding-vertical">
         <div class="header-content">
-            <div class="logo"></div>
+            <a href="/" class="logo"></a>
             <div class="menu">
                 <a href="#" class="link">Подобрать квартиру</a>
                 <a href="#" class="link">Преимущества</a>
@@ -154,8 +154,10 @@ END Прелоадер сайта
                 <a href="tel:+78463111111" class="phone" target="_blank">8 (846) 311-11-11</a>
                 <a href="tel:+78462480842" class="phone" target="_blank">8 (846) 248-08-42</a>
             </div>
-            <a href="#" class="button secondary button-header hide-small-desktop">Заказать звонок</a>
-            <a href="#"
+            <a href="#" data-open-modal-button="call_request"
+               data-effect-type="open-modal-fade-effect" class="button secondary button-header hide-small-desktop">Заказать звонок</a>
+            <a href="#" data-open-modal-button="call_request"
+               data-effect-type="open-modal-fade-effect"
                class="button secondary button-icon hide-big-desktop margin-left-x2 no-margin-right"><i
                     class="icon icon-phonecall"></i></a>
         </div>
@@ -174,10 +176,11 @@ END Прелоадер сайта
             </span>
         </a>
 
-        <div class="logo"></div>
+        <a href="/" class="logo"></a>
 
         <div class="phone">
-            <a href="tel: +78469938359" class="button button-icon secondary no-margin-vertical small" target="_blank">
+            <a href="tel: +78469938359" data-open-modal-button="call_request"
+               data-effect-type="open-modal-fade-effect" class="button button-icon secondary no-margin-vertical small" target="_blank">
                 <i class="icon icon-phonecall"></i>
             </a>
         </div>

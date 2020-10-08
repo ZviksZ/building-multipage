@@ -9,8 +9,8 @@ import Inputmask from 'inputmask';
  * Если присутствуют оба атрибута - приоритет у шаблона
  */
 function initMaskedInput() {
-    $('.input-mask').each(function () {
-        const $field = $(this);
+    $('.input-mask').each(function (_, item) {
+        const $field = $(item);
         if ($field.hasClass('mask-ready')) return;
 
         const maskTpl = $field.attr('data-mask_tpl');
@@ -56,7 +56,7 @@ function initMaskedInput() {
             showMaskOnHover: false,
             showMaskOnFocus: true,
             autoUnmask: autoUnmask
-        }).mask($field);
+        }).mask(item);
 
         $field.addClass('mask-ready');
     });
@@ -66,8 +66,8 @@ function initMaskedInput() {
  * Инициализация инпатов с вводом денежного формата
  */
 function initMoneyInput() {
-    $('.input-money').each(function () {
-        const $field = $(this);
+    $('.input-money').each(function (_, item) {
+        const $field = $(item);
         if ($field.hasClass('mask-ready')) return;
 
         const currency = $field.attr('data-currency') || ' ₽';
@@ -89,7 +89,7 @@ function initMoneyInput() {
             autoUnmask: true
             // showMaskOnFocus: false,
             // clearMaskOnLostFocus: true
-        }).mask($field);
+        }).mask(item);
 
         $field.addClass('mask-ready');
     });

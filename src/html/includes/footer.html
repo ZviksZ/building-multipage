@@ -15,7 +15,7 @@
     <div class="section dark-gray padding-top padding-bottom">
         <div class="container">
             <div class="copyright">
-                <p class="small-text">© 2020. <span class="nobr">Группа компаний «Амонд» </span></p>
+                <p class="small-text color-white">© 2020. <span class="nobr">Группа компаний «Амонд» </span></p>
                 <a class="internetlab" href="https://internetlab.ru" target="_blank">
                     <!--<i class="icon icon-logolabb"></i>-->
                     <img alt="Internetlab" src="./img/logo-lab.svg">
@@ -56,7 +56,35 @@
 
     </div>
 </div>
+<div class="modal-window blur-modal transparent-form fade-in" data-modal="call_request" >
+    <div class="modal-content">
+        <div class="section no-padding">
+            <div class="container">
+                <a href="#" class="close" data-close-modal-button="call_request" data-effect-type="open-modal-fade-effect"><i
+                        class="icon icon-close-default"></i></a>
+                <div class="h2 no-margin-top with-close">Заказать звонок</div>
+                <form action="">
+                    <label class="field field-input  margin-top-x2">
+                        <input class="input-text placeholder validate" placeholder="Ваше имя" data-placeholder="Ваше имя" data-validate="required" id="call-feedback_name"
+                               name="feedback_name" type="text">
+                        <p class="error-message"></p>
+                    </label>
 
+                    <label class="field field-input margin-top-x2">
+                        <input class="input-text placeholder validate input-mask" data-mask_tpl="phone_plus7" data-placeholder="Номер телефона" data-validate="mobile_phone" id="call-feedback_phone"
+                               name="feedback_phone" type="text" value="" inputmode="text">
+                        <p class="error-message"></p>
+                    </label>
+
+                    <button class="button margin-top-x3" type="submit" disabled="disabled">Заказать звонок</button>
+                </form>
+                <div class="offerta">Нажимая кнопку отправить вы соглашаетесь на обработку персональных данных и с <a
+                        href="#" target="_blank">политикой конфиденциальности</a></div>
+            </div>
+        </div>
+
+    </div>
+</div>
 <div class="modal-window-pxl"></div>
 
 <script src="https://api-maps.yandex.ru/2.1/?apikey=9c2e7f50-a7cc-4ee7-a888-43ca8278fe96&lang=ru_RU"></script>

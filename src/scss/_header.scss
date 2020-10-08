@@ -42,8 +42,8 @@
             transition: width .1s ease, height .1s ease;
 
             @include desktop-small {
-                width: 68px;
-                height: 68px;
+                width: 50px;
+                height: 50px;
             }
 
             //@include desktop-small {
@@ -85,16 +85,15 @@
             .link {
                 font-family: "Manrope Bold";
                 position: relative;
-                margin: 0 0 0 43px;
+                margin: 0;
                 font-size: 16px;
                 line-height: 26px;
                 font-weight: 800;
                 color: $colorText;
                 text-decoration: none;
-
+                white-space: nowrap;
                 @include desktop-small {
                     font-size: 14px;
-                    margin-left: 20px;
                 }
 
 
@@ -111,6 +110,7 @@
                     font-size: 12px;
                     line-height: 17px;
                     color: $colorWhite;
+                    padding-top: 1px;
                 }
 
                 &.active {
@@ -128,6 +128,14 @@
                     }
                 }
             }
+
+            .link + .link {
+                margin-left: 43px;
+                @include desktop-smaller {
+                    margin-left: 20px;
+                }
+            }
+
         }
 
         .phones {
@@ -147,7 +155,7 @@
             color: $colorText;
             font-family: "Manrope Bold";
             text-decoration: none;
-
+            white-space: nowrap;
             @include desktop {
                 &:hover {
                     color: $colorMain;
