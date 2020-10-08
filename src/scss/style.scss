@@ -84,5 +84,12 @@
 
 @import '_rooms-list';
 
-@import '_mortgage';
+//Ипотека
+@import 'mortgage';
+
+//Виды отделки
+@import 'trim';
+
+//Модальная галерея
+@import 'gallery-modal';
 

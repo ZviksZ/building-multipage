@@ -1,0 +1,79 @@
+.gallery-modal {
+    .modal-content {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        height: calc(100% - 170px);
+        margin: 85px auto !important;
+        .close {
+            top: 0;
+            right: -64px;
+        }
+        .gallery-modal__arrow {
+            position: absolute;
+            top: calc(50% - 15px);
+            font-size: 30px;
+            color: $colorText;
+            cursor: pointer;
+            &.swiper-button-next {
+                right: -56px;
+            }
+            &.swiper-button-prev {
+                left: -56px;
+            }
+        }
+        .gallery-modal__slider {
+            width: 100%;
+            height: 100%;
+            border-radius: 2px;
+            overflow: hidden;
+            .swiper-slide {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-position: center center;
+                -webkit-background-size: contain;
+                background-size: contain;
+            }
+        }
+        .gallery-modal__slider-caption {
+            width: 100%;
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .text {
+                display: inline-block;
+                margin-right: 15px;
+                font-weight: 800;
+                font-size: 16px;
+                line-height: 23px;
+                color: $colorSecond;
+            }
+        }
+        .gallery-modal-pagination {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            line-height: 20px;
+            color: $colorText;
+            i {
+                display: inline-block;
+                margin-right: 9px;
+                font-size: 13px;
+                color: $colorText;
+                margin-top: 4px;
+            }
+            .swiper-pagination-current{
+                margin-right: 2px;
+            }
+            .swiper-pagination-total {
+                margin-left: 2px;
+
+            }
+        }
+    }
+}

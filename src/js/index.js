@@ -1,9 +1,10 @@
-import * as $         from 'jquery';
-import { CustomTabs } from './components/custom-tabs';
-import { Header }     from './components/header';
-import { MobileMenu } from './components/mobile-menu';
-import { Effects}     from './components/effects';
-import DeviceDetector from "device-detector-js";
+import * as $           from 'jquery';
+import { CustomTabs }   from './components/custom-tabs';
+import { GalleryModal } from './components/gallery-modal';
+import { Header }       from './components/header';
+import { MobileMenu }   from './components/mobile-menu';
+import { Effects}       from './components/effects';
+import DeviceDetector   from "device-detector-js";
 
 import {
     LocationMap,
@@ -121,8 +122,11 @@ function initScripts() {
     //Ипотечный калькулятор
     new MortgageView($('#mortgage_view'));
 
-    //Цункционал табов
+    //Функционал табов
     new CustomTabs();
+
+    //Модальная галерея
+    new GalleryModal();
 
     // Инициализация плейсхолдеров и масок
     initMaskedInput();
