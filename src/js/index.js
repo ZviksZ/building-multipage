@@ -4,7 +4,7 @@ import { GalleryModal } from './components/gallery-modal';
 import { Header }       from './components/header';
 import { MobileMenu }   from './components/mobile-menu';
 import { Effects}       from './components/effects';
-import DeviceDetector   from "device-detector-js";
+/*import DeviceDetector   from "device-detector-js";*/
 
 import {
     LocationMap,
@@ -40,11 +40,13 @@ import {Selects} from './components/form';
 
 
 $(function () {
-    const deviceDetector = new DeviceDetector();
+   /* const deviceDetector = new DeviceDetector();
     const userAgent = navigator.userAgent;
-    const device = deviceDetector.parse(userAgent);
+    const device = deviceDetector.parse(userAgent);*/
 
-    try {
+
+
+   /* try {
         const {
             client
         } = device;
@@ -53,7 +55,7 @@ $(function () {
 
     } catch (e) {
         console.log(device);
-    }
+    }*/
 
 
     // скрываем прелоадер страницы если он есть
@@ -141,14 +143,14 @@ function initScripts() {
     });
 
     //плавный скролл к якорю
-    $('a[href*="#"]').click(function() {
+    /*$('a[href*="#"]').click(function() {
         let $page = $('html, body');
 
         $page.animate({
             scrollTop: $($.attr(this, 'href')).offset().top - 100
         }, 500);
         return false;
-    });
+    });*/
 
     // модальные окна фулскрин
     const modalWindow = new ModalWindowFullScreen();

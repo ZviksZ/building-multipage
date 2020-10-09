@@ -56,8 +56,8 @@ body {
         }
 
     }
-    &.container-sp {
-        padding: 1px 17px;
+    &.container-sm {
+        max-width: 798px;
     }
     @include mobile {
         padding: 1px 17px;

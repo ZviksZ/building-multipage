@@ -24,8 +24,15 @@
     }
 
     &.blur-modal {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(50px);
+        .blur-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
 
         @include only-mobile {
             background-color: #fff;

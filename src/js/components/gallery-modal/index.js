@@ -15,6 +15,8 @@ export class GalleryModal {
 
    init = () => {
       this.$galleryItems.on('click', this.openGalleryModal);
+
+      this.initSlider();
    };
 
    openGalleryModal = e => {
@@ -23,7 +25,9 @@ export class GalleryModal {
       this.data = JSON.parse(dataImages);
 
       this.initSlidesToGallery();
-      this.initSlider();
+      this.$sliderInstance.update()
+
+
    };
 
    initSlidesToGallery = () => {
@@ -49,7 +53,7 @@ export class GalleryModal {
          loop: false,
          preloadImages: false,
          lazy: true,
-         resistance: false,
+         resistance: true,
          slidesPerView: 1,
          autoHeight: true,
          spaceBetween: 0,

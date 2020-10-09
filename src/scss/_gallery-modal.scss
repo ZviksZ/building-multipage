@@ -5,6 +5,7 @@
         max-width: 1200px;
         height: calc(100% - 170px);
         margin: 85px auto !important;
+        padding: 0;
         .close {
             top: 0;
             right: -64px;
@@ -20,6 +21,9 @@
             }
             &.swiper-button-prev {
                 left: -56px;
+            }
+            &.swiper-button-disabled {
+                opacity: 0.4;
             }
         }
         .gallery-modal__slider {

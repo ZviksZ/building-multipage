@@ -1,0 +1,48 @@
+.documents__list {
+    .item {
+        .top {
+            display: flex;
+            color: $colorSecond;
+            font-size: 16px;
+            line-height: 23px;
+            margin-bottom: 9px;
+            i {
+                display: block;
+                font-size: 18px;
+                margin-right: 12px;
+                margin-top: 3px;
+            }
+            a {
+                display: inline-block;
+                text-decoration: underline;
+                &:hover {
+                    color: darken($colorSecond, 10%)
+                }
+            }
+        }
+        .bottom {
+            display: flex;
+            align-items: center;
+            span {
+                position: relative;
+                display: inline-block;
+                font-size: 14px;
+                line-height: 20px;
+                color: $colorTextGray;
+            }
+            span + span {
+                margin-left: 21px;
+                &:before {
+                    display: block;
+                    content: '';
+                    width: 1px;
+                    height: 16px;
+                    position: absolute;
+                    left: -10px;
+                    top: 2px;
+                    background: $colorTextGray;
+                }
+            }
+        }
+    }
+}

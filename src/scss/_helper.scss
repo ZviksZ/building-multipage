@@ -44,7 +44,9 @@
 .display-inline-flex {
     display: inline-flex !important;
 }
-
+.items-center {
+    align-items: center !important;
+}
 .no-margin {
     margin: 0 !important;
 }
@@ -192,6 +194,9 @@
 }
 .color-white {
     color: $colorWhite !important;
+}
+.color-blue {
+    color: $colorSecond !important;
 }
 
 hr, .hr {
