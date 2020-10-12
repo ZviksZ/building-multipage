@@ -1,7 +1,26 @@
 .special-detail {
     .photo {
-        display: block;
+        display: flex;
         width: 100%;
         background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: cover;
+        background-size: cover;
+        &:before {
+            display: block;
+            content: '';
+            float: left;
+            padding-top: 60%;
+        }
+    }
+    .photo-date {
+        font-size: 14px;
+        line-height: 20px;
+        color: $colorSecond;
+        margin: 19px 0;
+    }
+    p, a {
+        font-size: 16px;
+        color: $colorText;
     }
 }
