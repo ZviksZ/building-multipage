@@ -1,0 +1,92 @@
+.about {
+    .about-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 92px;
+        .about-left {
+            width: 42%;
+            border-left: 6px solid $colorGrayLight;
+            box-sizing: border-box;
+            padding-left: 34px;
+            p {
+                font-size: 28px;
+                line-height: 41px;
+                color: $colorSecond;
+                margin: 0 !important;
+            }
+            p + p {
+                margin-top: 25px !important;
+            }
+        }
+        .about-right {
+            width: 49%;
+            p {
+                font-size: 20px;
+                line-height: 29px;
+                color: $colorText;
+                margin: 0 !important;
+            }
+            p + p {
+                margin-top: 15px !important;
+            }
+        }
+    }
+    .about-img {
+        display: flex;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: cover;
+        background-size: cover;
+        &:before {
+            display: block;
+            float: left;
+            content: '';
+            padding-top: 33%;
+        }
+        @include mobile {
+            &:before {
+                padding-top: 50%;
+            }
+        }
+    }
+    .about-stats {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin: 66px -16px 90px;
+        @include mobile {
+            margin: 46px -16px 50px;
+        }
+        @include only-mobile {
+            margin: 36px 0 40px;
+        }
+        .item {
+            width: calc(25% - 32px);
+            margin: 0 16px 20px;
+            display: flex;
+            flex-direction: column;
+            @include desktop-smaller {
+                width: calc(50% - 32px);
+            }
+            @include mobile {
+                width: calc(50% - 32px);
+            }
+            @include only-mobile {
+                width: 100%;
+                margin: 0 0 20px;
+            }
+            .title {
+                font-size: 46px;
+                line-height: 63px;
+                color: $colorSecond;
+            }
+            .text {
+                font-size: 16px;
+                line-height: 23px;
+                color: $colorText;
+            }
+        }
+    }
+}
