@@ -5,7 +5,7 @@ export class GalleryModal {
    constructor() {
       this.$galleryItems = $("[data-images]");
 
-      if (!this.$galleryItems.length) return false;
+      if (this.$galleryItems.length === 0) return false;
 
       this.$slider = $('#gallery-modal__slider');
       this.$captionBlock = $('#gallery-modal__caption');

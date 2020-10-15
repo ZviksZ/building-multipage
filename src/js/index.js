@@ -1,9 +1,12 @@
-import * as $           from 'jquery';
-import { CustomTabs }   from './components/custom-tabs';
-import { GalleryModal } from './components/gallery-modal';
-import { Header }       from './components/header';
-import { MobileMenu }   from './components/mobile-menu';
-import { Effects}       from './components/effects';
+import * as $                   from 'jquery';
+import { RoomsSearch }          from './components/apartments/rooms-search.js';
+import { BuildProgressSliders } from './components/build-progress-slider';
+import { CustomTabs }           from './components/custom-tabs';
+import { GalleryModal }         from './components/gallery-modal';
+import { Header }               from './components/header';
+import { PolygonsMapsMultiple } from './components/maps/polygons-maps-multiple.js';
+import { MobileMenu }           from './components/mobile-menu';
+import { Effects}               from './components/effects';
 /*import DeviceDetector   from "device-detector-js";*/
 
 import {
@@ -27,10 +30,6 @@ import {
 import {
     InitReserveForm
 } from './components/reserve-form';
-
-import {
-    RoomsSearch,
-} from './components/apartments';
 
 import {
     MortgageView
@@ -103,6 +102,7 @@ function initScripts() {
     new Effects();
 
     // Карты все
+    new PolygonsMapsMultiple();
     new LocationMap($('#map_sell_office_1'));
     new LocationMap($('#map_sell_office_2'));
     new PolygonsMap($('#polygon_map'));
@@ -133,6 +133,9 @@ function initScripts() {
     // Инициализация плейсхолдеров и масок
     initMaskedInput();
     initPlaceholders();
+
+    //Слайдеры на странице Ход строительства
+    new BuildProgressSliders();
 
     // кноики показать ещё
     $('body').on('click', '[data-show_more_button]', function () {

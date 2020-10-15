@@ -1,0 +1,89 @@
+.bp-slider {
+    margin-bottom: 50px;
+    .swiper-slide {
+        width: auto;
+    }
+    .polygon-map-multiple {
+        display: flex;
+        width: 364px;
+        border-radius: 4px;
+        &:before {
+            display: block;
+            float: left;
+            content: '';
+            padding-top: 130%;
+        }
+    }
+    .item {
+        width: 496px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        transition: .2s ease;
+        text-decoration: none;
+        .photo {
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            -webkit-background-size: cover;
+            background-size: cover;
+            border-radius: 4px;
+            &:before {
+                display: block;
+                float: left;
+                content: '';
+                padding-top: 74%;
+            }
+        }
+        .info {
+            display: flex;
+            padding: 16px 0 11px;
+            .date {
+                font-size: 14px;
+                line-height: 20px;
+                color: $colorSecond;
+            }
+            .count {
+                position: relative;
+                display: flex;
+                align-items: center;
+                padding: 0 10px 0 23px;
+                border-left: 1px solid $colorGrayLight;
+                border-right: 1px solid $colorGrayLight;
+                color: $colorTextGray;
+                font-size: 14px;
+                line-height: 20px;
+                margin: 0 10px;
+                span {
+                    display: inline-block;
+                    margin-left: 4px;
+                }
+                i {
+                    position: absolute;
+                    top: 2.5px;
+                    left: 10px;
+                    font-size: 13px;
+                }
+            }
+            .desc {
+                color: $colorTextGray;
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+        .name {
+            font-weight: 800;
+            font-size: 22px;
+            line-height: 30px;
+            color: $colorText;
+        }
+        @include desktop {
+            &:hover {
+                .name {
+                    color: $colorSecond;
+                }
+            }
+        }
+    }
+
+}

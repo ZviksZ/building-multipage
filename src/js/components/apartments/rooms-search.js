@@ -2,9 +2,9 @@ import * as $  from 'jquery';
 import 'ion-rangeslider';
 import { numberFormat, declOfNum } from  '../helpers/index';
 
-export default class RoomsSearch {
+export class RoomsSearch {
     constructor($block) {
-        if (!$block.length) return;
+        if ($block.length === 0) return;
         this.$block = $block;
         this.$filterForm = this.$block.find('[data-filter]');
         this.$apartmentsWrapper = this.$block.parents().find('[data-apartments-wrapper]')
