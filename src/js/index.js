@@ -1,49 +1,30 @@
-import * as $                   from 'jquery';
-import { RoomsSearch }          from './components/apartments/rooms-search.js';
+import * as $ from 'jquery';
+import { RoomsSearch } from './components/apartments/rooms-search.js';
 import { BuildProgressSliders } from './components/build-progress-slider';
-import { CustomTabs }           from './components/custom-tabs';
-import { GalleryModal }         from './components/gallery-modal';
-import { Header }               from './components/header';
+import { CustomTabs } from './components/custom-tabs';
+import { GalleryModal } from './components/gallery-modal';
+import { Header } from './components/header';
 import { PolygonsMapsMultiple } from './components/maps/polygons-maps-multiple.js';
-import { MobileMenu }           from './components/mobile-menu';
-import { Effects}               from './components/effects';
+import { MobileMenu } from './components/mobile-menu';
+import { Effects } from './components/effects';
 /*import DeviceDetector   from "device-detector-js";*/
 
-import {
-    LocationMap,
-    PolygonsMap,
-    EditPolygonsMap,
-    infrastructureMap
-} from './components/maps';
-
+import { LocationMap, PolygonsMap, EditPolygonsMap, infrastructureMap, InteractiveMap } from './components/maps';
 
 import { ModalWindowFullScreen } from './components/modal-window-fullscreen';
-import {
-    initMaskedInput,
-    initPlaceholders
-} from './components/form'
-import {
-    InitFeedbackForm,
-    InitFeedbackModalForm
-} from './components/feedback-form'
+import { initMaskedInput, initPlaceholders } from './components/form';
+import { InitFeedbackForm, InitFeedbackModalForm } from './components/feedback-form';
 
-import {
-    InitReserveForm
-} from './components/reserve-form';
+import { InitReserveForm } from './components/reserve-form';
 
-import {
-    MortgageView
-} from './components/mortgage'
+import { MortgageView } from './components/mortgage';
 
-import {Selects} from './components/form';
+import { Selects } from './components/form';
 
-
-$(function () {
+$(function() {
    /* const deviceDetector = new DeviceDetector();
     const userAgent = navigator.userAgent;
     const device = deviceDetector.parse(userAgent);*/
-
-
 
    /* try {
         const {
@@ -56,97 +37,94 @@ $(function () {
         console.log(device);
     }*/
 
+   // скрываем прелоадер страницы если он есть
+   const $pagePreloader = $('#page_preloader');
 
-    // скрываем прелоадер страницы если он есть
-    const $pagePreloader = $('#page_preloader');
+   if ($pagePreloader.length) {
+      $pagePreloader.addClass('animate-start');
 
-    if ($pagePreloader.length) {
-        $pagePreloader.addClass('animate-start');
+      setTimeout(() => {
+         hidePreloaderPage();
+         initScripts();
+         $pagePreloader.remove();
+      }, 3400);
+   } else {
+      hidePreloaderPage();
+      initScripts();
+   }
 
-        setTimeout(() => {
-            hidePreloaderPage();
-            initScripts();
-            $pagePreloader.remove();
+   function hidePreloaderPage() {
+      setTimeout(() => {
+         $('html').addClass('animate-end');
+      }, 1000);
 
-        }, 3400);
-
-    } else {
-        hidePreloaderPage();
-        initScripts();
-    }
-
-    function hidePreloaderPage() {
-        setTimeout(() => {
-            $('html').addClass('animate-end');
-        }, 1000);
-
-        $('.preloader-page').removeClass('preloader-page');
-
-    }
+      $('.preloader-page').removeClass('preloader-page');
+   }
 });
-
 
 // инициализация скриптов
 function initScripts() {
-    // инициализация функционала хедера
-    new Header();
+   // инициализация функционала хедера
+   new Header();
 
-    // инициализация мобильного меню
-    const mobileMenu = new MobileMenu();
-    $('body').on('click', '.mobile-menu-toggle-button', function () {
-        mobileMenu.toggle();
-        return false;
-    });
+   // инициализация мобильного меню
+   const mobileMenu = new MobileMenu();
+   $('body').on('click', '.mobile-menu-toggle-button', function() {
+      mobileMenu.toggle();
+      return false;
+   });
 
-    // эффекты
-    new Effects();
+   // эффекты
+   new Effects();
 
-    // Карты все
-    new PolygonsMapsMultiple();
-    new LocationMap($('#map_sell_office_1'));
-    new LocationMap($('#map_sell_office_2'));
-    new PolygonsMap($('#polygon_map'));
-    new EditPolygonsMap($('#edit_polygon_map'))
-    new infrastructureMap($('#infrastructure_map'));
+   // Карты все
+   new LocationMap($('#map_sell_office_1'));
+   new LocationMap($('#map_sell_office_2'));
+   new PolygonsMap($('#polygon_map'));
+   new EditPolygonsMap($('#edit_polygon_map'));
+   new infrastructureMap($('#infrastructure_map'));
 
-    //Горизонатальный блок с фильтром
-    new RoomsSearch($('#apartments_search_filter_horizontal'));
+   new InteractiveMap();
+   new PolygonsMapsMultiple();
 
-    // Форма обратной связи в модалке
-    new InitFeedbackModalForm();
+   //Горизонатальный блок с фильтром
+   new RoomsSearch($('#apartments_search_filter_horizontal'));
 
-    // Форма обратной связи
-    new InitFeedbackForm();
+   // Форма обратной связи в модалке
+   new InitFeedbackModalForm();
 
-    //Форма заявки на бронирование
-    new InitReserveForm();
+   // Форма обратной связи
+   new InitFeedbackForm();
 
-    //Ипотечный калькулятор
-    new MortgageView($('#mortgage_view'));
+   //Форма заявки на бронирование
+   new InitReserveForm();
 
-    //Функционал табов
-    new CustomTabs();
+   //Ипотечный калькулятор
+   new MortgageView($('#mortgage_view'));
 
-    //Модальная галерея
-    new GalleryModal();
+   //Функционал табов
+   new CustomTabs();
 
-    // Инициализация плейсхолдеров и масок
-    initMaskedInput();
-    initPlaceholders();
+   //Модальная галерея
+   new GalleryModal();
 
-    //Слайдеры на странице Ход строительства
-    new BuildProgressSliders();
+   // Инициализация плейсхолдеров и масок
+   initMaskedInput();
+   initPlaceholders();
 
-    // кноики показать ещё
-    $('body').on('click', '[data-show_more_button]', function () {
-        const id = $(this).attr('data-show_more_button');
-        $(`[data-show_more="${id}"]`).removeClass('hide');
-        $(this).remove();
-        return false;
-    });
+   //Слайдеры на странице Ход строительства
+   new BuildProgressSliders();
 
-    //плавный скролл к якорю
-    /*$('a[href*="#"]').click(function() {
+   // кноики показать ещё
+   $('body').on('click', '[data-show_more_button]', function() {
+      const id = $(this).attr('data-show_more_button');
+      $(`[data-show_more="${id}"]`).removeClass('hide');
+      $(this).remove();
+      return false;
+   });
+
+   //плавный скролл к якорю
+   /*$('a[href*="#"]').click(function() {
         let $page = $('html, body');
 
         $page.animate({
@@ -155,19 +133,15 @@ function initScripts() {
         return false;
     });*/
 
-    // модальные окна фулскрин
-    const modalWindow = new ModalWindowFullScreen();
+   // модальные окна фулскрин
+   const modalWindow = new ModalWindowFullScreen();
 
-    if ($('[data-modal="main_info_modal"]').length && !sessionStorage.getItem('promo-modal')) {
-        modalWindow.open('main_info_modal', 'open-modal-fade-effect')
-        sessionStorage.setItem('promo-modal', 'show')
-    }
+   if ($('[data-modal="main_info_modal"]').length && !sessionStorage.getItem('promo-modal')) {
+      modalWindow.open('main_info_modal', 'open-modal-fade-effect');
+      sessionStorage.setItem('promo-modal', 'show');
+   }
 
-    const selects = new Selects({searchEnabled:false, itemSelectText: ''});
-
-
-
-
+   const selects = new Selects({ searchEnabled: false, itemSelectText: '' });
 
    //
 }
