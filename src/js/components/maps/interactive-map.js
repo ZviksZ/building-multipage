@@ -45,10 +45,12 @@ export class InteractiveMap {
             collection.add(placemark)
          })
 
-         if (collection.getParent()) {
+         if ($(e.currentTarget).hasClass('active')) {
             this.map.geoObjects.remove(collection);
+            $(e.currentTarget).removeClass('active')
          } else {
             this.map.geoObjects.add(collection);
+            $(e.currentTarget).addClass('active')
          }
 
 

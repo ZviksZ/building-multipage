@@ -221,24 +221,28 @@
             z-index: 4;
             bottom: 30px;
             left: 30px;
-            width: 24px;
-            height: 24px;
+            width: 45px;
+            height: 45px;
             background-color: $colorWhite;
-            border-radius: 8px;
+            border-radius: 16px;
             text-align: center;
 
-            @include desktop-smaller {
-                width: 45px;
-                height: 45px;
-                border-radius: 16px;
-            }
 
             &:before {
                 content: "\6b";
-                font-size: 14px;
+                font-size: 21px;
                 color: $colorTextGray;
                 display: flex;
                 font-weight: bold;
+            }
+            @include desktop-smaller {
+                /*width: 30px;
+                height: 30px;
+                border-radius: 8px;*/
+                bottom: 20px;
+                /*&:before {
+                    font-size: 17px;
+                }*/
             }
 
             @include mobile {
@@ -334,6 +338,8 @@
             padding-right: 15px;
             z-index: 5;
 
+
+
             @include mobile-small {
                 left: 20px;
                 top: 15px;
@@ -351,12 +357,12 @@
 
                 @include desktop-medium {
                     font-size: 30px;
-                    line-height: 38px;
+                    line-height: 33px;
                 }
 
                 @include desktop-smaller {
-                    font-size: 28px;
-                    line-height: 37px;
+                    font-size: 26px;
+                    line-height: 31px;
                 }
 
                 @include mobile {

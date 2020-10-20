@@ -157,6 +157,18 @@
             color: $colorWhite;
         }
 
+        &.hide-big-desktop {
+            display: none!important;
+
+            @include desktop-small {
+                display: flex!important;
+            }
+
+            @include mobile {
+                display: none!important;
+            }
+        }
+
 
         &.small {
             width: 32px; height: 32px;

@@ -25,7 +25,7 @@ export default class LocationMap {
             ymaps.ready(() => {
                 const map = new ymaps.Map(id, {
                     center: this.coords,
-                    controls: [],
+                    controls: ['default'],
                     zoom: 16
                 }, {
                     suppressMapOpenBlock: true

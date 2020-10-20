@@ -13,12 +13,10 @@
     }
 }
 
-.hide-big-desktop {
-    @include desktop {
-        display: none !important;
-    }
 
-}
+
+
+
 
 .hide-tablet {
     @include tablet {
