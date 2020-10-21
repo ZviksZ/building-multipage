@@ -231,7 +231,7 @@
             &:before {
                 content: "\6b";
                 font-size: 21px;
-                color: $colorTextGray;
+                color: $colorText;
                 display: flex;
                 font-weight: bold;
             }
@@ -246,8 +246,14 @@
             }
 
             @include mobile {
+                width: 24px;
+                height: 24px;
                 bottom: 20px;
                 left: 20px;
+                border-radius: 8px;
+                &:before {
+                    font-size: 15px;
+                }
             }
         }
 
@@ -374,7 +380,6 @@
             .place {
                 display: block;
                 position: relative;
-                font-family: "Manrope Bold";
                 color: $colorWhite;
                 font-size: 16px;
                 font-weight: 800;
@@ -391,8 +396,7 @@
                     display: block;
                     position: absolute;
                     left: 0;
-                    top: 0;
-
+                    top: -1px;
                     @include mobile {
                         font-size: 14px;
                     }
@@ -400,9 +404,10 @@
                 }
 
                 @include mobile {
-                    padding-left: 30px;
+                    padding-left: 21px;
                     font-size: 12px;
                     line-height: 17px;
+                    font-weight: 500;
                 }
             }
         }

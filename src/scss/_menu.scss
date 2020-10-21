@@ -44,11 +44,7 @@
 
     .menu {
         display: block;
-        position: absolute;
         z-index: 9;
-        left: 0;
-        top: 0;
-        bottom: 0;
         margin: 0;
         padding: 0 27px;
         width: 100%;
@@ -92,6 +88,23 @@
             top: 50%;
             margin: -6px 0 0 0;
             */
+        }
+    }
+    .phones {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 14px;
+        .phone {
+            font-weight: 800;
+            font-size: 20px;
+            line-height: 29px;
+            text-align: center;
+            color: $colorText;
+            text-decoration: none;
+        }
+        .phone + .phone {
+            margin-top: 5px;
         }
     }
 }

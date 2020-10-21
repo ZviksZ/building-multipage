@@ -19,22 +19,19 @@
     background-color: #1c7ed9;
     position: relative;
     z-index: 10;
-    height: calc(74vh - 100px);
+    height: 748px;
     overflow: hidden;
     will-change: contents;
     box-shadow: 0px 10px 20px rgba(51, 62, 70, 0.1);
 
-    @include desktop {
-        min-height: 620px;
-    }
 
-    @include desktop-medium {
-        height: calc(74vh - 100px);
+    @include desktop-small {
+        height: 659px;
     }
 
 
     @include ipad-pro-portrait {
-        height: calc(60vh - 100px);
+        height: 659px;
     }
 
     @include mobile {
@@ -55,16 +52,15 @@
         background-size: cover;
         background-position: center right;
         background-repeat: no-repeat;
-        width: 50%;
+        width: 55%;
         left: 0;
         top: 0;
         bottom: 0;
         transform: scale(1) rotate(0);
         transition: transform 1s ease;
         transition-delay: .5s;
-
         @include desktop {
-            top: -200px;
+            top: -150px;
         }
         @include desktop-small {
             width: 60%;
@@ -98,10 +94,14 @@
         left: 40%;
         right: 0;
         top: 0;
-        bottom: 156px;
+        bottom: 157px;
         transform: scale(1);
         transition: transform 1.5s ease;
         //transition-delay: 2s;
+
+        @include desktop-small {
+            bottom: 125px;
+        }
 
         @include mobile {
             bottom: 0;
@@ -116,16 +116,23 @@
     }
 
     .white-block {
-        display: block;
         position: absolute;
         z-index: 10;
         background-color: #fff;
         left: 0;
         bottom: 0;
         right: 0;
-        padding: 35px 0;
+        display: flex;
+        align-items: center;
         transform: translateY(0);
         transition: transform 2s ease;
+        height: 157px;
+        .section {
+            width: 100%;
+        }
+        @include desktop-small {
+            height: 125px;
+        }
     }
 
 
@@ -136,7 +143,12 @@
         z-index: 10;
         left: 0;
         top: 0;
-        bottom: 156px;
+        bottom: 157px;
+        padding: 75px 0;
+        @include desktop-small {
+            bottom: 125px;
+            padding: 65px 0;
+        }
 
         @include mobile {
             bottom: 0;
@@ -166,6 +178,7 @@
                 @include only-mobile {
                     position: relative;
                     bottom: auto;
+                    margin-top: 15px;
                 }
             }
         }
@@ -181,6 +194,7 @@
 .preloader-page {
     .rooms-item-wrapper {
         .rooms-items-row {
+
             .rooms-item-col {
                 opacity: 0;
                 &:nth-child(1) {
@@ -212,23 +226,25 @@
         display: flex;
         flex-direction: row;
         margin: 0 -16px;
-
+        width: 100%;
         @include mobile {
+            margin: 0;
+            padding: 0 16px;
             flex-wrap: wrap;
         }
 
         .rooms-item-col {
             opacity: 1;
-            width: 100%;
-            padding: 0 16px;
+            width: calc(20% - 32px);
+            margin: 0 16px;
             transition: transform 3s ease, opacity .2s ease-in-out;
             transition-delay: 2s;
-
             @include tablet-mobile {
                 width: 50%;
             }
 
             @include mobile {
+                margin: 0;
                 padding-bottom: 20px;
                 width: 100%;
             }
@@ -277,6 +293,7 @@
             margin-bottom: 0;
             align-items: center;
             justify-content: space-between;
+            height: 51px;
         }
 
         &:before {
@@ -305,24 +322,27 @@
             transform: translateY(-50%);
         }
 
-        &:hover {
-            //background-color: $colorMain;
-            border-color:$colorMain;
+        @include desktop {
+            &:hover {
+                //background-color: $colorMain;
+                border-color:$colorMain;
 
-            &:before {
-                width: calc(100% + 1px);
-                border-radius: 3px;
-            }
+                &:before {
+                    width: calc(100% + 1px);
+                    border-radius: 3px;
+                }
 
-            &:after {
-                color: $colorWhite;
-                z-index: 4;
-            }
+                &:after {
+                    color: $colorWhite;
+                    z-index: 4;
+                }
 
-            .name, .price {
-                color: $colorWhite;
+                .name, .price {
+                    color: $colorWhite;
+                }
             }
         }
+
 
         .name, .price {
             white-space: nowrap;
@@ -344,10 +364,6 @@
             color: $colorTextGray;
             transition: color .1s ease;
             transition-delay: .01s;
-
-            @include mobile-small {
-                font-size: 14px;
-            }
         }
         .price  {
             position: relative;
@@ -360,9 +376,8 @@
             transition: color .1s ease;
             transition-delay: .01s;
 
-            @include mobile-small {
-                padding-right: 25px;
-                font-size: 16px;
+            @include mobile {
+                padding-right: 42px;
             }
         }
     }
@@ -387,10 +402,14 @@
         border-radius: 2px;
         text-decoration: none;
         transition: transform .2s ease;
-
-        &:hover {
-            transform: translateY(-5px);
+        padding-bottom: 13px;
+        overflow: hidden;
+        @include desktop {
+            &:hover {
+                transform: translateY(-5px);
+            }
         }
+
 
         @include only-tablet {
             width: calc(50% - 32px);
@@ -410,10 +429,10 @@
         }
 
         .info {
-            padding: 20px 40px 40px 40px;
+            padding: 20px 40px 60px 40px;
 
             @include desktop-medium {
-                padding: 20px 30px 30px 30px;
+                padding: 20px 30px 50px 30px;
             }
 
             @include mobile {
@@ -424,37 +443,24 @@
             .date {
                 font-weight: 500;
                 font-size: 14px;
-                line-height: 1.2em;
+                line-height: 20px;
                 margin-bottom: 12px;
                 color: $colorSecond;
             }
 
             .name {
-                font-family: "Manrope Bold";
                 font-weight: 800;
-                font-size: 28px;
-                line-height: 1.2em;
+                font-size: 22px;
+                line-height: 30px;
                 margin-bottom: 12px;
                 color: $colorText;
-
-                @include desktop-medium {
-                    font-size: 23px;
-                }
-
-                @include mobile {
-                    font-size: 22px;
-                }
             }
 
             .desc {
                 color: $colorText;
                 font-weight: 500;
                 font-size: 16px;
-                line-height: 1.2em;
-
-                @include desktop-medium {
-                    font-size: 15px;
-                }
+                line-height: 23px;
             }
         }
     }
@@ -486,7 +492,7 @@
             background-repeat: no-repeat;
             background-size: cover;
             background-image: url(../img/img.jpg);
-
+            border-radius: 2px;
             &:before {
                 content: '';
                 display: block;
@@ -528,7 +534,9 @@
                 font-size: 12px;
                 bottom: auto;
                 left: auto;
-                margin: 5px 0;
+                right: auto;
+                text-align: center;
+                margin: 10px 0 5px;
 
                 &:before {
                     display: none;
