@@ -44,6 +44,33 @@ export default class infrastructureMap {
                 map.behaviors.disable('drag');
 
 
+                console.log(this.points)
+
+                this.points.features = this.points.features.map(item => {
+                    let baloon = ymaps.templateLayoutFactory.createClass(
+                       `<div class="balloon-map">                             
+                            <span>${item.properties.balloonContent}</span>
+                            <i class="close icon-cancel"></i>              
+                        </div> `
+                    );
+                    let circleLayout = ymaps.templateLayoutFactory.createClass(`
+                        <div class="placemark_layout_container" style="background: ${item.options.fillColor};"></div>
+                        `);
+                    return {
+                        ...item,
+                        options: {
+                            ...item.options,
+                            iconLayout: circleLayout,
+                            iconShape: {
+                                type: 'Circle',
+                                // Круг описывается в виде центра и радиуса
+                                coordinates: [0, 0],
+                                radius: 16
+                            },
+                            balloonLayout: baloon
+                        }
+                    }
+                })
                 // Создадим объекты из их JSON-описания и добавим их на карту.
                 window.myObjects = ymaps.geoQuery(this.points).addToMap(map);
 
@@ -64,6 +91,10 @@ export default class infrastructureMap {
 
                     return false;
                 });
+
+                $('body').on('click', '.balloon-map .close', (e) => {
+                    map.balloon.close();
+                })
 
 
                 // Функция, которая по состоянию чекбоксов в меню
