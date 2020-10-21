@@ -44,6 +44,11 @@ export class PolygonsMapsMultiple {
                     suppressMapOpenBlock: true
                 });
 
+                map.behaviors.disable('scrollZoom');
+                map.behaviors.disable('dblClickZoom');
+                map.behaviors.disable('multiTouch');
+                map.behaviors.disable('drag');
+
                 if (data.polygons) {
                     for (let i = 0; i < data.polygons.length; i++) {
                         let name = data.polygons[i][0]['name'] || 'Нет ничего';

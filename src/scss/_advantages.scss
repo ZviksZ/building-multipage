@@ -72,7 +72,8 @@
 
         &:hover {
             .background-img {
-               background-size: 110% 110%;
+              /* background-size: 110% 110%;*/
+                transform: scale(1.1) translateZ(0);
             }
         }
 
@@ -124,7 +125,7 @@
             background-size: 100% 100%;
             background-position: center center;
             background-repeat: no-repeat;
-            transition: background-size .4s ease-in-out;
+            transition: .3s ease-in-out;
         }
 
         .name {
@@ -525,9 +526,32 @@
         }
     }
 }
-
+@include only-mobile {
+    .container-map-hide {
+        padding: 0 !important;
+    }
+}
 .infrastructure-map {
-    height: 64vh;
+    /*height: 64vh;*/
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    max-height: 622px;
+    &:before {
+        display: block;
+        float: left;
+        content: '';
+        padding-top: 40%;
+    }
+    @include desktop-small {
+        max-height: 430px;
+    }
+    @include mobile {
+        &:before {
+            padding-top: 114%;
+        }
+        max-height: 430px;
+    }
 }
 
 .map-controls {
@@ -535,7 +559,9 @@
     padding: 25px 5px;
     overflow: auto;
     background-color: $colorSectionBg;
-
+    @include only-mobile {
+        padding: 25px 17px;
+    }
     .inner {
         display: flex;
         flex-direction: row;
@@ -543,178 +569,219 @@
         justify-content: space-between;
         max-width: 780px;
         margin: 0 auto;
-
-    }
-
-    .item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: wrap;
-        cursor: pointer;
-        text-align: center;
-        margin: 0 7px;
-        flex-basis: 100px;
-
-        &:not(.active) {
-            &.type-0 {
-                .icon {
-                    border-color: #1C81DE;
-
-                    &:before {
-                        color: #1C81DE;
-                    }
-                }
-            }
-
-            &.type-1 {
-                .icon {
-                    border-color: #FF364E;
-
-                    &:before {
-                        color: #FF364E;
-                    }
-                }
-            }
-
-            &.type-2 {
-                .icon {
-                    border-color: #48B83D;
-
-                    &:before {
-                        color: #48B83D;
-                    }
-                }
-            }
-
-            &.type-3 {
-                .icon {
-                    border-color: #526474;
-
-                    &:before {
-                        color: #526474;
-                    }
-                }
-            }
-
-            &.type-4 {
-                .icon {
-                    border-color: #AE47FF;
-
-                    &:before {
-                        color: #AE47FF;
-                    }
-                }
-            }
-
-            &.type-5 {
-                .icon {
-                    border-color: #FFA15E;
-
-                    &:before {
-                        color: #FFA15E;
-                    }
-                }
-            }
-
-            &.type-6 {
-                .icon {
-                    border-color: #F58CB6;
-
-                    &:before {
-                        color: #F58CB6;
-                    }
-                }
-            }
-
-            &.type-7 {
-                .icon {
-                    border-color: #97C1FF;
-
-                    &:before {
-                        color: #97C1FF;
-                    }
-                }
-            }
-        }
-
-        &.active {
-            &.type-0 {
-                .icon {
-                    background-color: #1C81DE;
-                }
-            }
-
-            &.type-1 {
-                .icon {
-                    background-color: #FF364E;
-                }
-            }
-
-            &.type-2 {
-                .icon {
-                    background-color: #48B83D;
-                }
-            }
-
-            &.type-3 {
-                .icon {
-                    background-color: #526474;
-                }
-            }
-
-            &.type-4 {
-                .icon {
-                    background-color: #AE47FF;
-                }
-            }
-
-            &.type-5 {
-                .icon {
-                    background-color: #FFA15E;
-                }
-            }
-
-            &.type-6 {
-                .icon {
-                    background-color: #F58CB6;
-                }
-            }
-
-            &.type-7 {
-                .icon {
-                    background-color: #97C1FF;
-                }
-            }
-        }
-
-       .icon {
-           position: relative;
-           margin: 0 auto;
-           width: 50px;
-           height: 50px;
-           border-radius: 50%;
-           background-color: transparent;
-           border: 2px transparent solid;
-
-           &:before {
-               display: block;
-               position: absolute;
-               left: 50%;
-               top:50%;
-               transform: translate(-50%,-50%);
-               font-size: 24px;
-               color: $colorWhite;
-           }
-       }
-
-        .name {
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             flex-wrap: wrap;
-            margin-top: 5px;
-            font-family: "Manrope Bold";
-            font-weight: 800;
-            font-size: 12px;
-            color: $colorText;
+            cursor: pointer;
+            text-align: center;
+            margin: 0 7px;
+            flex-basis: 100px;
+            border-color: $colorGrayLight;
+            /*&:not(.active) {
+                &.type-0 {
+                    .icon {
+                        border-color: #1C81DE;
+
+                        &:before {
+                            color: #1C81DE;
+                        }
+                    }
+                }
+
+                &.type-1 {
+                    .icon {
+                        border-color: #FF364E;
+
+                        &:before {
+                            color: #FF364E;
+                        }
+                    }
+                }
+
+                &.type-2 {
+                    .icon {
+                        border-color: #48B83D;
+
+                        &:before {
+                            color: #48B83D;
+                        }
+                    }
+                }
+
+                &.type-3 {
+                    .icon {
+                        border-color: #526474;
+
+                        &:before {
+                            color: #526474;
+                        }
+                    }
+                }
+
+                &.type-4 {
+                    .icon {
+                        border-color: #AE47FF;
+
+                        &:before {
+                            color: #AE47FF;
+                        }
+                    }
+                }
+
+                &.type-5 {
+                    .icon {
+                        border-color: #FFA15E;
+
+                        &:before {
+                            color: #FFA15E;
+                        }
+                    }
+                }
+
+                &.type-6 {
+                    .icon {
+                        border-color: #F58CB6;
+
+                        &:before {
+                            color: #F58CB6;
+                        }
+                    }
+                }
+
+                &.type-7 {
+                    .icon {
+                        border-color: #97C1FF;
+
+                        &:before {
+                            color: #97C1FF;
+                        }
+                    }
+                }
+            }*/
+            .icon {
+                position: relative;
+                margin: 0 auto;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: transparent;
+                border: 2px $colorGrayLight solid;
+
+                &:before {
+                    display: block;
+                    position: absolute;
+                    left: 50%;
+                    top:50%;
+                    transform: translate(-50%,-50%);
+                    font-size: 24px;
+                    color: $colorGrayLight;
+                }
+            }
+
+            .name {
+                flex-wrap: wrap;
+                margin-top: 5px;
+                font-weight: 800;
+                font-size: 12px;
+                color: $colorGrayLight;
+            }
+            &.active {
+                .name {
+                    color: $colorText;
+                }
+                .icon {
+                    &:before {
+                        color: $colorWhite;
+                    }
+                }
+                &.type-0 {
+                    .icon {
+                        background-color: #1C81DE;
+                        border-color: #1C81DE;
+                    }
+                }
+
+                &.type-1 {
+                    .icon {
+                        background-color: #FF364E;
+                        border-color: #FF364E;
+                    }
+                }
+
+                &.type-2 {
+                    .icon {
+                        background-color: #48B83D;
+                        border-color: #48B83D;
+                    }
+                }
+
+                &.type-3 {
+                    .icon {
+                        background-color: #526474;
+                        border-color: #526474;
+                    }
+                }
+
+                &.type-4 {
+                    .icon {
+                        background-color: #AE47FF;
+                        border-color: #AE47FF;
+                    }
+                }
+
+                &.type-5 {
+                    .icon {
+                        background-color: #FFA15E;
+                        border-color: #FFA15E;
+                    }
+                }
+
+                &.type-6 {
+                    .icon {
+                        background-color: #F58CB6;
+                        border-color: #F58CB6;
+                    }
+                }
+
+                &.type-7 {
+                    .icon {
+                        background-color: #97C1FF;
+                        border-color: #97C1FF;
+                    }
+                }
+            }
+
+
+        }
+
+        @include only-mobile {
+            flex-wrap: wrap;
+            .item {
+                width: 50%;
+                flex-basis: 50%;
+                margin: 0;
+                flex-direction: row;
+                align-items: center;
+                margin-bottom: 10px;
+                .icon {
+                    margin: 0 11px 0 0;
+                    width: 26px;
+                    height: 26px;
+                    &:before {
+                        font-size: 12px;
+                    }
+                }
+
+                .name {
+                    margin-top: 0;
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+            }
         }
     }
+
+
 }

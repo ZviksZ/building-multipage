@@ -38,6 +38,8 @@ export default class PolygonsMap {
                 });
 
 
+
+
                 for (let i = 0; i < this.polygons.length; i++) {
                     let name = this.polygons[i][0]['name'] || 'Нет ничего';
                     let polygon = new ymaps.Polygon(this.polygons[i],{
@@ -55,6 +57,11 @@ export default class PolygonsMap {
                 for (let count = 0; count < this.placemarks.length; count++) {
                     addPlacemark(this.placemarks[count]);
                 }
+
+                map.behaviors.disable('scrollZoom');
+                map.behaviors.disable('dblClickZoom');
+                map.behaviors.disable('multiTouch');
+                map.behaviors.disable('drag');
 
                 /**
                  * Добавление точек транспорта

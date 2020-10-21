@@ -22,6 +22,8 @@ export default class infrastructureMap {
 
     init() {
         this.initMap(this.mapId).then(map => this.map = map);
+
+
     }
 
     initMap(id) {
@@ -29,12 +31,17 @@ export default class infrastructureMap {
             ymaps.ready(() => {
                 const map = new ymaps.Map(id, {
                     center: this.coords,
-                    controls: [],
+                    controls: ['zoomControl'],
                     zoom: 14
                 }, {
                     suppressMapOpenBlock: true,
                     yandexMapDisablePoiInteractivity: true
                 });
+
+                map.behaviors.disable('scrollZoom');
+                map.behaviors.disable('dblClickZoom');
+                map.behaviors.disable('multiTouch');
+                map.behaviors.disable('drag');
 
 
                 // Создадим объекты из их JSON-описания и добавим их на карту.
@@ -80,6 +87,9 @@ export default class infrastructureMap {
                     myObjects.remove(shownObjects).removeFromMap(map);
                 }
 
+                $(window).on('resize', function() {
+                    map.container.fitToViewport();
+                })
 
                 resolve(map);
             });
