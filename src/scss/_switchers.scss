@@ -87,4 +87,14 @@
     .item.active + .item {
         border-left: 0;
     }
+
+    &.switchers-small {
+        border-radius: 4px;
+        .item {
+            font-weight: 800;
+            font-size: 12px;
+            line-height: 17px;
+            padding: 8px 10px;
+        }
+    }
 }

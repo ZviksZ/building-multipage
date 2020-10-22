@@ -70,12 +70,15 @@
         width: calc(50% - 16px);
         height: 50%;
 
-        &:hover {
-            .background-img {
-              /* background-size: 110% 110%;*/
-                transform: scale(1.1) translateZ(0);
+        @include desktop {
+            &:hover {
+                .background-img {
+                    /* background-size: 110% 110%;*/
+                    transform: scale(1.1) translateZ(0);
+                }
             }
         }
+
 
         .item-link {
             display: inline-block;
@@ -122,7 +125,7 @@
             height: 100%;
             top: 0;
             bottom: 0;
-            background-size: 100% 100%;
+            background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
             transition: .3s ease-in-out;
@@ -145,6 +148,7 @@
                 bottom: 15px;
                 left: 15px;
                 top:15px;
+                right: 15px;
             }
 
             @include mobile {
@@ -152,6 +156,7 @@
                 line-height: 30px;
                 top: 15px;
                 left: 15px;
+                right: 15px;
                 bottom: 60px;
             }
 
@@ -187,6 +192,25 @@
                 &:before {
                     padding-top: 74.21%;
                 }
+            }
+        }
+    }
+
+    @include mobile {
+        .item {
+            &:before {
+                padding-top: 60% !important;
+            }
+            .background-img {
+                -webkit-background-size: cover;
+                background-size: cover;
+            }
+        }
+    }
+    @include only-mobile {
+        .item {
+            &:before {
+                padding-top: 81% !important;
             }
         }
     }

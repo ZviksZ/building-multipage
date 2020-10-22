@@ -316,7 +316,7 @@
 
 .apartment-view {
     display: flex;
-
+    position: relative;
     @include mobile {
         flex-direction: column;
     }
@@ -324,10 +324,25 @@
         width: 100%;
         .image-wrapper {
             padding: 20px;
-            height: 560px;
+            /*height: 560px;*/
+            height: 100%;
             max-width: 800px;
             margin: 0 auto;
             display: block;
+
+            background-repeat: no-repeat;
+            background-position: center center;
+            -webkit-background-size: contain;
+            background-size: contain;
+            &:before {
+                display: block;
+                float: left;
+                content: '';
+                padding-top: 75%;
+                @include mobile {
+                    padding-top: 90%;
+                }
+            }
 
             @include only-mobile {
                 height: 350px;
@@ -345,7 +360,7 @@
         flex-shrink: 0;
         position: relative;
         width: 496px;
-
+        margin-left: 79px;
         @include mobile {
             width: 100%;
         }
@@ -436,6 +451,7 @@
                     font-weight: 800;
                     font-size: 20px;
                     line-height: 29px;
+                    text-decoration-line: line-through;
                 }
 
                 .discount-percent {
@@ -470,26 +486,30 @@
     }
     .apartment-section-info{
         display: flex;
-        position: relative;
         flex-direction: column;
         flex-shrink: 0;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
         width: 150px;
-
+        margin-right: 50px;
         @include mobile {
             flex-direction: row;
             flex-wrap: wrap;
             width: 100%;
+            margin-right: 0;
         }
 
         .compass-wrap {
             position: relative;
             margin-top: 20px;
             margin-bottom: 20px;
+            @include mobile {
+                margin-left: 15px;
+            }
         }
 
         .image-switcher {
+            margin-bottom: 0;
             @include mobile {
                 width: 100%;
             }
@@ -508,6 +528,44 @@
                     display: flex;
                 }
             }
+        }
+        @include mobile {
+            .switchers-small {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                padding: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                .item {
+                    width: 50%;
+                    flex: 0 0 50%
+                }
+            }
+        }
+    }
+    @include mobile {
+        padding-top: 70px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .apartment-info {
+            margin-left: 0;
+        }
+        .apartment-section-info {
+            width: 15%;
+            flex-direction: column;
+            .section-plan {
+                width: 100%;
+                img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+        .apartment-image {
+            width: 85%;
+            max-width: 100%;
         }
     }
 }
@@ -536,7 +594,7 @@
             -webkit-transition: all .3s ease;
             -o-transition: all .3s ease;
             transition: all .3s ease;
-            color: #7D7D7D;
+            color: $colorText;
             &.north {
                 left: 50%;
                 bottom: 105%;
@@ -559,6 +617,37 @@
                 top: 50%;
                 left: 95%;
                 margin: -4px;
+            }
+        }
+        @include mobile {
+            width: 22px;
+            height: 22px;
+            -webkit-background-size: contain;
+            background-size: contain;
+            .compass-symbol {
+                font-size: 8px;
+                line-height: 12px;
+                &.north {
+                    bottom: 140%;
+                    margin: -7px;
+                }
+
+                &.south {
+                    top: 140%;
+                    margin: -7px;
+                }
+
+                &.west {
+                    top: 50%;
+                    right: 130%;
+                    margin: -6px;
+                }
+
+                &.east {
+                    top: 50%;
+                    left: 130%;
+                    margin: -6px;
+                }
             }
         }
     }

@@ -29,8 +29,10 @@
     appearance: none;
     -webkit-tap-highlight-color: transparent;
 
+
     @include mobile {
         font-size: 17px;
+        height: 45px;
     }
 
     &:active {
@@ -131,14 +133,19 @@
 
     &.inline {
         display: inline-flex;
-        width: auto;
+        width: auto ;
         margin-right: 22px;
         margin-bottom: 0;
 
         @include mobile {
+            &.w-a-mobile {
+                width: auto!important;
+            }
             margin-right: 10px;
-            margin-top: 10px;
+            margin-top: 18px;
         }
+
+
     }
 
     &.button-icon {

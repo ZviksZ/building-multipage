@@ -175,6 +175,12 @@
         p {
             margin: 0;
         }
+
+        @include only-mobile {
+            .small-text {
+                font-size: 12px;
+            }
+        }
     }
 
     .internetlab {

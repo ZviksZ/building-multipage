@@ -33,9 +33,9 @@
         <div class="section no-padding">
             <div class="container">
                 <a href="#" class="close" data-close-modal-button="room_request" data-effect-type="open-modal-fade-effect"><i
-                        class="icon icon-close-default"></i></a>
+                        class="icon icon-cancel"></i></a>
                 <div class="h2 no-margin-top with-close">Оставить заявку</div>
-                <form action="">
+                <form action="" id="room-modal-form">
                     <label class="field field-input  margin-top-x2">
                         <input class="input-text placeholder validate" placeholder="Ваше имя" data-placeholder="Ваше имя" data-validate="required" id="feedback_name"
                                name="feedback_name" type="text">
@@ -43,13 +43,18 @@
                     </label>
 
                     <label class="field field-input margin-top-x2">
-                        <input class="input-text placeholder validate input-mask" data-mask_tpl="phone_plus7" data-placeholder="Номер телефона" data-validate="mobile_phone" id="feedback_phone"
+                        <input class="input-text placeholder validate input-mask" data-mask_tpl="phone_plus7" data-placeholder="Номер телефона" data-validate="number_phone-required" id="feedback_phone"
                                name="feedback_phone" type="text" value="" inputmode="text">
                         <p class="error-message"></p>
                     </label>
 
                     <button class="button margin-top-x3" type="submit" disabled="disabled">Оставить заявку</button>
+
+                    <div class="form-message">
+                        <div class="text"></div>
+                    </div>
                 </form>
+
                 <div class="offerta">Нажимая кнопку отправить вы соглашаетесь на обработку персональных данных и с <a
                         href="#" target="_blank">политикой конфиденциальности</a></div>
             </div>
@@ -63,9 +68,9 @@
         <div class="section no-padding">
             <div class="container">
                 <a href="#" class="close" data-close-modal-button="call_request" data-effect-type="open-modal-fade-effect"><i
-                        class="icon icon-close-default"></i></a>
+                        class="icon icon-cancel"></i></a>
                 <div class="h2 no-margin-top with-close">Заказать звонок</div>
-                <form action="">
+                <form action="" id="feedback-modal-form">
                     <label class="field field-input  margin-top-x2">
                         <input class="input-text placeholder validate" placeholder="Ваше имя" data-placeholder="Ваше имя" data-validate="required" id="call-feedback_name"
                                name="feedback_name" type="text">
@@ -73,12 +78,15 @@
                     </label>
 
                     <label class="field field-input margin-top-x2">
-                        <input class="input-text placeholder validate input-mask" data-mask_tpl="phone_plus7" data-placeholder="Номер телефона" data-validate="mobile_phone" id="call-feedback_phone"
+                        <input class="input-text placeholder validate input-mask" data-mask_tpl="phone_plus7" data-placeholder="Номер телефона" data-validate="number_phone-required" id="call-feedback_phone"
                                name="feedback_phone" type="text" value="" inputmode="text">
                         <p class="error-message"></p>
                     </label>
 
                     <button class="button margin-top-x3" type="submit" disabled="disabled">Заказать звонок</button>
+                    <div class="form-message">
+                        <div class="text"></div>
+                    </div>
                 </form>
                 <div class="offerta">Нажимая кнопку отправить вы соглашаетесь на обработку персональных данных и с <a
                         href="#" target="_blank">политикой конфиденциальности</a></div>

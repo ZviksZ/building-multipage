@@ -98,6 +98,23 @@ function validateField($field, showError = true) {
 			}
 			break;
 
+		case 'number_phone-required':
+			val = val.replace('+7 ', '');
+			val = val.replace(/[()\_-\s]/g, '');
+
+			console.log(val)
+
+
+
+			if (val === '' ) {
+				error++;
+				message = 'Поле обязательно для заполнения';
+			} else if (val.search(regNum) == -1 || val.length != 10) {
+				error++;
+				message = 'Укажите корректный номер телефона';
+			}
+			break;
+
 		// серия и номер паспорта - 10 цифр
 		case 'passport_serial_number':
 			val = val + '';
@@ -236,6 +253,8 @@ function initFormWithValidate($form) {
 		 .on('change', function () {
 			 validateForm($form, false);
 			 validateField($(this));
+
+			 checkDisabledSubmit();
 		 });
 
 	// чекбоксы/радио

@@ -16,7 +16,10 @@ title: "Волгарь"
 
 <div class="section no-padding-top">
     <div class="container">
-        <div class="apartment-view">
+        <h3 class="h3 color-text hide-desktop">
+            3 комнатная квартира 85,78м²
+        </h3>
+        <div class="apartment-view tabs-container">
             <div class="apartment-section-info">
                 <div class="compass-wrap">
                     <div class="compass" data-deg="190" >
@@ -29,18 +32,25 @@ title: "Волгарь"
                 <div class="section-plan">
                     <img src="./img/rooms/section.png" alt="">
                 </div>
-                <div class="image-switcher show-floor">
+                <div class="image-switcher show-floor tabs switchers-small switchers inline">
+                    <div class="item active" data-tab="1">Планировка квартиры</div>
+                    <div class="item" data-tab="2">План этажа</div>
+                </div>
+                <!--<div class="image-switcher show-floor">
                     <div class="button small default floor">План этажа</div>
                     <div class="button small default room">Планировка</div>
-                </div>
+                </div>-->
             </div>
             <div class="apartment-image">
-                <div class="image-wrapper">
-                    <img src="./img/rooms/1234.jpg" alt="">
+                <div class="image-wrapper tabs-block" data-tab="1" style="background-image: url(./img/rooms/1234.jpg)">
+                    <!--<img src="./img/rooms/1234.jpg" alt="">-->
+                </div>
+                <div class="image-wrapper tabs-block" data-tab="2" style="background-image: url(./img/rooms/12345.jpg)">
+                    <!--<img src="./img/rooms/12345.jpg" alt="">-->
                 </div>
             </div>
             <div class="apartment-info">
-                <h1 class="h2">3 комнатная квартира 85,78м²</h1>
+                <h1 class="h2 hide-mobile">3 комнатная квартира 85,78м²</h1>
 
                 <div class="info-block">
                     <div class="item">
@@ -77,7 +87,7 @@ title: "Волгарь"
                        data-open-modal-button="room_request"
                        data-effect-type="open-modal-fade-effect">Оставить
                         заявку</a>
-                    <div class="button default inline">Сохранить PDF</div>
+                    <div class="button default inline w-a-mobile">Сохранить PDF</div>
                 </div>
             </div>
         </div>

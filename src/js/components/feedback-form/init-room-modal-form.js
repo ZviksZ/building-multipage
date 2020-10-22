@@ -1,9 +1,9 @@
 import * as $ from 'jquery';
 import { initFormWithValidate } from '../form';
 
-export class InitFeedbackForm {
+export class InitRoomModalForm {
    constructor() {
-      this.$form = $('#feedback-form');
+      this.$form = $('#room-modal-form');
       this.$formMessageBlock = this.$form.find('.form-message');
 
       if (!this.$form.length) return false;
@@ -26,6 +26,7 @@ export class InitFeedbackForm {
    submit(successFn, errorFn) {
       this.$form.on('submit', function(e) {
          e.preventDefault();
+
          let $formData = {};
 
          $(this)
@@ -37,9 +38,9 @@ export class InitFeedbackForm {
          let data = {
             sub: 49,
             cc: 72,
-            f_name: $formData.feedback_name,
-            f_phone: $formData.feedback_phone,
-            f_message: $formData.feedback_text,
+            f_name: $formData.feedback_modal_name,
+            f_phone: $formData.feedback_modal_phone,
+            f_message: $formData.feedback_modal_text,
             catalogue: 1,
             posting: 1
          };
@@ -47,7 +48,7 @@ export class InitFeedbackForm {
          //const data = $(this).serialize();
 
          $.ajax({
-            url: $('#feedback-form').attr('action'),
+            url: $('#feedback-modal-form').attr('action'),
             type: 'POST',
             dataType: 'text',
             data: data,
@@ -65,24 +66,25 @@ export class InitFeedbackForm {
    successForm() {
       this.clearForm();
 
-      this.$formMessageBlock.find('.message-icon.error').addClass('hide');
-      this.$formMessageBlock.find('.message-title').text('Отлично!');
-      this.$formMessageBlock.find('.message-subtitle').text('Ваше собщение успешно отправлено');
+      this.$formMessageBlock.find('.text').text('Ваше собщение успешно отправлено');
 
       this.$form.addClass('form-hide');
+
+      setTimeout(() => {
+         $('html').removeClass('open-modal open-modal-fade-effect');
+         this.$form.closest('.modal-window').removeClass('fade-in-show');
+      }, 2500);
    }
 
    errorForm() {
-      this.$form.addClass('form-hide');
+      this.$formMessageBlock.find('.text').text('Ошибка. Попробуйте еще раз');
 
-      this.$formMessageBlock.find('.message-icon.success').addClass('hide');
-      this.$formMessageBlock.find('.message-title').text('Ошибка');
-      this.$formMessageBlock.find('.message-subtitle').text('Попробуйте еще раз');
+      this.$form.addClass('form-hide');
 
       setTimeout(() => {
          this.$form.removeClass('form-hide');
-         this.$formMessageBlock.find('.message-icon.success').removeClass('icon-hide');
-      }, 4000);
+         this.$formMessageBlock.find('.text').text('');
+      }, 2500);
    }
 
    clearForm() {

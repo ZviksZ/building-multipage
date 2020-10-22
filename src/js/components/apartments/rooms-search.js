@@ -149,7 +149,9 @@ export class RoomsSearch {
         }
     }
 
-
+    /**
+     * Фильтрация элементов на странице в моб версии при клике на кнопку
+     */
     setDisabledApartmentsOnMobile = () => {
         let countApartments = 0;
         for (let i = 0; i < this.apartments.length; i++) {

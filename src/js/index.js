@@ -11,9 +11,9 @@ import { Effects } from './components/effects';
 
 import { LocationMap, PolygonsMap, EditPolygonsMap, infrastructureMap, InteractiveMap } from './components/maps';
 
-import { ModalWindowFullScreen } from './components/modal-window-fullscreen';
-import { initMaskedInput, initPlaceholders } from './components/form';
-import { InitFeedbackForm, InitFeedbackModalForm } from './components/feedback-form';
+import { ModalWindowFullScreen }                                      from './components/modal-window-fullscreen';
+import { initMaskedInput, initPlaceholders }                          from './components/form';
+import { InitFeedbackForm, InitFeedbackModalForm, InitRoomModalForm } from './components/feedback-form';
 
 import { InitReserveForm } from './components/reserve-form';
 
@@ -95,6 +95,9 @@ function initScripts() {
 
    // Форма обратной связи
    new InitFeedbackForm();
+
+   // Форма заявки при выборе квартиры
+   new InitRoomModalForm();
 
    //Форма заявки на бронирование
    new InitReserveForm();
