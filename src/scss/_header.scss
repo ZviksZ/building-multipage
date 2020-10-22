@@ -12,7 +12,6 @@
     height: 100px;
     margin: 0;
     background: $colorWhite;
-    overflow: hidden;
     opacity: 1;
     transition: transform .8s ease;
     will-change: contents;
@@ -91,6 +90,7 @@
             }
 
             .link {
+                display: block;
                 font-family: "Manrope Bold";
                 position: relative;
                 margin: 0;
@@ -123,6 +123,35 @@
                     padding-top: 1px;
                 }
 
+                .submenu {
+                    display: none;
+                    position: absolute;
+                    left: -45px;
+                    top: 100%;
+                    background: $colorWhite;
+                    box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.1);
+                    border-radius: 16px;
+                    padding: 28px 30px;
+                    flex-direction: column;
+                    min-width: 316px;
+                    z-index: 88;
+                    .link + .link {
+                        margin-top: 15px;
+                        margin-left: 0 !important;
+                    }
+                    &:before {
+                        position: absolute;
+                        top: -9px;
+                        left: 45px;
+                        display: block;
+                        content: '';
+                        width: 16px;
+                        height: 16px;
+                        background: $colorWhite;
+                        transform: rotate(45deg);
+                    }
+                }
+
                 &.active {
                     color: $colorSecond;
                     cursor: default;
@@ -135,6 +164,9 @@
                 @include desktop {
                     &:hover {
                         color: $colorSecond;
+                        .submenu {
+                            display: flex;
+                        }
                     }
                 }
             }
