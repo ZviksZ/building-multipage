@@ -31,6 +31,7 @@ export class RoomsSearch {
         this.$deadlineSelect = this.$filterForm.find('[name="deadline"]');
 
         this.$searchResultText = $('#filter_result');
+        this.$searchResultBtn = $('#filter_result-btn');
 
         this.JSON = JSON.parse(this.$block.attr('data-json'));
         this.apartments = this.JSON.apartments;
@@ -43,6 +44,9 @@ export class RoomsSearch {
         this.filterParams = this.getFilterParams();
 
         this.roomsName = ['Ст.', '1', '2', '3', '4', '5'];
+
+        this.showFilterBtn = $('#show-room-filter-btn')
+        this.hideFilterBtn = $('#hide-room-filter-btn')
 
         this.init();
     }
@@ -92,6 +96,15 @@ export class RoomsSearch {
 
             return false;
         });
+
+        this.showFilterBtn.on('click', (e) => {
+            $('body').addClass('show-room-filter')
+        })
+        this.hideFilterBtn.on('click', (e) => {
+            $('body').removeClass('show-room-filter')
+        })
+
+        this.$searchResultBtn.on('click',this.setDisabledApartmentsOnMobile)
     }
 
     handlerSortApartments(element) {
@@ -137,26 +150,58 @@ export class RoomsSearch {
     }
 
 
-    /**
-     *
-     */
-    filterApartments() {
+    setDisabledApartmentsOnMobile = () => {
         let countApartments = 0;
-
         for (let i = 0; i < this.apartments.length; i++) {
-           const apartment = this.apartments[i];
-           const {id} = apartment;
+            const apartment = this.apartments[i];
+            const {id} = apartment;
+
 
             if (this.isAvailableApartment(apartment, this.filterParams)){
                 $(`#${id}`).removeClass('disabled');
                 countApartments++;
-
             } else  {
                 $(`#${id}`).addClass('disabled');
             }
         }
         const textMessage = `${countApartments} ${declOfNum(countApartments,['квартира','квартиры','квартир'])}`
         this.$searchResultText.html(textMessage);
+        $('body').removeClass('show-room-filter')
+    }
+    /**
+     *
+     */
+    filterApartments() {
+        let countApartments = 0;
+
+        if ($('body').hasClass('show-room-filter')) {
+            for (let i = 0; i < this.apartments.length; i++) {
+                const apartment = this.apartments[i];
+                if (this.isAvailableApartment(apartment, this.filterParams)){
+                    countApartments++;
+                }
+            }
+            const textMessage = `${countApartments} ${declOfNum(countApartments,['квартира','квартиры','квартир'])}`
+
+            this.$searchResultBtn.html('Показать ' + textMessage);
+        } else {
+            for (let i = 0; i < this.apartments.length; i++) {
+                const apartment = this.apartments[i];
+                const {id} = apartment;
+
+
+                if (this.isAvailableApartment(apartment, this.filterParams)){
+                    $(`#${id}`).removeClass('disabled');
+                    countApartments++;
+
+                } else  {
+                    $(`#${id}`).addClass('disabled');
+                }
+            }
+            const textMessage = `${countApartments} ${declOfNum(countApartments,['квартира','квартиры','квартир'])}`
+            this.$searchResultText.html(textMessage);
+            this.$searchResultBtn.html('Показать ' + textMessage);
+        }
 
     }
 

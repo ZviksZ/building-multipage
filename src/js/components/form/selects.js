@@ -12,7 +12,8 @@ export default class Selects {
 
     initChoices($element, options = {
         searchEnabled:false,
-        itemSelectText: ''
+        itemSelectText: '',
+        shouldSort: false
     }) {
         if(!$element) return;
 

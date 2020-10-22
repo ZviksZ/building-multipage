@@ -38,7 +38,7 @@ export class PolygonsMapsMultiple {
             ymaps.ready(() => {
                 const map = new ymaps.Map(data.id, {
                     center: data.coords,
-                    controls: [],
+                    controls: ['zoomControl'],
                     zoom: 14
                 }, {
                     suppressMapOpenBlock: true

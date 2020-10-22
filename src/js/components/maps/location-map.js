@@ -25,11 +25,16 @@ export default class LocationMap {
             ymaps.ready(() => {
                 const map = new ymaps.Map(id, {
                     center: this.coords,
-                    controls: ['default'],
+                    controls: ['zoomControl'],
                     zoom: 16
                 }, {
                     suppressMapOpenBlock: true
                 });
+
+                map.behaviors.disable('scrollZoom');
+                map.behaviors.disable('dblClickZoom');
+                map.behaviors.disable('multiTouch');
+                map.behaviors.disable('drag');
 
                 const myPlacemark = new ymaps.Placemark(this.coords, {}, {
                     iconLayout: 'default#image',

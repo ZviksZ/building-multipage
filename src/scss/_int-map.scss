@@ -1,58 +1,35 @@
-.interactive-map__block {
-    margin-bottom: 70px;
-    .interactive-map {
-        display: flex;
-        width: 100%;
-        &:before {
-            display: block;
-            width: 100%;
-            float: left;
-            content: '';
-            padding-top: 40%;
-        }
+.balloon-map {
+    position: relative;
+    background: $colorWhite;
+    padding: 16px;
+    box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    display: inline-flex;
+    min-width: 172px;
+    align-items: flex-start;
+    justify-content: space-between;
+    span {
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 23px;
+        color: $colorText;
     }
-    .interactive-map__controls {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #F4F9FC;
-        padding: 22px 0 24px;
-        .item {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            margin: 0 24px;
-            cursor: pointer;
-            @include desktop {
-                &:hover {
-                    opacity: 0.7;
-                }
-            }
-            .round {
-                width: 50px;
-                height: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 50%;
-                border: 1px solid transparent;
-                i {
-                    display: inline-block;
-                    margin-top: 3px;
-                    font-size: 21px;
-                }
-            }
-            .text {
-                display: inline-block;
-                margin-top: 5px;
-                color: $colorText;
-                font-weight: 800;
-                font-size: 12px;
-                line-height: 17px;
-            }
-        }
+    .close {
+        display: inline-block;
+        margin-left: 10px;
+        color: #546E7A;
+        font-size: 17px;
+        cursor: pointer;
     }
+}
+.placemark_layout_container {
+    cursor: pointer;
+    display: block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    z-index: 99;
 }

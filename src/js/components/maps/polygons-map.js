@@ -31,7 +31,7 @@ export default class PolygonsMap {
             ymaps.ready(() => {
                 const map = new ymaps.Map(id, {
                     center: this.coords,
-                    controls: [],
+                    controls: ['zoomControl'],
                     zoom: 14
                 }, {
                     suppressMapOpenBlock: true
