@@ -39,6 +39,16 @@
                 &.empty {
                     color: $colorGrayLight;
                 }
+
+
+            }
+            @include mobile {
+                margin: 0;
+                .bottom-item {
+                    width: 100%;
+                    padding: 0 17px;
+                    margin: 0;
+                }
             }
         }
     }

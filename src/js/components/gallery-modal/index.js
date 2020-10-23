@@ -3,7 +3,7 @@ import Swiper from 'swiper/js/swiper.min.js';
 
 export class GalleryModal {
    constructor() {
-      this.$galleryItems = $("[data-images]");
+      this.$galleryItems = $('[data-images]');
 
       if (this.$galleryItems.length === 0) return false;
 
@@ -25,9 +25,8 @@ export class GalleryModal {
       this.data = JSON.parse(dataImages);
 
       this.initSlidesToGallery();
-      this.$sliderInstance.update()
-
-
+      this.$sliderInstance.update();
+      this.$sliderInstance.slideTo(0, 10, true);
    };
 
    initSlidesToGallery = () => {
@@ -66,7 +65,7 @@ export class GalleryModal {
          },
          navigation: {
             nextEl: '.gallery-modal .swiper-button-next',
-            prevEl: '.gallery-modal .swiper-button-prev',
+            prevEl: '.gallery-modal .swiper-button-prev'
          },
          on: {
             slideChange: () => {

@@ -4,3 +4,24 @@
         display: block !important;
     }
 }
+.tabs-select-wrap {
+    margin: 20px 0 30px;
+    .choices {
+        .choices__inner {
+            background: $colorSecond;
+            color: $colorWhite;
+        }
+        &[data-type*=select-one] {
+            &:after {
+                color: $colorWhite;
+            }
+        }
+    }
+}
+.tabs-container__only-mobile.tabs-container {
+    @include desktop {
+        .tabs-block {
+            display: block !important;
+        }
+    }
+}

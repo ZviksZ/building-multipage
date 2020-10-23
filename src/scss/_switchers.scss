@@ -34,9 +34,12 @@
             padding: 11px 8px;
         }
 
-        &:hover {
-            color: $colorSecond;
+        @include desktop {
+            &:hover {
+                color: $colorSecond;
+            }
         }
+
 
         &:before {
             content: '';

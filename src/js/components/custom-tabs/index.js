@@ -9,7 +9,8 @@ export class CustomTabs {
 
       this.$tabItems = this.$container.find('.tabs .item');
       this.$tabBlocks = this.$container.find('.tabs-block');
-
+      this.$tabSelect = this.$container.find('.tabs-select');
+      this.$tabSelectOptions = this.$tabSelect.find('option');
 
       this.init();
    }
@@ -17,6 +18,20 @@ export class CustomTabs {
       this.initActiveTab();
 
       this.$container.find('.tabs .item').on('click', this.changeTab);
+
+      this.$tabSelect.on('change', this.changeTab);
+
+      $(window).on('resize', () => {
+         if ($(window).width() <= '1000') {
+            let tab = this.$tabSelect.val();
+
+            this.$tabItems.removeClass('active');
+            this.$tabBlocks.removeClass('active');
+
+            this.$container.find('.tabs .item[data-tab="' + tab + '"]').addClass('active');
+            this.$container.find('.tabs-block[data-tab="' + tab + '"]').addClass('active');
+         }
+      });
    };
 
    initActiveTab = () => {
@@ -24,24 +39,36 @@ export class CustomTabs {
          let tab = this.$container.find('.tabs .item.active').attr('data-tab');
 
          this.$container.find('.tabs-block[data-tab="' + tab + '"]').addClass('active');
-      } else {
-         let tab = this.$container.find('.tabs .item').first().attr('data-tab');
+      } else if (this.$tabSelect.length > 0 && $(window).width() <= '1000') {
+         let tab = this.$tabSelect.val();
+
+         this.$container.find('.tabs .item[data-tab="' + tab + '"]').addClass('active');
+         this.$container.find('.tabs-block[data-tab="' + tab + '"]').addClass('active');
+      } else  {
+         let tab = this.$container
+            .find('.tabs .item')
+            .first()
+            .attr('data-tab');
 
          this.$container.find('.tabs .item[data-tab="' + tab + '"]').addClass('active');
          this.$container.find('.tabs-block[data-tab="' + tab + '"]').addClass('active');
       }
    };
 
-   changeTab = (e) => {
+   changeTab = e => {
       e.preventDefault();
-
-      let tab = $(e.currentTarget).attr('data-tab');
-
+      let tab;
+      if ($(e.currentTarget).val()) {
+         tab = $(e.currentTarget).val();
+      } else {
+         tab = $(e.currentTarget).attr('data-tab');
+      }
 
       this.$tabItems.removeClass('active');
       this.$tabBlocks.removeClass('active');
 
       this.$container.find('.tabs .item[data-tab="' + tab + '"]').addClass('active');
       this.$container.find('.tabs-block[data-tab="' + tab + '"]').addClass('active');
+
    };
 }

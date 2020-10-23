@@ -102,10 +102,6 @@ function validateField($field, showError = true) {
 			val = val.replace('+7 ', '');
 			val = val.replace(/[()\_-\s]/g, '');
 
-			console.log(val)
-
-
-
 			if (val === '' ) {
 				error++;
 				message = 'Поле обязательно для заполнения';

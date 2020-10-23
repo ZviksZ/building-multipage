@@ -8,6 +8,10 @@
     background-color: $colorWhite;
     overflow: hidden;
 
+    &.no-overflow {
+        overflow: visible;
+    }
+
     &.z-index-more {
         z-index: 15;
     }

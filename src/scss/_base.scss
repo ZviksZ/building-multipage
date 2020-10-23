@@ -61,5 +61,8 @@ body {
     }
     @include mobile {
         padding: 1px 17px;
+        &.no-padding-mobile {
+            padding: 1px 0 !important;
+        }
     }
 }
