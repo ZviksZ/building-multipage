@@ -6,9 +6,32 @@
         height: calc(100% - 170px);
         margin: 85px auto !important;
         padding: 0;
+        @include desktop-small {
+            padding: 0 17px;
+            max-width: 80%;
+        }
+        @include mobile {
+            height: auto;
+            padding: 115px 17px 80px !important;
+        }
         .close {
             top: 0;
             right: -64px;
+            background: transparent;
+            i {
+                color: $colorTextGray;
+                font-size: 36px !important;
+            }
+            @include desktop {
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+            @include mobile {
+                top: 19px;
+                right: 17px;
+
+            }
         }
         .gallery-modal__arrow {
             position: absolute;
@@ -31,6 +54,15 @@
             height: 100%;
             border-radius: 2px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            @include mobile {
+                height: auto;
+                align-items: flex-start;
+            }
+            .swiper-wrapper {
+                height: 100%;
+            }
             .swiper-slide {
                 display: flex;
                 width: 100%;
@@ -39,6 +71,15 @@
                 background-position: center center;
                 -webkit-background-size: contain;
                 background-size: contain;
+                @include mobile {
+                    height: auto;
+                    &:before {
+                        display: block;
+                        float: left;
+                        content: '';
+                        padding-top: 70%;
+                    }
+                }
             }
         }
         .gallery-modal__slider-caption {
@@ -56,6 +97,17 @@
                 font-size: 16px;
                 line-height: 23px;
                 color: $colorSecond;
+            }
+            @include mobile {
+                padding: 0 17px;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                bottom: 0;
+                .text {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
             }
         }
         .gallery-modal-pagination {

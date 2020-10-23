@@ -607,9 +607,12 @@
     &.big{
         height: 460px;
     }
+    @include mobile {
+        height: 220px;
+    }
 
-    @include mobile-small {
-        height: 214px;
+    @include only-mobile {
+        height: 180px;
     }
 }
 

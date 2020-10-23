@@ -22,7 +22,7 @@ export class CustomTabs {
       this.$tabSelect.on('change', this.changeTab);
 
       $(window).on('resize', () => {
-         if ($(window).width() <= '1000') {
+         if ($(window).width() < '1000') {
             let tab = this.$tabSelect.val();
 
             this.$tabItems.removeClass('active');

@@ -19,6 +19,18 @@
                     color: darken($colorSecond, 10%)
                 }
             }
+            @include mobile {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                i {
+                    margin-right: 0;
+                    margin-bottom: 5px;
+                }
+                a {
+                    display: block;
+                    width: 100%;
+                }
+            }
         }
         .bottom {
             display: flex;
@@ -41,6 +53,22 @@
                     left: -10px;
                     top: 2px;
                     background: $colorTextGray;
+                }
+            }
+
+            @include mobile {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                span {
+                    display: block;
+                    width: 100%;
+                }
+                span + span {
+                    margin-left: 0;
+                    margin-top: 5px;
+                    &:before {
+                        display: none;
+                    }
                 }
             }
         }

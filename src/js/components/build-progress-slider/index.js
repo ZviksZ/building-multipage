@@ -12,10 +12,16 @@ export class BuildProgressSliders {
 
    init = () => {
       this.$sliders.each((_, item) => this.initSlider(item));
+
+      $('.bp-item .h3').on('click', this.showItemMobile)
    };
 
+   showItemMobile = (e) => {
+      $(e.currentTarget).closest('.bp-item').toggleClass('bp-item__show')
+   }
+
    initSlider = (slider) => {
-      new Swiper(slider, {
+      let options = {
          effect: 'slide',
          loop: false,
          preloadImages: false,
@@ -25,17 +31,19 @@ export class BuildProgressSliders {
          autoHeight: true,
          spaceBetween: 32,
          freeMode: true
-        /* pagination: {
-            el: '#gallery-modal-pagination',
-            type: 'fraction',
-            renderFraction: function(currentClass, totalClass, index) {
-               return `<i class="icon-photo"></i><span class="swiper-pagination-current"></span> из <span class="swiper-pagination-total"></span>`;
-            }
-         },
-         navigation: {
-            nextEl: '.gallery-modal .swiper-button-next',
-            prevEl: '.gallery-modal .swiper-button-prev',
-         },    */
-      });
+      }
+      let sliderInstance;
+      if ($(window).width() >= '1000') {
+         sliderInstance = new Swiper(slider, options);
+      }
+
+
+      $(window).on('resize', () => {
+         if ($(window).width() < '1000') {
+            sliderInstance.destroy()
+         } else {
+            sliderInstance = new Swiper(slider, options);
+         }
+      })
    }
 }

@@ -16,7 +16,13 @@ export class GalleryModal {
    init = () => {
       this.$galleryItems.on('click', this.openGalleryModal);
 
+
+
       this.initSlider();
+
+      $(window).on('resize', () => {
+         this.$sliderInstance.update();
+      })
    };
 
    openGalleryModal = e => {

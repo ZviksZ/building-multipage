@@ -37,7 +37,11 @@
         }
         .info {
             display: flex;
-            padding: 16px 0 11px;
+            flex-wrap: wrap;
+            padding: 16px 0 0;
+            .top {
+                display: flex;
+            }
             .date {
                 font-size: 14px;
                 line-height: 20px;
@@ -72,10 +76,12 @@
             }
         }
         .name {
+            width: 100%;
             font-weight: 800;
             font-size: 22px;
             line-height: 30px;
             color: $colorText;
+            margin-top: 11px;
         }
         @include desktop {
             &:hover {
@@ -84,6 +90,104 @@
                 }
             }
         }
+
+        @include mobile {
+            flex-direction: row;
+            align-items: flex-start;
+            width: 100%;
+            .photo {
+                min-width: 102px;
+                max-width: 200px;
+                &:before {
+                    padding-top: 119%;
+                }
+            }
+            .info {
+                padding-left: 12px;
+                padding-top: 0;
+                .top {
+                    flex-wrap: wrap;
+                }
+                .desc {
+                    margin-top: 5px;
+                    width: 100%;
+                    font-size: 12px;
+                    line-height: 17px;
+                }
+                .count {
+                    border: 0;
+                    font-size: 12px;
+                    line-height: 17px;
+                    i {
+                        top: 1px;
+                    }
+                }
+                .date {
+                    font-size: 12px;
+                    line-height: 17px;
+                }
+            }
+            .name {
+                font-size: 14px;
+                line-height: 20px;
+                margin-top: 4px;
+            }
+        }
     }
 
+
+    @include mobile {
+        .polygon-map-multiple {
+            display: none;
+        }
+    }
+}
+.bp-item {
+    .h3 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0;
+        padding: 22px 0;
+        i {
+            display: none;
+            color: $colorText;
+        }
+    }
+    @include mobile {
+        border-top: 1px solid $colorGrayBgDark;
+        &:last-child {
+            border-bottom: 1px solid $colorGrayBgDark;
+        }
+        .bp-slider {
+            display: none;
+            margin-bottom: 28px;
+            .swiper-wrapper {
+                display: flex;
+                flex-direction: column;
+                .swiper-slide + .swiper-slide {
+                    margin-top: 25px;
+                }
+            }
+        }
+        .h3 {
+            font-size: 18px;
+            i {
+                display: inline-block;
+                padding-top: 1px;
+            }
+        }
+    }
+
+
+    &.bp-item__show {
+        .bp-slider {
+            display: block;
+        }
+        .h3 {
+            i {
+                transform: rotate(180deg);
+            }
+        }
+    }
 }

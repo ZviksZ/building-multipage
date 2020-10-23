@@ -97,10 +97,17 @@
 </div>
 
 <div class="modal-window blur-modal transparent-form fade-in gallery-modal" data-modal="gallery-modal" >
-    <div class="blur-bg"></div>
+    <div class="blur-bg">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <filter id="filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+                <feGaussianBlur stdDeviation="3 10" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"/>
+            </filter>
+        </svg>
+    </div>
     <div class="modal-content">
         <a href="#" class="close" data-close-modal-button="gallery-modal" data-effect-type="open-modal-fade-effect"><i
-                class="icon icon-close-default"></i></a>
+                class="icon icon-cancel"></i></a>
         <i class="gallery-modal__arrow swiper-button-next icon-arrright"></i>
         <i class="gallery-modal__arrow swiper-button-prev icon-arrleft"></i>
         <div class="gallery-modal__slider" id="gallery-modal__slider">

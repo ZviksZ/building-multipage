@@ -127,6 +127,7 @@ function initScripts() {
       return false;
    });
 
+
    //плавный скролл к якорю
    /*$('a[href*="#"]').click(function() {
         let $page = $('html, body');

@@ -166,11 +166,11 @@
         font-size: 22px;
 
         @include desktop-smaller {
-            font-size: 16px;
+            font-size: 18px;
         }
 
         @include mobile {
-            font-size: 16px;
+            font-size: 18px;
         }
     }
     h6, .h6 {
