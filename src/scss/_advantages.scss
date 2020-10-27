@@ -806,6 +806,55 @@
             }
         }
     }
+}
 
-
+.advantages-modal {
+    background: $colorWhite;
+    overflow: auto;
+    .data-block {
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+    .modal-content {
+        max-width: 1552px;
+        margin: 50px auto !important;
+        position: relative;
+        padding-top: 0;
+        p {
+            color: $colorText;
+        }
+        .section {
+            padding: 0;
+        }
+        .close {
+            position: absolute;
+            right: -70px;
+            top: 0;
+            background: $colorGrayBgDark;
+            border-radius: 16px;
+            i {
+                display: inline-block;
+                margin-top: -5px;
+                margin-left: 1px;
+                font-size: 21px;
+                color: $colorText
+            }
+        }
+    }
+    .advantages-image {
+        display: flex;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: cover;
+        background-size: cover;
+        border-radius: 2px;
+        &:before {
+            display: block;
+            float: left;
+            content: '';
+            padding-top: 47%;
+        }
+    }
 }

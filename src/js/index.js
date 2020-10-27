@@ -1,4 +1,5 @@
 import * as $ from 'jquery';
+import { AdvantagesModal } from './components/advantages';
 import { RoomsSearch } from './components/apartments/rooms-search.js';
 import { BuildProgressSliders } from './components/build-progress-slider';
 import { CustomTabs } from './components/custom-tabs';
@@ -109,6 +110,9 @@ function initScripts() {
    //Функционал табов
    new CustomTabs();
 
+   //Функционал модалок на странице преимуществ
+   new AdvantagesModal();
+
    //Модальная галерея
    new GalleryModal();
 
@@ -126,7 +130,6 @@ function initScripts() {
       $(this).remove();
       return false;
    });
-
 
    //плавный скролл к якорю
    /*$('a[href*="#"]').click(function() {
