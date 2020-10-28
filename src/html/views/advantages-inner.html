@@ -34,26 +34,30 @@ title: "Волгарь"
                     <a href="" class="item-link icon-furpace" data-open-modal-button="advantages-modal"
                        data-effect-type="open-modal-fade-effect">Подробнее</a>
                 </div>
-                <div class="item">
+                <div class="item" data-tab="3">
                     <div class="background-img" style="background-image: url(./img/advantages/bg-3.jpg)"></div>
                     <div class="name">Природный ландшафтный комплекс</div>
-                    <a href="" class="item-link icon-furpace">Подробнее</a>
+                    <a href="" class="item-link icon-furpace" data-open-modal-button="advantages-modal"
+                       data-effect-type="open-modal-fade-effect">Подробнее</a>
                 </div>
-                <div class="item">
+                <div class="item" data-tab="4">
                     <div class="background-img" style="background-image: url(./img/advantages/bg-4.jpg)"></div>
                     <div class="name">Рядом река Самара и Татьянка</div>
-                    <a href="" class="item-link icon-furpace">Подробнее</a>
+                    <a href="" class="item-link icon-furpace" data-open-modal-button="advantages-modal"
+                       data-effect-type="open-modal-fade-effect">Подробнее</a>
                 </div>
             </div>
-            <div class="item solo-item">
+            <div class="item solo-item" data-tab="5">
                 <div class="background-img" style="background-image: url(./img/advantages/bg-5.jpg)"></div>
                 <div class="name">Парк дружбы народов</div>
-                <a href="" class="item-link icon-furpace">Подробнее</a>
+                <a href="" class="item-link icon-furpace" data-open-modal-button="advantages-modal"
+                       data-effect-type="open-modal-fade-effect">Подробнее</a>
             </div>
-            <div class="item solo-item">
+            <div class="item solo-item" data-tab="6">
                 <div class="background-img" style="background-image: url(./img/advantages/bg-6.jpg)"></div>
                 <div class="name">Парк дубовая роща</div>
-                <a href="" class="item-link icon-furpace">Подробнее</a>
+                <a href="" class="item-link icon-furpace" data-open-modal-button="advantages-modal"
+                       data-effect-type="open-modal-fade-effect">Подробнее</a>
             </div>
         </div>
 
@@ -124,110 +128,85 @@ title: "Волгарь"
 <div class="section padding-top">
     <div class="container">
         <h5 class="h5 color-text">SEO тексты</h5>
-        <p class="color-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut justo nec ligula dignissim
-               fringilla sit amet eu tellus. Quisque sem sapien, facilisis id dignissim vitae, dignissim quis mauris.
-            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla ante tortor,
-            dapibus sed dictum vitae, dapibus vehicula risus. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Pellentesque ut justo nec ligula dignissim fringilla sit amet eu tellus. Quisque sem sapien,
-            facilisis id dignissim vitae, dignissim quis mauris.</p>
+        <p class="color-text">Транспортная доступность</p>
 
-        <p class="color-text">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla ante tortor,
-            dapibus sed dictum vitae, dapibus vehicula risus. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Pellentesque ut justo nec ligula dignissim fringilla sit amet eu tellus. Quisque sem sapien, facilisis id dignissim vitae, dignissim quis mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla ante tortor, dapibus sed dictum vitae, dapibus vehicula risus.</p>
+        <p class="color-text">Сейчас в Волгарь ходит только частный маршрут №80. Всего за 4 минуты из района можно доехать до исторического  центра города и обратно благодаря Фрунзенскому (Самарскому мосту).
+
+        </p>
+    </div>
+</div>
+<div class="modal-window advantages-modal fade-in" data-modal="advantages-modal">
+    <div class="modal-content">
+        <a href="#" class="close" data-close-modal-button="advantages-modal" data-effect-type="open-modal-fade-effect"><i
+                class="icon icon-close-default"></i></a>
+        <section class="section">
+            <div class="container">
+                <div id="advantages-modal__content">
+                    <div class="data-block" data-tab="1">
+                        <div class="advantages-image" style="background-image: url('./img/advantages/bg-1.jpg')"></div>
+                        <h3 class="h3">Близость к центру города</h3>
+                        <p>
+                            Жилой район «Волгарь» расположен в уникальном природном ландшафтном комплексе Старица Дубовый Ерик в Куйбышевском внутригородском районе города Самара.
+                        </p>
+                        <p>
+                            Всего за 4 минуты из района можно доехать до исторического центра города и обратно.
+                        </p>
+                    </div>
+                    <div class="data-block" data-tab="2">
+                        <div class="advantages-image" style="background-image: url('./img/advantages/bg-2.jpg')"></div>
+                        <h3 class="h3">Фрунзенский (Самарский) и Старый мосты</h3>
+                        <h5 class="h5">Фрунзенский мост</h5>
+                        <p>Фрунзенский мост строили около четырех лет. В его состав входят:</p>
+                        <ul>
+                            <li>6-полосный cталежелезобетонный мост через реку Самару (длина — 667 м);</li>
+                            <li>железобетонный мост через заболоченное озеро Банное (длина — 79,6 м);</li>
+                            <li>транспортная развязка и путепровод над дорогой основного хода на улице Шоссейной (длина — 70,8 м);</li>
+                            <li>транспортная развязка на улице Фрунзе.</li>
+                        </ul>
+                        <p>Рабочее движение по самому мосту через реку Самару и развязке на улице Шоссейной открыли 31 декабря 2019 года. </p>
+                        <h5 class="h5">Старый мост</h5>
+                        <p>
+                            Старый мост — двухполосный мост через реку Самару в Куйбышевском районе г. Самары. Находится в створе улиц Главной и Водников и соединяет центральную часть города с такими поселениями как: Волгарь, Сухая Самарка, Кряж, Гранный. Строительство моста началось в 1951 году. Движение открыто в сентябре 1954 года.
+                        </p>
+                        <p>
+                            Теперь, благодаря двум мостам - Фрунзенскому и Самарскому, жители Жилого района "Волгарь" смогут добраться до исторического центра города за 4 минуты!
+                        </p>
+
+                    </div>
+                    <div class="data-block" data-tab="3">
+                        <div class="advantages-image" style="background-image: url('./img/advantages/bg-3.jpg')"></div>
+                        <h3 class="h3">Уникальный природный ландшафт</h3>
+                        <p>Строительство жилого района «Волгарь» осуществляется в уникальной природной зоне «Старица Дубовый Ерик». Она является местом обитания цапель, лебедей, диких уток, а так же других птиц и зверей. Природа сохраняется в первозданном виде, облагораживается и расчищается территория, создаются парки и скверы.</p>
+                    </div>
+                    <div class="data-block" data-tab="4">
+                        <div class="advantages-image" style="background-image: url('./img/advantages/bg-4.jpg')"></div>
+                        <h3 class="h3">Реки Самара и Татьянка</h3>
+                        <p>
+                            Отдых в шаговой доступности от города Самара предоставит Вам река Самара (Самарка). Маршрут расчитан для любителей пляжного отдыха, пикников на природе, велосипедистов, для семейного отдыха и отдыха шумной компанией. А так же, для рыбаков, как летней рыбалки, так и зимней. Близость к городу (10 км. от Самарского телецентра и 5 км от а/с Аврора) делает это место особенно привлекательным для жителей города Самара.
+                        </p>
+                        <p>
+                            Река Татьянка берет начало из реки Самара, возле микрорайона Сухая Самарка. На этом месте как раз находится автомобильный мост через реку. Петляя и извиваясь, река несет свои воды на протяжении 13 км., возле Новокуйбышевска сливается с рекой Кривуша. Свое Название река получила, как ни странно, не от женского имени, а от старорусского тать – «вор, разбойник», татья – «разбойничья». Но глядя на спокойное, тихое течение, пологие берега и мирные, скромные домики, расположившиеся по берегам, хочется верить, что все-таки имечко свое, речка получила в честь добродетельной и мудрой Татьяны.
+                        </p>
+                    </div>
+                    <div class="data-block" data-tab="5">
+                        <div class="advantages-image" style="background-image: url('./img/advantages/bg-5.jpg')"></div>
+                        <h3 class="h3">Парк дружбы народов</h3>
+                        <p>В непосредственной близости к жилому району создается этнокультурный комплекс «Парк дружбы народов», площадью более 8 гектар. Это уникальный архитектурный ансамбль из 22-х национальных подворий, раскрывающих культуру этносов, проживающих в Самарском крае.  </p>
+                    </div>
+                    <div class="data-block" data-tab="6">
+                        <div class="advantages-image" style="background-image: url('./img/advantages/bg-6.jpg')"></div>
+                        <h3 class="h3">Парк дубовая роща</h3>
+                        <p>Сквер «Дубовая роща» расположен в Куйбышевском районе. Общая площадь парка – 3,4 га.</p>
+                        <p>Зеленая зона у кольца на улице Осетинской – центральная часть района «Волгарь». Работы по благоустройству территории сквера начинались еще в июне 2015 года. Застройщик на свои собственные средства произвел расчистку и облагораживание территории. Ранее, в месте расположения сквера, был детский трудовой лагерь «Дубки». Сейчас здесь обустроены пешеходные дорожки, установлены скамейки, построен уникальный спортивный комплекс под открытым небом с тренажерами и зоной workout.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
     </div>
 </div>
 
-<!--<div class="section">-->
-<!--    <div class="container">-->
-<!--        <h1>Заголовок H1</h1>-->
-<!--        <h2>Заголовок H2</h2>-->
-<!--        <h3>Заголовок H3</h3>-->
-<!--        <h4>Заголовок H4</h4>-->
-<!--        <h5>Заголовок H5</h5>-->
-<!--        <h6>Заголовок H6</h6>-->
-<!--        <p class="big">Просто текст 20px</p>-->
-<!--        <p>Просто текст 16px</p>-->
-<!--        <p class="medium">Просто текст 14px</p>-->
-<!--        <p class="small">Просто текст 12px</p>-->
-
-<!--        <p class="big bold">Просто текст 20px</p>-->
-<!--        <p class="bold">Просто текст 16px</p>-->
-<!--        <p class="medium bold">Просто текст 14px</p>-->
-<!--        <p class="small bold">Просто текст 12px</p>-->
-
-<!--        <ul>-->
-<!--            <li>Body1 dedisse scripsisse iudicaretur.</li>-->
-<!--            <li>Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus.</li>-->
-<!--            <li>Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros.</li>-->
-<!--            <li>Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</li>-->
-<!--        </ul>-->
-
-<!--        <ol>-->
-<!--            <li>Body1 dedisse scripsisse iudicaretur.</li>-->
-<!--            <li>Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus.</li>-->
-<!--            <li>Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros.</li>-->
-<!--            <li>Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</li>-->
-<!--        </ol>-->
-<!--        <div class="row">-->
-<!--            <div class="col">-->
-<!--                <a href="#" class="button inline">Primary M</a>-->
-<!--                <a href="#" class="button secondary inline">Secondary M</a>-->
-<!--                <a href="#" class="button default inline">Default M</a>-->
-<!--            </div>-->
-<!--            <div class="col">-->
-<!--                <a href="#" class="button small inline">Primary S</a>-->
-<!--                <a href="#" class="button small secondary inline">Secondary S</a>-->
-<!--                <a href="#" class="button small default inline">Default S</a>-->
-<!--            </div>-->
-<!--            -->
-<!--            <div class="col">-->
-<!--                <a href="#" class="button default inline button-icon">-->
-<!--                    <i class="icon icon-alert"></i>-->
-<!--                </a>-->
-<!--                <a href="#" class="button default inline">-->
-<!--                    Текст и иконка большая-->
-<!--                    <i class="icon icon-alert"></i>-->
-<!--                </a>-->
-
-<!--                <a href="#" class="button default inline small">-->
-<!--                    Текст и иконка маленькая-->
-<!--                    <i class="icon icon-alert"></i>-->
-<!--                </a>-->
-<!--            </div>-->
-<!--            <div class="col">-->
-<!--                <form action="/netcat/add.php" id="feedback-form" class="feedback-form margin-top-x2">-->
-<!--                    <h3 class="h5 margin-bottom-x2 delay-100">Обратная связь</h3>-->
-<!--                    <label class="field field-input item delay-200">-->
-<!--                        <input class="input-text placeholder validate" placeholder="Ваше ФИО" data-placeholder="Как к вам обращаться" data-validate="required" id="feedback_name" name="feedback_name" type="text">-->
-<!--                        <p class="error-message"></p>-->
-<!--                    </label>-->
-<!--                    <label class="field field-input item delay-300 empty">-->
-<!--                        <input class="input-text placeholder validate input-mask" data-mask_tpl="phone_plus7" data-placeholder="Номер телефона" data-validate="mobile_phone" id="feedback_phone" name="feedback_phone" type="text" value="" inputmode="text">-->
-<!--                        <p class="error-message"></p>-->
-<!--                    </label>-->
-<!--                    <label class="field field-input item delay-400 ">-->
-<!--                        <textarea class="input-text placeholder validate" data-placeholder="Текст сообщения" placeholder="Введите текст сообщения" id="feedback_text" name="feedback_text"></textarea>-->
-<!--                        <p class="error-message"></p>-->
-<!--                    </label>-->
-<!--                    <div class="form-message">-->
-<!--                        <div class="form-info">-->
-<!--                            <span class="message-icon success"><i class="icon-confirm"></i></span>-->
-<!--                            <span class="message-icon error"><i class="icon-cancel"></i></span>-->
-<!--                            <p class="message-title"></p>-->
-<!--                            <p class="message-subtitle"></p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="delay-500">-->
-<!--                        <button class="button inline no-margin-top" type="submit" disabled="disabled">Отправить</button>-->
-<!--                        <p class="inline-block">-->
-<!--                            Нажимая кнопку «Отправить» вы даёте свое согласие на-->
-<!--                            <a href="/policy/" target="_blank">обработку персональных данных</a>-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
 
 <%= _.template(require('./../includes/footer.html').default)(data) %>

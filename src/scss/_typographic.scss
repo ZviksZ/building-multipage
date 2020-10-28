@@ -288,6 +288,7 @@
             position: relative;
             margin: 20px 0;
             padding-left: 25px;
+            color: $colorText;
 
             @include desktop-smaller {
                 font-size: 14px;

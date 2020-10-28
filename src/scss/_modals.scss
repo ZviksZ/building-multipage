@@ -10,7 +10,14 @@
     transition: transform .6s ease;
 
     &.transparent-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include mobile {
+            align-items: flex-start;
+        }
         .modal-content {
+            margin: auto !important;
             background-color: transparent;
         }
 
@@ -30,11 +37,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: $colorWhite;
-            /*
-            filter: blur(2000px);*/
-            svg {
-                background: $colorWhite;
+            background: rgba(255, 255, 255, 0.8);
+            @supports (backdrop-filter: blur(50px)) or (-webkit-backdrop-filter: blur(50px)) {
+                -webkit-backdrop-filter: blur(50px);
+                backdrop-filter: blur(50px);
             }
         }
 
@@ -258,7 +264,9 @@
 }
 
 .open-modal {
-
+    .body {
+        z-index: 9999;
+    }
     .modal-window {
         top: 0;
     }

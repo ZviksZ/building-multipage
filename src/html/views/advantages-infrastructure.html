@@ -1,0 +1,178 @@
+<% var data = {
+title: "Волгарь"
+}; %>
+<%= _.template(require('./../includes/header.html').default)(data) %>
+
+<div class="section no-padding">
+    <div class="container">
+        <div class="breadcrumbs">
+            <a class="item link" href="#"><i class="icon icon-backspace"></i></a>
+            <a class="item link" href="#">Преимущества</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="section no-padding">
+    <div class="container">
+        <h1 class="h1 color-text margin-bottom-x3">Транспортная доступность</h1>
+
+    </div>
+    <div class="container container-map-hide">
+        <div class="infrastructure-map" id="infrastructure_map"
+             data-settings='{"coords":"53.151079, 50.075499", "points":{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"balloonContent":"Продукты"},"geometry":{"type":"Point","coordinates":[53.153516,50.074566]},"options":{"preset":"islands#blueCircleDotIcon","fillColor":"#1C81DE"}},{"type":"Feature","properties":{"balloonContent":"Фабрика качества"},"geometry":{"type":"Point","coordinates":[53.15655,50.076128]},"options":{"preset":"islands#blueCircleDotIcon","fillColor":"#1C81DE"}},{"type":"Feature","properties":{"balloonContent":"Поликлиника у дома"},"geometry":{"type":"Point","coordinates":[53.154829,50.075973]},"options":{"preset":"islands#redCircleDotIcon","fillColor":"#FF364E"}},{"type":"Feature","properties":{"balloonContent":"Детская поликлиника"},"geometry":{"type":"Point","coordinates":[53.152516,50.074395]},"options":{"preset":"islands#redCircleDotIcon","fillColor":"#FF364E"}},{"type":"Feature","properties":{"balloonContent":"Клиника доктора Крутова"},"geometry":{"type":"Point","coordinates":[53.15687,50.076167]},"options":{"preset":"islands#redCircleDotIcon","fillColor":"#FF364E"}},{"type":"Feature","properties":{"balloonContent":"Детский сад № 4"},"geometry":{"type":"Point","coordinates":[53.147535,50.077145]},"options":{"preset":"islands#darkGreenCircleDotIcon","fillColor":"#48B83D"}},{"type":"Feature","properties":{"balloonContent":"Отпбанк"},"geometry":{"type":"Point","coordinates":[53.163245,50.075793]},"options":{"preset":"islands#lightBlueCircleDotIcon","fillColor":"#97C1FF"}},{"type":"Feature","properties":{"balloonContent":"ВТБ"},"geometry":{"type":"Point","coordinates":[53.149627,50.074005]},"options":{"preset":"islands#lightBlueCircleDotIcon","fillColor":"#97C1FF"}},{"type":"Feature","properties":{"balloonContent":"Сбербанк"},"geometry":{"type":"Point","coordinates":[53.149718,50.07394]},"options":{"preset":"islands#lightBlueCircleDotIcon","fillColor":"#97C1FF"}},{"type":"Feature","properties":{"balloonContent":"Сбербанк"},"geometry":{"type":"Point","coordinates":[53.154685,50.091029]},"options":{"preset":"islands#lightBlueCircleDotIcon","fillColor":"#97C1FF"}},{"type":"Feature","properties":{"balloonContent":"Детский сад № 231"},"geometry":{"type":"Point","coordinates":[53.151431,50.073102]},"options":{"preset":"islands#darkGreenCircleDotIcon","fillColor":"#48B83D"}},{"type":"Feature","properties":{"balloonContent":"Школа № 57"},"geometry":{"type":"Point","coordinates":[53.154331,50.079623]},"options":{"preset":"islands#blackCircleDotIcon","fillColor":"#526474"}},{"type":"Feature","properties":{"balloonContent":"Начальная школа № 57"},"geometry":{"type":"Point","coordinates":[53.155332,50.079478]},"options":{"preset":"islands#blackCircleDotIcon","fillColor":"#526474"}},{"type":"Feature","properties":{"balloonContent":"Идеал"},"geometry":{"type":"Point","coordinates":[53.155176,50.077599]},"options":{"preset":"islands#violetCircleDotIcon","fillColor":"#AE47FF"}},{"type":"Feature","properties":{"balloonContent":"Пицца Шоп"},"geometry":{"type":"Point","coordinates":[53.155633,50.076073]},"options":{"preset":"islands#orangeCircleDotIcon","fillColor":"#FFA15E"}},{"type":"Feature","properties":{"balloonContent":"Парикмахерская"},"geometry":{"type":"Point","coordinates":[53.15587,50.076106]},"options":{"preset":"islands#pinkCircleDotIcon","fillColor":"#F58CB6"}}]}}'>
+        </div>
+        <div class="map-controls" id="infrastructure_map_toggles" data-map="infrastructure_map">
+            <div class="inner">
+                <div class="item active type-0" data-color="#1C81DE">
+                    <div class="icon icon-garden"></div>
+                    <div class="name">Магазины</div>
+                </div>
+                <div class="item active type-1" data-color="#FF364E">
+                    <div class="icon icon-garden"></div>
+                    <div class="name">Медицина</div>
+                </div>
+                <div class="item active type-2" data-color="#48B83D">
+                    <div class="icon icon-garden"></div>
+                    <div class="name">Детские сады</div>
+                </div>
+                <div class="item active type-3" data-color="#526474">
+                    <div class="icon icon-garden"></div>
+                    <div class="name">Школы</div>
+                </div>
+                <div class="item active type-4" data-color="#AE47FF">
+                    <div class="icon icon-garden"></div>
+                    <div class="name">Спорт</div>
+                </div>
+                <div class="item active type-5" data-color="#FFA15E">
+                    <div class="icon icon-garden"></div>
+                    <div class="name">Еда</div>
+                </div>
+                <div class="item active type-6" data-color="#F58CB6">
+                    <div class="icon icon-garden"></div>
+                    <div class="name">Красота</div>
+                </div>
+                <div class="item active type-7" data-color="#97C1FF">
+                    <div class="icon icon-garden"></div>
+                    <div class="name">Банкоматы</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <h2 class="h2 color-text">
+            Места поблизости
+        </h2>
+        <div class="advantages-grid-block margin-top-x3">
+            <div class="left-block">
+                <div class="item" data-tab="1">
+                    <div class="background-img" style="background-image: url(./img/advantages/bg-1.jpg)"></div>
+                    <div class="name">В настоящий момент в районе работают 4 детских сада, проектом предусмотрено еще 2</div>
+                    <a href="" class="item-link icon-furpace" data-open-modal-button="advantages-modal"
+                       data-effect-type="open-modal-fade-effect">Подробнее</a>
+                </div>
+            </div>
+            <div class="right-block">
+                <div class="item big-item" data-tab="2">
+                    <div class="background-img" style="background-image: url(./img/advantages/bg-2.jpg)"></div>
+                    <div class="name">Ведется строительство торгового центра</div>
+                    <a href="" class="item-link icon-furpace" data-open-modal-button="advantages-modal"
+                       data-effect-type="open-modal-fade-effect">Подробнее</a>
+                </div>
+                <div class="item" data-tab="3">
+                    <div class="background-img" style="background-image: url(./img/advantages/bg-3.jpg)"></div>
+                    <div class="name">Ведется проектирование поликлиники на 700 посещений (500 взрослых и 200 детских).</div>
+                    <a href="" class="item-link icon-furpace" data-open-modal-button="advantages-modal"
+                       data-effect-type="open-modal-fade-effect">Подробнее</a>
+                </div>
+                <div class="item" data-tab="4">
+                    <div class="background-img" style="background-image: url(./img/advantages/bg-4.jpg)"></div>
+                    <div class="name">Работает школа № 57 на 1000 мест, ведется проектирование второй школы на 1000 мест в 14 квартале.</div>
+                    <a href="" class="item-link icon-furpace" data-open-modal-button="advantages-modal"
+                       data-effect-type="open-modal-fade-effect">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-window advantages-modal fade-in" data-modal="advantages-modal">
+    <div class="modal-content">
+        <a href="#" class="close" data-close-modal-button="advantages-modal" data-effect-type="open-modal-fade-effect"><i
+                class="icon icon-close-default"></i></a>
+        <section class="section">
+            <div class="container">
+                <div id="advantages-modal__content">
+                    <!--<div class="data-block" data-tab="1">
+                        <div class="advantages-image" style="background-image: url('./img/advantages/bg-1.jpg')"></div>
+                        <h3 class="h3">Близость к центру города</h3>
+                        <p>
+                            Жилой район «Волгарь» расположен в уникальном природном ландшафтном комплексе Старица Дубовый Ерик в Куйбышевском внутригородском районе города Самара.
+                        </p>
+                        <p>
+                            Всего за 4 минуты из района можно доехать до исторического центра города и обратно.
+                        </p>
+                    </div>
+                    <div class="data-block" data-tab="2">
+                        <div class="advantages-image" style="background-image: url('./img/advantages/bg-2.jpg')"></div>
+                        <h3 class="h3">Фрунзенский (Самарский) и Старый мосты</h3>
+                        <h5 class="h5">Фрунзенский мост</h5>
+                        <p>Фрунзенский мост строили около четырех лет. В его состав входят:</p>
+                        <ul>
+                            <li>6-полосный cталежелезобетонный мост через реку Самару (длина — 667 м);</li>
+                            <li>железобетонный мост через заболоченное озеро Банное (длина — 79,6 м);</li>
+                            <li>транспортная развязка и путепровод над дорогой основного хода на улице Шоссейной (длина — 70,8 м);</li>
+                            <li>транспортная развязка на улице Фрунзе.</li>
+                        </ul>
+                        <p>Рабочее движение по самому мосту через реку Самару и развязке на улице Шоссейной открыли 31 декабря 2019 года. </p>
+                        <h5 class="h5">Старый мост</h5>
+                        <p>
+                            Старый мост — двухполосный мост через реку Самару в Куйбышевском районе г. Самары. Находится в створе улиц Главной и Водников и соединяет центральную часть города с такими поселениями как: Волгарь, Сухая Самарка, Кряж, Гранный. Строительство моста началось в 1951 году. Движение открыто в сентябре 1954 года.
+                        </p>
+                        <p>
+                            Теперь, благодаря двум мостам - Фрунзенскому и Самарскому, жители Жилого района "Волгарь" смогут добраться до исторического центра города за 4 минуты!
+                        </p>
+
+                    </div>
+                    <div class="data-block" data-tab="3">
+                        <div class="advantages-image" style="background-image: url('./img/advantages/bg-3.jpg')"></div>
+                        <h3 class="h3">Уникальный природный ландшафт</h3>
+                        <p>Строительство жилого района «Волгарь» осуществляется в уникальной природной зоне «Старица Дубовый Ерик». Она является местом обитания цапель, лебедей, диких уток, а так же других птиц и зверей. Природа сохраняется в первозданном виде, облагораживается и расчищается территория, создаются парки и скверы.</p>
+                    </div>
+                    <div class="data-block" data-tab="4">
+                        <div class="advantages-image" style="background-image: url('./img/advantages/bg-4.jpg')"></div>
+                        <h3 class="h3">Реки Самара и Татьянка</h3>
+                        <p>
+                            Отдых в шаговой доступности от города Самара предоставит Вам река Самара (Самарка). Маршрут расчитан для любителей пляжного отдыха, пикников на природе, велосипедистов, для семейного отдыха и отдыха шумной компанией. А так же, для рыбаков, как летней рыбалки, так и зимней. Близость к городу (10 км. от Самарского телецентра и 5 км от а/с Аврора) делает это место особенно привлекательным для жителей города Самара.
+                        </p>
+                        <p>
+                            Река Татьянка берет начало из реки Самара, возле микрорайона Сухая Самарка. На этом месте как раз находится автомобильный мост через реку. Петляя и извиваясь, река несет свои воды на протяжении 13 км., возле Новокуйбышевска сливается с рекой Кривуша. Свое Название река получила, как ни странно, не от женского имени, а от старорусского тать – «вор, разбойник», татья – «разбойничья». Но глядя на спокойное, тихое течение, пологие берега и мирные, скромные домики, расположившиеся по берегам, хочется верить, что все-таки имечко свое, речка получила в честь добродетельной и мудрой Татьяны.
+                        </p>
+                    </div>-->
+                </div>
+
+            </div>
+        </section>
+
+
+    </div>
+</div>
+<div class="section padding-top">
+    <div class="container">
+        <h5 class="h5 color-text">SEO тексты</h5>
+        <p class="color-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut justo nec ligula dignissim
+               fringilla sit amet eu tellus. Quisque sem sapien, facilisis id dignissim vitae, dignissim quis mauris.
+            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla ante tortor,
+            dapibus sed dictum vitae, dapibus vehicula risus. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Pellentesque ut justo nec ligula dignissim fringilla sit amet eu tellus. Quisque sem sapien,
+            facilisis id dignissim vitae, dignissim quis mauris.</p>
+
+        <p class="color-text">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla ante tortor,
+            dapibus sed dictum vitae, dapibus vehicula risus. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Pellentesque ut justo nec ligula dignissim fringilla sit amet eu tellus. Quisque sem sapien, facilisis id dignissim vitae, dignissim quis mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla ante tortor, dapibus sed dictum vitae, dapibus vehicula risus.</p>
+    </div>
+</div>
+
+
+<%= _.template(require('./../includes/footer.html').default)(data) %>
