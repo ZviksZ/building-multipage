@@ -75,6 +75,7 @@
             color: $colorText;
             cursor: default;
             user-select: none;
+            height: 48px;
 
             &:-webkit-autofill {
                 -webkit-animation-name: autofill;

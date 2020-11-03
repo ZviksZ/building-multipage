@@ -263,7 +263,7 @@
         &.styled {
             li {
                 padding-left: 42px;
-
+                color: $colorWhite;
                 @include mobile {
                     padding-left: 35px;
                 }

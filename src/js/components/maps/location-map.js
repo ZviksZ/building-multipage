@@ -34,7 +34,6 @@ export default class LocationMap {
                 map.behaviors.disable('scrollZoom');
                 map.behaviors.disable('dblClickZoom');
                 map.behaviors.disable('multiTouch');
-                map.behaviors.disable('drag');
 
                 const myPlacemark = new ymaps.Placemark(this.coords, {}, {
                     iconLayout: 'default#image',

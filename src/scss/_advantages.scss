@@ -74,7 +74,7 @@
             &:hover {
                 .background-img {
                     /* background-size: 110% 110%;*/
-                    transform: scale(1.1) translateZ(0);
+                    transform: scale(1.04) translateZ(0);
                 }
             }
         }
@@ -129,6 +129,7 @@
             background-position: center center;
             background-repeat: no-repeat;
             transition: .3s ease-in-out;
+            transform: translateZ(0);
         }
 
         .name {

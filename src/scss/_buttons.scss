@@ -41,7 +41,7 @@
 
     @include desktop {
         &:hover {
-            background: $colorMainActive;
+            background: #32A027;
         }
     }
 
@@ -74,8 +74,7 @@
 
         @include desktop {
             &:hover {
-                color: $colorWhite !important;
-                background: $colorSecond !important;
+                background: #146FC2 !important;
             }
         }
     }
@@ -102,6 +101,12 @@
         color: $colorText!important;
         background-color: $colorWhite!important;
         box-shadow: 0px 1px 5px rgba(175, 189, 200, 0.5);
+        cursor: pointer;
+        @include desktop {
+            &:hover {
+                color: $colorSecond !important;
+            }
+        }
     }
 
     &.small {

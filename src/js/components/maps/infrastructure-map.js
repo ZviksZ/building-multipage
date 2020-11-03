@@ -41,7 +41,6 @@ export default class infrastructureMap {
                 map.behaviors.disable('scrollZoom');
                 map.behaviors.disable('dblClickZoom');
                 map.behaviors.disable('multiTouch');
-                map.behaviors.disable('drag');
 
 
                 console.log(this.points)

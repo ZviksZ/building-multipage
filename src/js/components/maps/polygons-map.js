@@ -61,7 +61,6 @@ export default class PolygonsMap {
                 map.behaviors.disable('scrollZoom');
                 map.behaviors.disable('dblClickZoom');
                 map.behaviors.disable('multiTouch');
-                map.behaviors.disable('drag');
 
                 /**
                  * Добавление точек транспорта
