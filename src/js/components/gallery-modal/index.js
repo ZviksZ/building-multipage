@@ -33,6 +33,11 @@ export class GalleryModal {
       this.initSlidesToGallery();
       this.$sliderInstance.update();
       this.$sliderInstance.slideTo(0, 10, true);
+
+      let currentSlide = this.$slider.find('.swiper-slide')[this.$sliderInstance.activeIndex];
+      let currentCaption = $(currentSlide).attr('data-caption');
+
+      this.$captionBlock.text(currentCaption);
    };
 
    initSlidesToGallery = () => {
