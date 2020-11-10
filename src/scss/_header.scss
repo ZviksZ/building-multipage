@@ -66,7 +66,7 @@
             margin: 0;
             position: relative;
 
-            &:before {
+           /* &:before {
                 content: '';
                 position: absolute;
                 width: 1px;
@@ -74,7 +74,7 @@
                 top: 0;
                 bottom: 0;
                 background-color: $colorGrayBg;
-            }
+            }*/
 
             @include desktop {
                 margin-left: 30px;
