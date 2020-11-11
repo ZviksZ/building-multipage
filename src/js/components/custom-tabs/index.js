@@ -22,15 +22,18 @@ export class CustomTabs {
       this.$tabSelect.on('change', this.changeTab);
 
       $(window).on('resize', () => {
-         if ($(window).width() < '1000') {
-            let tab = this.$tabSelect.val();
+         if (this.$tabSelect.length > 0) {
+            if ($(window).width() < '1000') {
+               let tab = this.$tabSelect.val();
 
-            this.$tabItems.removeClass('active');
-            this.$tabBlocks.removeClass('active');
+               this.$tabItems.removeClass('active');
+               this.$tabBlocks.removeClass('active');
 
-            this.$container.find('.tabs .item[data-tab="' + tab + '"]').addClass('active');
-            this.$container.find('.tabs-block[data-tab="' + tab + '"]').addClass('active');
+               this.$container.find('.tabs .item[data-tab="' + tab + '"]').addClass('active');
+               this.$container.find('.tabs-block[data-tab="' + tab + '"]').addClass('active');
+            }
          }
+
       });
    };
 

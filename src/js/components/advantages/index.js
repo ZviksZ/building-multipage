@@ -17,6 +17,8 @@ export class AdvantagesModal {
    openModal = e => {
       let activeBlock = $(e.currentTarget).closest('.item').attr('data-tab');
 
+      $('html').addClass('open-advantages-modal')
+
       this.$modalContent.find('.data-block').removeClass('active')
       this.$modalContent.find('.data-block[data-tab="' + activeBlock + '"]').addClass('active')
    }

@@ -323,6 +323,7 @@
 }
 
 .show-room-filter {
+    overflow: hidden;
     .header, .header-mobile, .mobile-menu {
         display: none !important;
     }
