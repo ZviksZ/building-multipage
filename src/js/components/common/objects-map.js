@@ -64,7 +64,7 @@ export default class ObjectsMap {
                         },
                         options: {
                             iconLayout: 'default#image',
-                            iconImageHref: '/assets/img/balloon.svg',
+                            iconImageHref: '/netcat_template/template/Primary/assets/img/balloon.svg',
                             iconImageSize: [33, 49],
                             iconImageOffset: [-16, -49],
                             hideIconOnBalloonOpen: false,

@@ -79,7 +79,7 @@ export class InteractiveMap {
                {},
                {
                   iconLayout: 'default#image',
-                  iconImageHref: './img/balloon.svg',
+                  iconImageHref: '/netcat_template/template/Primary/assets/img/balloon.svg',
                   iconImageSize: [33, 49],
                   iconImageOffset: [-16, -49]
                }
