@@ -525,6 +525,7 @@ export class RoomsSearch {
             quarter,
             house,
             fullPrice,
+            houseImage
         } = apartment;
 
         const {
@@ -535,6 +536,7 @@ export class RoomsSearch {
         //Если квартира продана или забронирована, не выводим
         // if (status === 0 || status === 2) return '';
         let studioClass = '';
+        let mapImage = houseImage ? houseImage : '/netcat_template/template/Primary/assets/img/rooms/123.jpg'
 
         if (this.roomsName[name] === 'Ст.') studioClass = 'studio';
 
@@ -575,8 +577,8 @@ export class RoomsSearch {
                                 </div>
                             </div>
                         </div>
-                        <div class="item-back">
-                            <div class="baloon-item"></div>
+                        <div class="item-back" style="background-image: url(${mapImage})">
+                            <!--<div class="baloon-item"></div>-->
                         </div>
                     </div>
                 </a>`;
