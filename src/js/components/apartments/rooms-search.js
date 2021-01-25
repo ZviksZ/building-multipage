@@ -577,8 +577,8 @@ export class RoomsSearch {
                                 </div>
                             </div>
                         </div>
-                        <div class="item-back" style="background-image: url(${mapImage})">
-                            <!--<div class="baloon-item"></div>-->
+                        <div class="item-back" >
+                            <div class="baloon-item" style="background-image: url(${mapImage})"></div>
                         </div>
                     </div>
                 </a>`;
