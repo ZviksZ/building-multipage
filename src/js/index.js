@@ -151,5 +151,15 @@ function initScripts() {
 
    const selects = new Selects({ searchEnabled: false, itemSelectText: '' });
 
-   //
+   if ($('#sticky-row').length > 0) {
+      let rowTop = $('#sticky-row').offset().top;
+      $(window).on('scroll', function() {
+         let windowScrollTop = $(window).scrollTop();
+         if (rowTop <= windowScrollTop) {
+            $('#sticky-row').addClass('sticky-row-fixed')
+         } else {
+            $('#sticky-row').removeClass('sticky-row-fixed')
+         }
+      })
+   }
 }

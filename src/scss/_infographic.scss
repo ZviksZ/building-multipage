@@ -25,3 +25,26 @@
         }
     }
 }
+
+.sticky-row:not(.sticky-row-fixed) {
+    .container {
+        padding: 0 !important;
+    }
+}
+
+
+@include desktop {
+    .sticky-row-fixed {
+        top: 100px;
+        position: fixed;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        .photo-block {
+            display: none;
+        }
+        .photo-info__bottom {
+            margin-top: 10px !important;
+        }
+    }
+}
