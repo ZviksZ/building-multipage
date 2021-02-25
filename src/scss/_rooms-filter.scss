@@ -180,7 +180,7 @@
                 color: $colorWhite;
                 cursor: default;
                 &:before {
-                    width: 0;
+                    width: 1px;
                 }
                 &:first-child {
                     border-color: $colorSecond;

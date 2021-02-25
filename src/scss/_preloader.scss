@@ -23,6 +23,12 @@
     }
 }
 
+html.animate-end :not(.preloader-page) {
+    .header {
+        transition: 0s !important;
+    }
+}
+
 .animate-end {
     .header {
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);

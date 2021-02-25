@@ -58,7 +58,6 @@
         }
 
 
-
         .inner {
             position: relative;
             z-index: 10;
@@ -99,7 +98,7 @@
                 z-index: -1;
                 opacity: 0;
                 background-image: url(../img/rooms/123.jpg);
-                background-size:cover;
+                background-size: cover;
                 transform: scale(1.3);
                 background-position: center center;
                 background-repeat: no-repeat;
@@ -118,7 +117,7 @@
                     top: 0;
                     opacity: 0;
                     //background-image: url(../img/rooms/baloon.svg);
-                    background-size:cover;
+                    background-size: cover;
                     background-position: center center;
                     background-repeat: no-repeat;
                     transition: all .3s ease-in-out;
@@ -238,6 +237,7 @@
         }
     }
 }
+
 .sort-block-wrapper {
     display: flex;
     flex-direction: row;
@@ -274,9 +274,10 @@
             user-select: none;
             @include mobile {
                 font-size: 12px;
-                line-height:17px;
+                line-height: 17px;
                 padding-right: 22px;
             }
+
             &:before {
                 content: '';
                 display: block;
@@ -293,15 +294,15 @@
             }
 
             &.active {
-                &[data-sort=asc]{
-                    &:before{
+                &[data-sort=asc] {
+                    &:before {
                         background-image: url(../img/rooms/sort_up.svg);
                     }
 
                 }
 
-                &[data-sort=desc]{
-                    &:before{
+                &[data-sort=desc] {
+                    &:before {
                         background-image: url(../img/rooms/sort_down.svg);
                     }
                 }
@@ -320,8 +321,14 @@
     @include mobile {
         flex-direction: column;
     }
+
     .apartment-image {
         width: 100%;
+
+        @include desktop {
+            padding-bottom: 38px;
+        }
+
         .image-wrapper {
             padding: 20px;
             /*height: 560px;*/
@@ -334,6 +341,7 @@
             background-position: center center;
             -webkit-background-size: contain;
             background-size: contain;
+
             &:before {
                 display: block;
                 float: left;
@@ -356,6 +364,7 @@
             }
         }
     }
+
     .apartment-info {
         flex-shrink: 0;
         position: relative;
@@ -395,25 +404,26 @@
                 white-space: nowrap;
 
                 @include mobile {
-                   margin-left: 0;
-                   margin-right: 20px;
+                    margin-left: 0;
+                    margin-right: 20px;
                 }
 
                 @include tablet-mobile {
-                   width: 100%;
+                    width: 100%;
                     margin-left: 10px;
                     margin-right: 10px;
                 }
             }
         }
 
-        .info-block{
+        .info-block {
             padding-top: 28px;
             padding-bottom: 12px;
             border: 1px dashed $colorGrayBgDark;
             border-left: 0;
             border-right: 0;
             box-sizing: border-box;
+
             .item {
                 display: flex;
                 height: 30px;
@@ -427,6 +437,7 @@
                     line-height: 1;
                     color: $colorTextGray;
                 }
+
                 .value {
                     font-family: "Manrope Bold";
                     font-weight: 800;
@@ -484,7 +495,8 @@
             }
         }
     }
-    .apartment-section-info{
+
+    .apartment-section-info {
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
@@ -492,6 +504,12 @@
         justify-content: space-between;
         width: 150px;
         margin-right: 50px;
+
+        &::before, &::after {
+            display: none;
+            content: none;
+        }
+
         @include mobile {
             flex-direction: row;
             flex-wrap: wrap;
@@ -509,6 +527,8 @@
         }
 
         .section-plan {
+            width: 100%;
+
             img {
                 width: 100%;
                 max-width: 100%;
@@ -521,6 +541,7 @@
             @include mobile {
                 width: 100%;
             }
+
             .floor, .room {
                 display: none;
             }
@@ -537,6 +558,7 @@
                 }
             }
         }
+
         @include mobile {
             .switchers-small {
                 width: 100%;
@@ -546,6 +568,7 @@
                 position: absolute;
                 top: 0;
                 left: 0;
+
                 .item {
                     width: 50%;
                     flex: 0 0 50%
@@ -553,6 +576,7 @@
             }
         }
     }
+
     @include mobile {
         padding-top: 70px;
         flex-direction: row;
@@ -563,8 +587,10 @@
         .apartment-section-info {
             width: 15%;
             flex-direction: column;
+
             .section-plan {
                 width: 100%;
+
                 img {
                     display: block;
                     width: 100%;
@@ -603,6 +629,7 @@
             -o-transition: all .3s ease;
             transition: all .3s ease;
             color: $colorText;
+
             &.north {
                 left: 50%;
                 bottom: 105%;
@@ -627,6 +654,7 @@
                 margin: -4px;
             }
         }
+
         @include mobile {
             width: 22px;
             height: 22px;
@@ -635,6 +663,7 @@
             .compass-symbol {
                 font-size: 8px;
                 line-height: 12px;
+
                 &.north {
                     bottom: 140%;
                     margin: -7px;

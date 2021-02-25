@@ -22,6 +22,8 @@ import { MortgagePage, MortgageView } from './components/mortgage';
 
 import { Selects } from './components/form';
 
+const ProgressBar = require("progressbar.js");
+
 $(function() {
    /* const deviceDetector = new DeviceDetector();
     const userAgent = navigator.userAgent;
@@ -42,7 +44,19 @@ $(function() {
    const $pagePreloader = $('#page_preloader');
 
    if ($pagePreloader.length) {
-      $pagePreloader.addClass('animate-start');
+      //$pagePreloader.addClass('animate-start');
+
+      let bar = new ProgressBar.Circle('.page-preloader .logo-wrap', {
+         strokeWidth: 7,
+         easing: "easeInOut",
+         duration: 3000,
+         color: "#fff",
+         trailColor: "rgba(255,255,255,0)",
+         trailWidth: 2,
+         svgStyle: null
+      });
+
+      bar.animate(1.0);
 
       setTimeout(() => {
          hidePreloaderPage();

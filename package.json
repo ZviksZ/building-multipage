@@ -22,6 +22,7 @@
     "jquery-viewport-checker": "^1.8.8",
     "lozad": "^1.14.0",
     "moment": "^2.24.0",
+    "progressbar.js": "^1.1.0",
     "rangeslider.js": "^2.3.3",
     "swiper": "^5.3.7",
     "typed.js": "^2.0.11",

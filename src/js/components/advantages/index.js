@@ -11,11 +11,11 @@ export class AdvantagesModal {
       this.init();
    }
    init = () => {
-      this.$blocks.find('.item-link').on('click', this.openModal)
+      this.$blocks.find('.item').on('click', this.openModal)
    };
 
    openModal = e => {
-      let activeBlock = $(e.currentTarget).closest('.item').attr('data-tab');
+      let activeBlock = $(e.currentTarget).attr('data-tab');
 
       $('html').addClass('open-advantages-modal')
 

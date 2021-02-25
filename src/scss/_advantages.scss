@@ -6,6 +6,10 @@
     min-height: 100%;
     justify-content: space-between;
 
+    .item {
+        display: block;
+    }
+
     .left-block {
         width: calc(35% - 32px);
         margin: 0 16px;
@@ -819,7 +823,7 @@
         }
     }
     .modal-content {
-        max-width: 1552px;
+        max-width: 1024px;
         margin: 50px auto !important;
         position: relative;
         padding-top: 0;
@@ -832,7 +836,7 @@
         }
         .close {
             position: absolute;
-            right: -70px;
+            right: -88px;
             top: 0;
             background: $colorGrayBgDark;
             border-radius: 16px;

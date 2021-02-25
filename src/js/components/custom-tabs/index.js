@@ -7,6 +7,8 @@ export class CustomTabs {
          return false;
       }
 
+
+
       this.$tabItems = this.$container.find('.tabs .item');
       this.$tabBlocks = this.$container.find('.tabs-block');
       this.$tabSelect = this.$container.find('.tabs-select');
@@ -60,6 +62,9 @@ export class CustomTabs {
 
    changeTab = e => {
       e.preventDefault();
+
+      console.log($(e.currentTarget))
+
       let tab;
       if ($(e.currentTarget).val()) {
          tab = $(e.currentTarget).val();
