@@ -43,7 +43,6 @@ export default class infrastructureMap {
                 map.behaviors.disable('multiTouch');
 
 
-                console.log(this.points)
 
                 this.points.features = this.points.features.map(item => {
                     let baloon = ymaps.templateLayoutFactory.createClass(
