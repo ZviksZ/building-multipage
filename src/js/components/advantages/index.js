@@ -4,10 +4,11 @@ import Swiper from 'swiper/js/swiper.min.js';
 export class AdvantagesModal {
    constructor() {
       this.$blocks = $('.advantages-grid-block');
-      if (this.$blocks.length === 0) {
+      this.$modalContent = $('#advantages-modal__content')
+      if (this.$modalContent.length === 0) {
          return false;
       }
-      this.$modalContent = $('#advantages-modal__content')
+
 
       this.slidersInit = [];
 
@@ -15,12 +16,7 @@ export class AdvantagesModal {
    }
    init = () => {
       this.$blocks.find('.item').on('click', this.openModal)
-
-      /*this.$modalContent.find('.advantages-gallery__slider').each((_, item) => {
-         const tab = $(item).closest('.data-block').attr('data-tab')
-
-         this.initSlider(item, tab)
-      })*/
+      $('[data-open-advantage]').on('click', this.openModal)
    };
 
    openModal = e => {
@@ -31,8 +27,6 @@ export class AdvantagesModal {
       this.$modalContent.find('.data-block').removeClass('active')
       this.$modalContent.find('.data-block[data-tab="' + activeBlock + '"]').addClass('active')
 
-
-      console.log()
       if (!this.slidersInit.includes(activeBlock)) {
          this.initSlider(activeBlock);
          this.slidersInit.push(activeBlock);
