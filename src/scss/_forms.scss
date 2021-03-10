@@ -184,6 +184,7 @@ form {
         background: #ffffff;
         opacity: 0;
         transition-delay: 1s;
+        z-index: -1;
         * {
             transform: translateY(100%);
             opacity: 0;
@@ -277,7 +278,7 @@ form {
     align-items: center;
     justify-content: center;
     transform: translateY(100%);
-    z-index: 999;
+    z-index: -1;
     .text {
         color: $colorText;
         font-size: 36px;
@@ -295,6 +296,7 @@ form {
     }
     .form-message {
         transform: translateY(0);
+        z-index: 999;
         .text {
             opacity: 1;
             transform: translateY(0);

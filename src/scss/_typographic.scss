@@ -40,9 +40,11 @@
     &.gray {
         background-color: #5F7384;
     }
+
     &.dark-gray {
         background-color: #526474;
     }
+
     &.transparent {
         background-color: transparent;
     }
@@ -87,10 +89,12 @@
         &:first-child {
             margin-top: 0;
         }
+
         &:last-child {
             margin-bottom: 0;
         }
     }
+
     h1, .h1 {
         @extend %title-shared;
         font-size: 58px;
@@ -115,6 +119,7 @@
             font-size: 25px;
         }
     }
+
     h2, .h2 {
         @extend %title-shared;
         font-size: 46px;
@@ -135,6 +140,7 @@
             font-size: 22px;
         }
     }
+
     h3, .h3 {
         @extend %title-shared;
         font-size: 36px;
@@ -149,6 +155,7 @@
             line-height: 38px;
         }
     }
+
     h4, .h4 {
         @extend %title-shared;
         font-size: 28px;
@@ -161,6 +168,7 @@
             font-size: 17px;
         }
     }
+
     h5, .h5 {
         @extend %title-shared;
         font-size: 22px;
@@ -173,6 +181,7 @@
             font-size: 18px;
         }
     }
+
     h6, .h6 {
         @extend %title-shared;
         font-size: 18px;
@@ -185,6 +194,7 @@
             font-size: 15px;
         }
     }
+
     /* END заголовки */
 
     .inline-block {
@@ -209,10 +219,12 @@
         &:first-child {
             margin-top: 0;
         }
+
         &:last-child {
             margin-bottom: 0;
         }
     }
+
     %text-small-shared {
         @extend %text-shared;
         font-size: 12px;
@@ -221,6 +233,7 @@
             font-size: 11px;
         }
     }
+
     %text-medium-small-shared {
         @extend %text-shared;
         font-size: 14px;
@@ -237,9 +250,11 @@
         &.small {
             @extend %text-small-shared;
         }
+
         &.medium {
             @extend %text-medium-small-shared;
         }
+
         &.big {
             @extend %text-big-shared;
         }
@@ -253,9 +268,11 @@
         &.small {
             @extend %text-small-shared;
         }
+
         &.medium {
             @extend %text-medium-small-shared;
         }
+
         &.big {
             @extend %text-big-shared;
         }
@@ -300,16 +317,11 @@
                 margin: 5px 0;
             }
 
-
-
             &:before {
-                content: "";
                 display: block;
                 position: absolute;
                 top: 10px;
                 left: 0;
-                width: 8px;
-                height: 8px;
                 background: $colorMain;
             }
         }
@@ -323,9 +335,11 @@
         &.small {
             @extend %text-small-shared;
         }
+
         &.medium {
             @extend %text-medium-small-shared;
         }
+
         &.big {
             @extend %text-big-shared;
         }
@@ -338,7 +352,7 @@
 
             &:before {
                 counter-increment: myCounter;
-                content: counter(myCounter)'.';
+                content: counter(myCounter) '.';
                 display: block;
                 position: absolute;
                 font-size: 16px;
@@ -367,6 +381,7 @@
                 opacity: .8;
             }
         }
+
         &.text-phone {
             display: inline-block;
             color: $colorText !important;
@@ -391,6 +406,7 @@
 
         * {
             margin: 0 30px 0 0;
+
             .address, .round-icon, .icon {
                 margin-right: 0;
             }
@@ -405,8 +421,10 @@
         display: flex;
         align-items: center;
     }
+
     .flex-wrap {
         flex-wrap: wrap;
+
         & > div, & > p {
             width: 100%;
         }
@@ -417,17 +435,20 @@
         font-size: 18px;
         font-weight: bold;
     }
+
     .bolder-text {
         @extend %title-shared;
         font-size: 20px;
         font-weight: bold;
     }
+
     .normal-text {
         @extend %title-shared;
         font-size: 18px;
         font-weight: 500;
         line-height: 34px;
     }
+
     .small-text {
         @extend %title-shared;
         font-family: Manrope;
@@ -435,8 +456,8 @@
         font-weight: 500;
         line-height: 26px;
     }
-    /* END текста */
 
+    /* END текста */
 
 
     // переключатели
@@ -445,9 +466,11 @@
         .toggle-content {
             display: none;
         }
+
         .open-text {
             display: block;
         }
+
         .close-text {
             display: none;
         }
@@ -456,15 +479,32 @@
             .toggle-content {
                 display: block;
             }
+
             .open-text {
                 display: none;
             }
+
             .close-text {
                 display: block;
             }
 
             .arrow {
                 transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+.section {
+    ul {
+
+
+        li {
+
+            &:before {
+                content: "";
+                width: 8px;
+                height: 8px;
             }
         }
     }
