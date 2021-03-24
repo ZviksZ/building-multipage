@@ -1,546 +1,546 @@
-import * as $  from 'jquery';
+import * as $ from 'jquery';
 import 'ion-rangeslider';
-import { numberFormat, declOfNum } from  '../helpers/index';
-
+import { numberFormat, declOfNum } from '../helpers/index';
+import * as _ from 'lodash'
 export class RoomsSearch {
-    constructor($block) {
-        if ($block.length === 0) return;
-        this.$block = $block;
-        this.$filterForm = this.$block.find('[data-filter]');
-        this.$apartmentsWrapper = this.$block.parents().find('[data-apartments-wrapper]')
+   constructor($block) {
+      if ($block.length === 0) return;
+      this.$block = $block;
+      this.$filterForm = this.$block.find('[data-filter]');
+      this.$apartmentsWrapper = this.$block.parents().find('[data-apartments-wrapper]');
 
-        this.$roomsField = this.$filterForm.find('[data-rooms]');
+      this.$roomsField = this.$filterForm.find('[data-rooms]');
 
-        this.$filterSort = this.$block.parents().find('#filter_sort');
+      this.$filterSort = this.$block.parents().find('#filter_sort');
 
-        /*Инпаты сумм*/
-        this.$sumMin = this.$filterForm.find('[name="sum_min"]');
-        this.$sumMinFormatted = this.$filterForm.find('[name="sum_min_formatted"]');
-        this.$sumMax = this.$filterForm.find('[name="sum_max"]');
-        this.$sumMaxFormatted = this.$filterForm.find('[name="sum_max_formatted"]');
+      /*Инпаты сумм*/
+      this.$sumMin = this.$filterForm.find('[name="sum_min"]');
+      this.$sumMinFormatted = this.$filterForm.find('[name="sum_min_formatted"]');
+      this.$sumMax = this.$filterForm.find('[name="sum_max"]');
+      this.$sumMaxFormatted = this.$filterForm.find('[name="sum_max_formatted"]');
 
-        /*Инпаты площади*/
-        this.$areaMin = this.$filterForm.find('[name="square_min"]');
-        this.$areaMax = this.$filterForm.find('[name="square_max"]');
+      /*Инпаты площади*/
+      this.$areaMin = this.$filterForm.find('[name="square_min"]');
+      this.$areaMax = this.$filterForm.find('[name="square_max"]');
 
-        /*Инпаты Этажа*/
-        this.$floorMin = this.$filterForm.find('[name="floor_min"]');
-        this.$floorMax = this.$filterForm.find('[name="floor_max"]');
+      /*Инпаты Этажа*/
+      this.$floorMin = this.$filterForm.find('[name="floor_min"]');
+      this.$floorMax = this.$filterForm.find('[name="floor_max"]');
 
-        /*Срок сдачи селект*/
-        this.$deadlineSelect = this.$filterForm.find('[name="deadline"]');
+      /*Срок сдачи селект*/
+      this.$deadlineSelect = this.$filterForm.find('[name="deadline"]');
 
-        this.$searchResultText = $('#filter_result');
-        this.$searchResultBtn = $('#filter_result-btn');
+      this.$searchResultText = $('#filter_result');
+      this.$searchResultBtn = $('#filter_result-btn');
 
-        this.JSON = JSON.parse(this.$block.attr('data-json'));
-        this.apartments = this.JSON.apartments;
+      this.JSON = JSON.parse(this.$block.attr('data-json'));
+      this.apartments = this.JSON.apartments;
 
-        this.minMaxValues = this.getMinMaxValues();
-        this.sumRangeSlider = this.initPriceRangeSlider();
-        this.floorsRangeSlider = this.initFloorsRangeSlider();
-        this.areaRangeSlider = this.initAreaRangeSlider();
+      this.minMaxValues = this.getMinMaxValues();
+      this.sumRangeSlider = this.initPriceRangeSlider();
+      this.floorsRangeSlider = this.initFloorsRangeSlider();
+      this.areaRangeSlider = this.initAreaRangeSlider();
 
-        this.filterParams = this.getFilterParams();
+      this.filterParams = this.getFilterParams();
 
-        this.roomsName = ['Ст.', '1', '2', '3', '4', '5'];
+      this.roomsName = ['Ст.', '1', '2', '3', '4', '5'];
 
-        this.showFilterBtn = $('#show-room-filter-btn')
-        this.hideFilterBtn = $('#hide-room-filter-btn')
+      this.showFilterBtn = $('#show-room-filter-btn');
+      this.hideFilterBtn = $('#hide-room-filter-btn');
 
-        this.init();
-    }
+      this.init();
+   }
 
-    init() {
+   init() {
+      this.getUniqueApartments();
 
-        this.renderApartments();
-        this.filterApartments();
+      this.renderApartments();
+      this.filterApartments();
 
-        this.sumRangeSlider.on('change', (e) => {
-            setTimeout(() => {
-                this.filterParams = this.getFilterParams();
-                this.filterApartments();
-            }, 10)
-        });
-
-        this.floorsRangeSlider.on('change', (e) => {
-            setTimeout(() => {
-                this.filterParams = this.getFilterParams();
-                this.filterApartments();
-            }, 10)
-        });
-
-        this.areaRangeSlider.on('change', (e) => {
-            setTimeout(() => {
-                this.filterParams = this.getFilterParams();
-                this.filterApartments();
-            }, 10)
-        });
-
-        //Переключение комнат
-        this.$roomsField.on('click', '.item', (e) => {
-            this.handlerChangeRooms(e);
-            return false;
-        });
-
-        this.$deadlineSelect.on('change', (e) => {
+      this.sumRangeSlider.on('change', e => {
+         setTimeout(() => {
             this.filterParams = this.getFilterParams();
             this.filterApartments();
-            return false;
-        });
+         }, 10);
+      });
 
-        this.$filterSort.on('click', '.sort-item', (e) => {
-            const $this = e.currentTarget;
+      this.floorsRangeSlider.on('change', e => {
+         setTimeout(() => {
+            this.filterParams = this.getFilterParams();
+            this.filterApartments();
+         }, 10);
+      });
 
-            this.handlerSortApartments($this);
+      this.areaRangeSlider.on('change', e => {
+         setTimeout(() => {
+            this.filterParams = this.getFilterParams();
+            this.filterApartments();
+         }, 10);
+      });
 
-            return false;
-        });
+      //Переключение комнат
+      this.$roomsField.on('click', '.item', e => {
+         this.handlerChangeRooms(e);
+         return false;
+      });
 
-        this.showFilterBtn.on('click', (e) => {
-            $('body').addClass('show-room-filter')
-        })
-        this.hideFilterBtn.on('click', (e) => {
-            $('body').removeClass('show-room-filter')
-        })
+      this.$deadlineSelect.on('change', e => {
+         this.filterParams = this.getFilterParams();
+         this.filterApartments();
+         return false;
+      });
 
-        this.$searchResultBtn.on('click',this.setDisabledApartmentsOnMobile)
-    }
+      this.$filterSort.on('click', '.sort-item', e => {
+         const $this = e.currentTarget;
 
-    handlerSortApartments(element) {
+         this.handlerSortApartments($this);
 
-        if (element.classList.contains('active')) {
+         return false;
+      });
 
-            if (element.dataset.sort === 'asc') {
-                element.dataset.sort = 'desc';
-            } else {
-                element.dataset.sort = 'asc';
-            }
+      this.showFilterBtn.on('click', e => {
+         $('body').addClass('show-room-filter');
+      });
+      this.hideFilterBtn.on('click', e => {
+         $('body').removeClass('show-room-filter');
+      });
 
-        } else {
-            element.classList.add('active');
+      this.$searchResultBtn.on('click', this.setDisabledApartmentsOnMobile);
+   }
 
-            if (element.nextElementSibling) element.nextElementSibling.classList.remove('active');
-            if (element.previousElementSibling) element.previousElementSibling.classList.remove('active');
-        }
+   handlerSortApartments(element) {
+      if (element.classList.contains('active')) {
+         if (element.dataset.sort === 'asc') {
+            element.dataset.sort = 'desc';
+         } else {
+            element.dataset.sort = 'asc';
+         }
+      } else {
+         element.classList.add('active');
 
-        const sortType = element.dataset.type;
-        const sortDirection = element.dataset.sort;
+         if (element.nextElementSibling) element.nextElementSibling.classList.remove('active');
+         if (element.previousElementSibling) element.previousElementSibling.classList.remove('active');
+      }
 
-        this.renderList({
-            type: sortType,
-            direction: sortDirection
-        });
+      const sortType = element.dataset.type;
+      const sortDirection = element.dataset.sort;
 
-        this.filterApartments();
-    }
+      this.renderList({
+         type: sortType,
+         direction: sortDirection
+      });
 
-    sortApartments() {
+      this.filterApartments();
+   }
+
+   sortApartments() {
+      for (let i = 0; i < this.apartments.length; i++) {
+         const apartment = this.apartments[i];
+         const { id } = apartment;
+
+         if (this.isAvailableApartment(apartment, this.filterParams)) {
+            $(`#${id}`).removeClass('disabled');
+         } else {
+            $(`#${id}`).addClass('disabled');
+         }
+      }
+   }
+
+   /**
+    * Фильтрация элементов на странице в моб версии при клике на кнопку
+    */
+   setDisabledApartmentsOnMobile = () => {
+      let countApartments = 0;
+      for (let i = 0; i < this.apartments.length; i++) {
+         const apartment = this.apartments[i];
+         const { id } = apartment;
+
+         if (this.isAvailableApartment(apartment, this.filterParams)) {
+            $(`#${id}`).removeClass('disabled');
+            countApartments++;
+         } else {
+            $(`#${id}`).addClass('disabled');
+         }
+      }
+      const textMessage = `${countApartments} ${declOfNum(countApartments, ['квартира', 'квартиры', 'квартир'])}`;
+      this.$searchResultText.html(textMessage);
+      $('body').removeClass('show-room-filter');
+   };
+
+   /**
+    *
+    */
+   filterApartments() {
+      let countApartments = 0;
+
+      if ($('body').hasClass('show-room-filter')) {
          for (let i = 0; i < this.apartments.length; i++) {
             const apartment = this.apartments[i];
-            const {id} = apartment;
-
-            if (this.isAvailableApartment(apartment, this.filterParams)){
-                $(`#${id}`).removeClass('disabled');
-
-            } else  {
-                $(`#${id}`).addClass('disabled');
+            if (this.isAvailableApartment(apartment, this.filterParams)) {
+               countApartments++;
             }
-        }
-    }
+         }
+         const textMessage = `${countApartments} ${declOfNum(countApartments, ['квартира', 'квартиры', 'квартир'])}`;
 
-    /**
-     * Фильтрация элементов на странице в моб версии при клике на кнопку
-     */
-    setDisabledApartmentsOnMobile = () => {
-        let countApartments = 0;
-        for (let i = 0; i < this.apartments.length; i++) {
+         this.$searchResultBtn.html('Показать ' + textMessage);
+      } else {
+         for (let i = 0; i < this.apartments.length; i++) {
             const apartment = this.apartments[i];
-            const {id} = apartment;
+            const { id } = apartment;
 
-
-            if (this.isAvailableApartment(apartment, this.filterParams)){
-                $(`#${id}`).removeClass('disabled');
-                countApartments++;
-            } else  {
-                $(`#${id}`).addClass('disabled');
+            if (this.isAvailableApartment(apartment, this.filterParams)) {
+               $(`#${id}`).removeClass('disabled');
+               countApartments++;
+            } else {
+               $(`#${id}`).addClass('disabled');
             }
-        }
-        const textMessage = `${countApartments} ${declOfNum(countApartments,['квартира','квартиры','квартир'])}`
-        this.$searchResultText.html(textMessage);
-        $('body').removeClass('show-room-filter')
-    }
-    /**
-     *
-     */
-    filterApartments() {
-        let countApartments = 0;
+         }
+         const textMessage = `${countApartments} ${declOfNum(countApartments, ['квартира', 'квартиры', 'квартир'])}`;
+         this.$searchResultText.html(textMessage);
+         this.$searchResultBtn.html('Показать ' + textMessage);
+      }
+   }
 
-        if ($('body').hasClass('show-room-filter')) {
-            for (let i = 0; i < this.apartments.length; i++) {
-                const apartment = this.apartments[i];
-                if (this.isAvailableApartment(apartment, this.filterParams)){
-                    countApartments++;
-                }
-            }
-            const textMessage = `${countApartments} ${declOfNum(countApartments,['квартира','квартиры','квартир'])}`
+   /**
+    * Проверка доступности квартиры
+    * @param {Object} apartment - объект с данными о квартире
+    * @param {Object} filter -  объект с параметрами фильтра
+    */
+   isAvailableApartment(apartment = {}, filter = {}) {
+      const { fullPrice, name, area, floor, deadline } = apartment;
 
-            this.$searchResultBtn.html('Показать ' + textMessage);
-        } else {
-            for (let i = 0; i < this.apartments.length; i++) {
-                const apartment = this.apartments[i];
-                const {id} = apartment;
+      const { room = [], priceMax, priceMin, floorMin, floorMax, areaMin, areaMax, deadlineValue } = filter;
 
+      const apartmentDeadline = deadline.value;
 
-                if (this.isAvailableApartment(apartment, this.filterParams)){
-                    $(`#${id}`).removeClass('disabled');
-                    countApartments++;
+      const isPrice = fullPrice >= priceMin && fullPrice <= priceMax;
+      const isArea = area >= areaMin && area <= areaMax;
+      let isFloor;
 
-                } else  {
-                    $(`#${id}`).addClass('disabled');
-                }
-            }
-            const textMessage = `${countApartments} ${declOfNum(countApartments,['квартира','квартиры','квартир'])}`
-            this.$searchResultText.html(textMessage);
-            this.$searchResultBtn.html('Показать ' + textMessage);
-        }
+      if (Array.isArray(floor)) {
+         isFloor = floor.some(item => item >= floorMin && item <= floorMax)
+      } else {
+         isFloor = floor >= floorMin && floor <= floorMax;
+      }
 
-    }
+      let isDeadline = apartmentDeadline >= deadlineValue && apartmentDeadline <= deadlineValue;
 
-    /**
-     * Проверка доступности квартиры
-     * @param {Object} apartment - объект с данными о квартире
-     * @param {Object} filter -  объект с параметрами фильтра
-     */
-    isAvailableApartment(apartment = {}, filter = {}) {
-        const {
-            fullPrice,
-            name,
-            area,
-            floor,
-            deadline
-        } = apartment;
+      if (+deadlineValue === 0) isDeadline = true;
 
-        const {
-            room = [],
-            priceMax,
-            priceMin,
-            floorMin,
-            floorMax,
-            areaMin,
-            areaMax,
-            deadlineValue
-        } = filter;
+      if (isPrice && isArea && isFloor && isDeadline) {
+         if (isRoomLength(room)) return true;
+      } else {
+         return false;
+      }
 
-        const apartmentDeadline = deadline.value;
-
-        const isPrice = fullPrice >= priceMin && fullPrice <= priceMax;
-        const isArea = area >= areaMin && area <= areaMax;
-        const isFloor = floor >= floorMin && floor <= floorMax;
-        let isDeadline = apartmentDeadline >= deadlineValue && apartmentDeadline <= deadlineValue;
-
-        if (+deadlineValue === 0) isDeadline = true;
-
-
-        if (isPrice && isArea && isFloor && isDeadline) {
-            if (isRoomLength(room)) return true;
-        } else {
-            return false;
-        }
-
-        /*
+      /*
         Функция проверки на необходимость вывода квартиры по определенным комнатам, если пусто, то возвращает все
          */
-        function isRoomLength(rooms) {
-            if (rooms.length) {
-                for (let i = 0; i < rooms.length; i++) {
-                    const item = room[i];
+      function isRoomLength(rooms) {
+         if (rooms.length) {
+            for (let i = 0; i < rooms.length; i++) {
+               const item = room[i];
 
-                    if (+name === +item) {
-                        return true
-                    }
-                }
-            } else {
-                return true
+               if (+name === +item) {
+                  return true;
+               }
             }
-        }
-    }
+         } else {
+            return true;
+         }
+      }
+   }
 
+   //Переключение квартир
+   handlerChangeRooms(e) {
+      const element = e.target;
 
-    //Переключение квартир
-    handlerChangeRooms(e) {
-        const element = e.target;
+      if (element.classList.contains('active')) {
+         element.classList.remove('active');
+      } else {
+         element.classList.add('active');
+      }
+      this.filterParams = this.getFilterParams();
+      this.filterApartments();
+   }
 
-        if (element.classList.contains('active')) {
-            element.classList.remove('active');
-        } else {
-            element.classList.add('active');
-        }
-        this.filterParams = this.getFilterParams();
-        this.filterApartments();
-    }
+   //Остальное
+   //Слайдер сумм
+   initPriceRangeSlider() {
+      const sumMaxInput = this.$sumMax;
+      const sumMaxFormatted = this.$sumMaxFormatted;
 
+      const sumMinInput = this.$sumMin;
+      const sumMinFormatted = this.$sumMinFormatted;
 
-    //Остальное
-    //Слайдер сумм
-    initPriceRangeSlider() {
-        const sumMaxInput = this.$sumMax;
-        const sumMaxFormatted = this.$sumMaxFormatted;
+      sumMinInput[0].value = this.minMaxValues.minPrice;
+      sumMaxInput[0].value = this.minMaxValues.maxPrice;
 
-        const sumMinInput = this.$sumMin;
-        const sumMinFormatted = this.$sumMinFormatted;
+      sumMinFormatted[0].value = this.minMaxValues.minPriceFormatted;
+      sumMaxFormatted[0].value = this.minMaxValues.maxPriceFormatted;
 
-        sumMinInput[0].value = this.minMaxValues.minPrice;
-        sumMaxInput[0].value = this.minMaxValues.maxPrice;
+      return $('[name="price_range"]').ionRangeSlider({
+         type: 'double',
+         min: this.minMaxValues.minPrice,
+         max: this.minMaxValues.maxPrice,
+         from: +sumMinInput[0].value,
+         to: +sumMaxInput[0].value,
+         drag_interval: true,
+         min_interval: null,
+         max_interval: null,
+         onChange: function(data) {
+            sumMinInput[0].value = data.from;
+            sumMaxInput[0].value = data.to;
 
-        sumMinFormatted[0].value = this.minMaxValues.minPriceFormatted;
-        sumMaxFormatted[0].value = this.minMaxValues.maxPriceFormatted;
+            sumMinFormatted[0].value = numberFormat(data.from / 1000000, 2, ',');
+            sumMaxFormatted[0].value = numberFormat(data.to / 1000000, 2, ',');
+         }
+      });
+   }
 
+   initFloorsRangeSlider() {
+      const floorsMaxInput = this.$floorMax;
+      const floorsMinInput = this.$floorMin;
 
-        return $('[name="price_range"]').ionRangeSlider({
-            type: "double",
-            min: this.minMaxValues.minPrice,
-            max: this.minMaxValues.maxPrice,
-            from: +sumMinInput[0].value,
-            to: +sumMaxInput[0].value,
-            drag_interval: true,
-            min_interval: null,
-            max_interval: null,
-            onChange: function (data) {
-                sumMinInput[0].value = data.from;
-                sumMaxInput[0].value = data.to;
+      floorsMaxInput[0].value = this.minMaxValues.maxFloor;
+      floorsMinInput[0].value = this.minMaxValues.minFloor;
 
-                sumMinFormatted[0].value = numberFormat(data.from/1000000,2,',');
-                sumMaxFormatted[0].value = numberFormat(data.to/1000000,2,',');
-            },
-        });
-    }
+      return $('[name="floor_range"]').ionRangeSlider({
+         type: 'double',
+         min: this.minMaxValues.minFloor,
+         max: this.minMaxValues.maxFloor,
+         from: +floorsMinInput[0].value,
+         to: +floorsMaxInput[0].value,
+         drag_interval: true,
+         min_interval: null,
+         max_interval: null,
+         onChange: function(data) {
+            floorsMinInput[0].value = data.from;
+            floorsMaxInput[0].value = data.to;
+         }
+      });
+   }
 
-    initFloorsRangeSlider() {
-        const floorsMaxInput = this.$floorMax;
-        const floorsMinInput = this.$floorMin;
+   initAreaRangeSlider() {
+      const areaMaxInput = this.$areaMax;
+      const areaMinInput = this.$areaMin;
 
-        floorsMaxInput[0].value = this.minMaxValues.maxFloor;
-        floorsMinInput[0].value = this.minMaxValues.minFloor;
+      areaMaxInput[0].value = this.minMaxValues.maxArea;
+      areaMinInput[0].value = this.minMaxValues.minArea;
 
+      return $('[name="square_range"]').ionRangeSlider({
+         type: 'double',
+         step: 0.1,
+         min: this.minMaxValues.minArea,
+         max: this.minMaxValues.maxArea,
+         from: +areaMinInput[0].value,
+         to: +areaMaxInput[0].value,
+         drag_interval: true,
+         min_interval: null,
+         max_interval: null,
+         onChange: function(data) {
+            areaMinInput[0].value = data.from;
+            areaMaxInput[0].value = data.to;
+         }
+      });
+   }
 
-        return $('[name="floor_range"]').ionRangeSlider({
-            type: "double",
-            min: this.minMaxValues.minFloor,
-            max: this.minMaxValues.maxFloor,
-            from: +floorsMinInput[0].value,
-            to: +floorsMaxInput[0].value,
-            drag_interval: true,
-            min_interval: null,
-            max_interval: null,
-            onChange: function (data) {
-                floorsMinInput[0].value = data.from;
-                floorsMaxInput[0].value = data.to;
-            },
-        });
-    }
+   /**
+    * Формирования массива всех доступных квартир
+    * @returns {Array} - массив квартир
+    */
+   getApartments() {
+      const apartmentsArray = [];
+      const apartments = Object.values(this.apartments);
 
-    initAreaRangeSlider() {
-        const areaMaxInput = this.$areaMax;
-        const areaMinInput = this.$areaMin;
+      for (let i = 0; i < apartments.length; i++) {
+         const apartment = apartments[i];
 
-        areaMaxInput[0].value = this.minMaxValues.maxArea;
-        areaMinInput[0].value = this.minMaxValues.minArea;
+         apartmentsArray.push(apartment);
+      }
 
+      return apartmentsArray;
+   }
 
-        return $('[name="square_range"]').ionRangeSlider({
-            type: "double",
-            step: 0.10,
-            min: this.minMaxValues.minArea,
-            max: this.minMaxValues.maxArea,
-            from: +areaMinInput[0].value,
-            to: +areaMaxInput[0].value,
-            drag_interval: true,
-            min_interval: null,
-            max_interval: null,
-            onChange: function (data) {
-                areaMinInput[0].value = data.from;
-                areaMaxInput[0].value = data.to;
-            },
-        });
-    }
+   /**
+    * Получение параметров фильтра
+    * @returns {Object}
+    */
+   getFilterParams() {
+      //const jkId = this.$residentialField[0].value;
+      const roomButtons = this.$roomsField.find('.item');
+      const priceMin = this.$sumMin[0].value;
+      const priceMax = this.$sumMax[0].value;
 
-    /**
-     * Формирования массива всех доступных квартир
-     * @returns {Array} - массив квартир
-     */
-    getApartments() {
-        const apartmentsArray = [];
-        const apartments = Object.values(this.apartments);
+      const floorMin = this.$floorMin[0].value;
+      const floorMax = this.$floorMax[0].value;
 
-        for (let i = 0; i < apartments.length; i++) {
-            const apartment = apartments[i];
+      const areaMin = this.$areaMin[0].value;
+      const areaMax = this.$areaMax[0].value;
 
-            apartmentsArray.push(apartment);
-        }
+      const deadline = this.$deadlineSelect[0].value;
 
-        return apartmentsArray;
-    }
+      const roomsArr = [];
 
-    /**
-     * Получение параметров фильтра
-     * @returns {Object}
-     */
-    getFilterParams() {
-        //const jkId = this.$residentialField[0].value;
-        const roomButtons = this.$roomsField.find('.item');
-        const priceMin = this.$sumMin[0].value;
-        const priceMax = this.$sumMax[0].value;
+      roomButtons.each((key, val) => {
+         const item = val;
+         if (item.classList.contains('active')) {
+            roomsArr.push(+item.dataset.room);
+         }
+      });
 
-        const floorMin = this.$floorMin[0].value;
-        const floorMax = this.$floorMax[0].value;
+      return {
+         room: roomsArr,
+         priceMin: +priceMin,
+         priceMax: +priceMax,
+         floorMin: +floorMin,
+         floorMax: +floorMax,
+         areaMin: +areaMin,
+         areaMax: +areaMax,
+         deadlineValue: deadline
+      };
+   }
 
-        const areaMin = this.$areaMin[0].value;
-        const areaMax = this.$areaMax[0].value;
+   //Получение минимальных и максимальных значений всего чего можно для инпатов
+   getMinMaxValues() {
+      let maxPrice = 0,
+         minPrice = 0;
 
-        const deadline = this.$deadlineSelect[0].value;
+      let minFloor = 0,
+         maxFloor = 0;
 
-        const roomsArr = [];
+      let minArea = 0,
+         maxArea = 0;
 
-        roomButtons.each((key, val) => {
-            const item = val;
-            if (item.classList.contains('active')) {
-                roomsArr.push(+item.dataset.room);
+      const apartmentsArray = this.getApartments();
+
+      for (let i = 0; i < apartmentsArray.length; i++) {
+         if (apartmentsArray[i]['fullPrice'] > apartmentsArray[maxPrice]['fullPrice']) maxPrice = i;
+         if (apartmentsArray[i]['fullPrice'] < apartmentsArray[minPrice]['fullPrice']) minPrice = i;
+
+         if (apartmentsArray[i]['floor'] > apartmentsArray[maxFloor]['floor']) maxFloor = i;
+         if (apartmentsArray[i]['floor'] < apartmentsArray[minFloor]['floor']) minFloor = i;
+
+         if (apartmentsArray[i]['area'] > apartmentsArray[maxArea]['area']) maxArea = i;
+         if (apartmentsArray[i]['area'] < apartmentsArray[minArea]['area']) minArea = i;
+      }
+
+      return {
+         minPrice: apartmentsArray[minPrice]['fullPrice'],
+         maxPrice: apartmentsArray[maxPrice]['fullPrice'],
+         minFloor: apartmentsArray[minFloor]['floor'],
+         maxFloor: apartmentsArray[maxFloor]['floor'],
+         minArea: apartmentsArray[minArea]['area'],
+         maxArea: apartmentsArray[maxArea]['area'],
+         minPriceFormatted: numberFormat(apartmentsArray[minPrice]['fullPrice'] / 1000000, 2, ','),
+         maxPriceFormatted: numberFormat(apartmentsArray[maxPrice]['fullPrice'] / 1000000, 2, ',')
+      };
+   }
+
+   /**
+    * Убираем однотипные квартиры
+    */
+   getUniqueApartments = () => {
+      let uniqueApartments = [];
+      let filter = [];
+
+      this.apartments.forEach(item => {
+         const stringifyItem = this.getStringifyForCompare(item);
+
+         if (!filter.includes(stringifyItem)) {
+            uniqueApartments.push(item);
+            filter.push(stringifyItem);
+         } else {
+            for (let i = 0; i < uniqueApartments.length; i++) {
+               const stringifyApartment = this.getStringifyForCompare(uniqueApartments[i])
+               if (stringifyApartment === stringifyItem) {
+                  const {floor} = uniqueApartments[i]
+
+                  if (Array.isArray(floor)) {
+                     uniqueApartments[i].floor = [...floor, item.floor]
+                  } else {
+                     uniqueApartments[i].floor = [floor, item.floor]
+                  }
+               }
             }
-        });
+         }
+      });
 
-        return {
-            room: roomsArr,
-            priceMin: +priceMin,
-            priceMax: +priceMax,
-            floorMin: +floorMin,
-            floorMax: +floorMax,
-            areaMin: +areaMin,
-            areaMax: +areaMax,
-            deadlineValue: deadline
-        };
-    }
+      this.apartments = uniqueApartments;
+   }
 
-    //Получение минимальных и максимальных значений всего чего можно для инпатов
-     getMinMaxValues() {
-        let maxPrice = 0,
-            minPrice = 0;
+   getStringifyForCompare = item => {
+      const { fullPrice, area, house, section, deadline, decoration, name } = item;
+      return JSON.stringify({fullPrice, area, house, section, deadline, decoration, name});
+   }
 
-        let minFloor = 0,
-            maxFloor = 0;
-
-        let minArea = 0,
-            maxArea = 0;
-
-        const apartmentsArray = this.getApartments();
-
-        for (let i = 0; i < apartmentsArray.length; i++) {
-            if (apartmentsArray[i]['fullPrice'] > apartmentsArray[maxPrice]['fullPrice']) maxPrice = i;
-            if (apartmentsArray[i]['fullPrice'] < apartmentsArray[minPrice]['fullPrice']) minPrice = i;
-
-            if (apartmentsArray[i]['floor'] > apartmentsArray[maxFloor]['floor']) maxFloor = i;
-            if (apartmentsArray[i]['floor'] < apartmentsArray[minFloor]['floor']) minFloor = i;
-
-            if (apartmentsArray[i]['area'] > apartmentsArray[maxArea]['area']) maxArea = i;
-            if (apartmentsArray[i]['area'] < apartmentsArray[minArea]['area']) minArea = i;
-        }
-
-        return {
-            minPrice: apartmentsArray[minPrice]['fullPrice'],
-            maxPrice: apartmentsArray[maxPrice]['fullPrice'],
-            minFloor: apartmentsArray[minFloor]['floor'],
-            maxFloor: apartmentsArray[maxFloor]['floor'],
-            minArea: apartmentsArray[minArea]['area'],
-            maxArea: apartmentsArray[maxArea]['area'],
-            minPriceFormatted: numberFormat(apartmentsArray[minPrice]['fullPrice']/1000000, 2, ','),
-            maxPriceFormatted:  numberFormat(apartmentsArray[maxPrice]['fullPrice']/1000000, 2, ',')
-        }
-    }
-
-    /**
-     * Формирование HTML квартир
-     */
-    renderApartments() {
+   /**
+    * Формирование HTML квартир
+    */
+   renderApartments() {
       return this.renderList();
-    }
+   }
 
-    //Список квартир
-    /**
-     * Формирование HTML списка квартир
-     */
-    renderList(sort = {}) {
-        let result = '';
+   //Список квартир
+   /**
+    * Формирование HTML списка квартир
+    */
+   renderList(sort = {}) {
+      let result = '';
 
-        let apartments = Object.values(this.apartments);
+      let apartments = Object.values(this.apartments);
+      const { type, direction } = sort;
 
-        const {
-            type,
-            direction
-        } = sort;
+      if (type === 'fullPrice') {
+         if (direction === 'asc') {
+            apartments = apartments.sort((a, b) => (+a.fullPrice < +b.fullPrice ? 1 : -1));
+         } else {
+            apartments = apartments.sort((a, b) => (+a.fullPrice > +b.fullPrice ? 1 : -1));
+         }
+      }
 
-        if (type === 'fullPrice') {
-            if (direction === 'asc') {
-                apartments = apartments.sort((a, b) => +a.fullPrice < +b.fullPrice ? 1 : -1);
-            } else {
-                apartments = apartments.sort((a, b) => +a.fullPrice > +b.fullPrice ? 1 : -1);
-            }
-        }
+      if (type === 'area') {
+         if (direction === 'asc') {
+            apartments = apartments.sort((a, b) => (+a.area < +b.area ? 1 : -1));
+         } else {
+            apartments = apartments.sort((a, b) => (+a.area > +b.area ? 1 : -1));
+         }
+      }
 
-        if (type === 'area') {
-            if (direction === 'asc') {
-                apartments = apartments.sort((a, b) => +a.area < +b.area ? 1 : -1);
-            } else {
-                apartments = apartments.sort((a, b) => +a.area > +b.area ? 1 : -1);
-            }
-        }
+      for (let i = 0; i < apartments.length; i++) {
+         const item = apartments[i];
 
-        for (let i = 0; i < apartments.length; i++) {
-            const item = apartments[i];
+         result += this.renderListItem(item);
+      }
 
-            result += this.renderListItem(item);
-        }
+      if (!result) return;
 
-        if (!result) return;
+      this.$apartmentsWrapper.html(result);
+   }
 
-        this.$apartmentsWrapper.html(result);
+   /**
+    * Формирование HTML карточки квартиры для списка
+    * @returns {string}
+    */
+   renderListItem(apartment) {
+      if (!apartment) return '';
+      const { id, url, area, img, name, floor, decoration, deadline = {}, section, quarter, house, fullPrice, houseImage } = apartment;
 
-    }
+      const { text, value } = deadline;
 
-    /**
-     * Формирование HTML карточки квартиры для списка
-     * @returns {string}
-     */
-    renderListItem(apartment) {
-        if (!apartment) return '';
-        const {
-            id,
-            url,
-            area,
-            img,
-            name,
-            floor,
-            decoration,
-            deadline = {},
-            section,
-            quarter,
-            house,
-            fullPrice,
-            houseImage
-        } = apartment;
+      let floorText = floor
+      if (Array.isArray(floor)) {
+         floorText = floor.sort((a, b) => a - b)
+      }
 
-        const {
-            text,
-            value
-        } = deadline;
+      //Если квартира продана или забронирована, не выводим
+      // if (status === 0 || status === 2) return '';
+      let studioClass = '';
+      let mapImage = houseImage ? houseImage : '/netcat_template/template/Primary/assets/img/rooms/123.jpg';
 
-        //Если квартира продана или забронирована, не выводим
-        // if (status === 0 || status === 2) return '';
-        let studioClass = '';
-        let mapImage = houseImage ? houseImage : '/netcat_template/template/Primary/assets/img/rooms/123.jpg'
+      if (this.roomsName[name] === 'Ст.') studioClass = 'studio';
 
-        if (this.roomsName[name] === 'Ст.') studioClass = 'studio';
-
-        return  `<a class="rooms-item ${studioClass}" href="${url}" id="${id}" data-room="${name}" data-deadline="${value}">
+      return `<a class="rooms-item ${studioClass}" href="${url}" id="${id}" data-room="${name}" data-deadline="${value}">
                     <div class="inner">
                         <div class="item-front">
                             <div class="item-head">
@@ -573,7 +573,7 @@ export class RoomsSearch {
                                 </div>
                                 <div class="item">
                                     <div class="name">Этаж</div>
-                                    <div class="value">${floor}</div>
+                                    <div class="value">${floorText}</div>
                                 </div>
                             </div>
                         </div>
@@ -582,9 +582,7 @@ export class RoomsSearch {
                         </div>
                     </div>
                 </a>`;
+   }
 
-    }
-    //END список квартир
-
+   //END список квартир
 }
-
