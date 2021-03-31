@@ -2,6 +2,7 @@ import * as $ from 'jquery';
 import 'ion-rangeslider';
 import { numberFormat, declOfNum } from '../helpers/index';
 import * as _ from 'lodash'
+
 export class RoomsSearch {
    constructor($block) {
       if ($block.length === 0) return;
@@ -216,6 +217,7 @@ export class RoomsSearch {
       const isPrice = fullPrice >= priceMin && fullPrice <= priceMax;
       const isArea = area >= areaMin && area <= areaMax;
       let isFloor;
+      let isFullPrice;
 
       if (Array.isArray(floor)) {
          isFloor = floor.some(item => item >= floorMin && item <= floorMax)
@@ -223,11 +225,17 @@ export class RoomsSearch {
          isFloor = floor >= floorMin && floor <= floorMax;
       }
 
+      if (Array.isArray(fullPrice)) {
+         isFullPrice = fullPrice.some(item => item >= priceMin && item <= priceMax)
+      } else {
+         isFullPrice = fullPrice >= priceMin && fullPrice <= priceMax;
+      }
+
       let isDeadline = apartmentDeadline >= deadlineValue && apartmentDeadline <= deadlineValue;
 
       if (+deadlineValue === 0) isDeadline = true;
 
-      if (isPrice && isArea && isFloor && isDeadline) {
+      if (isFullPrice && isArea && isFloor && isDeadline) {
          if (isRoomLength(room)) return true;
       } else {
          return false;
@@ -454,7 +462,13 @@ export class RoomsSearch {
             for (let i = 0; i < uniqueApartments.length; i++) {
                const stringifyApartment = this.getStringifyForCompare(uniqueApartments[i])
                if (stringifyApartment === stringifyItem) {
-                  const {floor} = uniqueApartments[i]
+                  const {floor, fullPrice} = uniqueApartments[i]
+
+                  if (Array.isArray(fullPrice)) {
+                     uniqueApartments[i].fullPrice = [...fullPrice, item.fullPrice]
+                  } else {
+                     uniqueApartments[i].fullPrice = [fullPrice, item.fullPrice]
+                  }
 
                   if (Array.isArray(floor)) {
                      uniqueApartments[i].floor = [...floor, item.floor]
@@ -470,8 +484,8 @@ export class RoomsSearch {
    }
 
    getStringifyForCompare = item => {
-      const { fullPrice, area, house, section, deadline, decoration, name } = item;
-      return JSON.stringify({fullPrice, area, house, section, deadline, decoration, name});
+      const { area, house, section, deadline, decoration, name } = item;
+      return JSON.stringify({area, house, section, deadline, decoration, name});
    }
 
    /**
@@ -533,6 +547,18 @@ export class RoomsSearch {
          floorText = floor.sort((a, b) => a - b)
       }
 
+      let priceText = `${numberFormat(fullPrice)} ₽`
+      if (Array.isArray(fullPrice)) {
+         let sortedPrices = fullPrice.sort((a, b) => a - b)
+
+         if (sortedPrices[0] === sortedPrices[sortedPrices.length - 1]) {
+            priceText = `${numberFormat(sortedPrices[0])} ₽`
+         } else {
+            priceText = `${numberFormat(sortedPrices[0])} ₽ - ${numberFormat(sortedPrices[sortedPrices.length - 1])} ₽`
+         }
+
+      }
+
       //Если квартира продана или забронирована, не выводим
       // if (status === 0 || status === 2) return '';
       let studioClass = '';
@@ -546,7 +572,7 @@ export class RoomsSearch {
                             <div class="item-head">
                                 <div class="room-name">${this.roomsName[name]}</div>
                                 <div class="room-price-square">
-                                    <div class="price">${numberFormat(fullPrice)} ₽</div>
+                                    <div class="price">${priceText}</div>
                                     <div class="square">${area} м<sup>2</sup> </div>
                                 </div>
                             </div>

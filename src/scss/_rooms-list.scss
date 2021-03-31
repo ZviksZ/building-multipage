@@ -142,8 +142,8 @@
                 position: absolute;
                 left: 20px;
                 top: 20px;
-                width: 65px;
-                height: 65px;
+                width: 45px;
+                height: 55px;
                 border-radius: 50%;
                 background-color: $colorSectionBg;
                 font-family: "Manrope Bold";
@@ -151,21 +151,37 @@
                 font-size: 40px;
                 line-height: 53px;
                 color: $colorSecond;
+
+                @include only-mobile {
+                    font-size: 30px;
+                    line-height: 43px;
+                    width: 25px;
+                    height: 45px;
+                }
             }
 
             .room-price-square {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-end;
-                padding-left: 75px;
+                padding-left: 45px;
                 width: 100%;
+
+                @include only-mobile {
+                    padding-left: 35px;
+                }
 
                 .price {
                     font-family: "Manrope Bold";
                     font-weight: 800;
-                    font-size: 28px;
-                    line-height: 37px;
+                    font-size: 20px;
+                    line-height: 32px;
                     color: $colorText;
+
+                    @include only-mobile {
+                        font-size: 17px;
+                        line-height: 26px;
+                    }
                 }
 
                 .square {
